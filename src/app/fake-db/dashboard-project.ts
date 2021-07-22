@@ -2,93 +2,90 @@ export class ProjectDashboardDb
 {
     public static projects = [
         {
-            'name': 'ACME Corp. Backend App'
+            'name': 'Tarjeta de Crédito'
         },
         {
-            'name': 'ACME Corp. Frontend App'
+            'name': 'Préstamos'
         },
         {
-            'name': 'Creapond'
-        },
-        {
-            'name': 'Withinpixels'
+            'name': 'Seguros'
         }
     ];
 
     public static widgets = {
         'widget1'      : {
             'ranges'      : {
-                'DY' : 'Yesterday',
-                'DT' : 'Today',
-                'DTM': 'Tomorrow'
+                'DY' : 'Anterior',
+                'DT' : 'En un Pago',
+                'DTM': 'Próximo'
             },
             'currentRange': 'DT',
             'data'        : {
-                'label': 'DUE TASKS',
+                'label': 'DISPONIBLE',
                 'count': {
-                    'DY' : 21,
-                    'DT' : 25,
-                    'DTM': 19
+                    'DY' : 210,
+                    'DT' : '$ 580',
+                    'DTM': 190
                 },
                 'extra': {
-                    'label': 'Completed',
+                    'label': 'Limite',
                     'count': {
-                        'DY' : 6,
-                        'DT' : 7,
+                        'DY' : 800,
+                        'DT' : '$ 800',
                         'DTM': '-'
                     }
 
                 }
             },
-            'detail'      : 'You can show some detailed information about this widget in here.'
+            'detail'      : 'Se puede mostrar mas información AQUI'
         },
         'widget2'      : {
-            'title' : 'Overdue',
+            'title' : 'En Cuotas',
             'data'  : {
-                'label': 'TASKS',
-                'count': 4,
+                'label': 'DISPONIBLE',
+                'count': '$ 1.540',
                 'extra': {
-                    'label': 'Yesterday\'s overdue',
-                    'count': 2
+                    'label': 'Limite',
+                    'count': '$ 2.000'
                 }
             },
-            'detail': 'You can show some detailed information about this widget in here.'
+            'detail': 'Se puede mostrar mas información AQUI'
         },
         'widget3'      : {
-            'title' : 'Issues',
+            'title' : 'Cierre mensual',
             'data'  : {
-                'label': 'OPEN',
-                'count': 32,
+                'label': 'VIERNES',
+                'count': '21/07',
                 'extra': {
-                    'label': 'Closed today',
-                    'count': 0
-                }
-            },
-            'detail': 'You can show some detailed information about this widget in here.'
-        },
-        'widget4'      : {
-            'title' : 'Features',
-            'data'  : {
-                'label': 'PROPOSALS',
-                'count': 42,
-                'extra': {
-                    'label': 'Implemented',
+                    'label': 'Consumos',
                     'count': 8
                 }
             },
-            'detail': 'You can show some detailed information about this widget in here.'
+            'detail': 'Se puede mostrar mas información AQUI'
+        },
+        'widget4'      : {
+            'title' : 'Vencimiento',
+            'data'  : {
+                'label': 'LUNES',
+                'count': '14/08',
+                'extra': {
+                    'label': 'Deuda',
+                    'count': '-'
+                }
+            },
+            'detail': 'Se puede mostrar mas información AQUI'
         },
         'widget5'      : {
-            'title'     : 'Github Issues',
+            'title'     : 'Consumos',
             'ranges'    : {
-                'TW': 'This Week',
-                'LW': 'Last Week',
-                '2W': '2 Weeks Ago'
+                'TW': 'Esta Semana',
+                'LW': 'Ultima Semana',
+                '2W': '2 Semanas Atras'
             },
             'mainChart' : {
                 '2W': [
                     {
-                        'name'  : 'Mon',
+                        'name'  : 'Lun',
                         'series': [
                             {
                                 'name' : 'issues',
@@ -368,7 +365,7 @@ export class ProjectDashboardDb
             },
             'supporting': {
                 'created'  : {
-                    'label': 'CREATED',
+                    'label': 'SUPERMERCADO',
                     'count': {
                         '2W': 48,
                         'LW': 46,
@@ -483,7 +480,7 @@ export class ProjectDashboardDb
                     }
                 },
                 'closed'   : {
-                    'label': 'CLOSED',
+                    'label': 'SERVICIOS',
                     'count': {
                         '2W': 27,
                         'LW': 31,
@@ -598,7 +595,7 @@ export class ProjectDashboardDb
                     }
                 },
                 'reOpened' : {
-                    'label': 'RE-OPENED',
+                    'label': 'INDUMENTARIA',
                     'count': {
                         '2W': 4,
                         'LW': 5,
@@ -713,7 +710,7 @@ export class ProjectDashboardDb
                     }
                 },
                 'wontFix'  : {
-                    'label': 'WON\'T FIX',
+                    'label': 'ELECTRODOMESTICOS',
                     'count': {
                         '2W': 6,
                         'LW': 3,
@@ -828,7 +825,7 @@ export class ProjectDashboardDb
                     }
                 },
                 'needsTest': {
-                    'label': 'NEEDS TEST',
+                    'label': 'GASTRONOMIA',
                     'count': {
                         '2W': 10,
                         'LW': 7,
@@ -943,7 +940,7 @@ export class ProjectDashboardDb
                     }
                 },
                 'fixed'    : {
-                    'label': 'FIXED',
+                    'label': 'OTROS',
                     'count': {
                         '2W': 21,
                         'LW': 17,
@@ -1060,28 +1057,28 @@ export class ProjectDashboardDb
             }
         },
         'widget6'      : {
-            'title'      : 'Task Distribution',
+            'title'      : 'Distribucion de Consumos',
             'ranges'     : {
-                'TW': 'This Week',
-                'LW': 'Last Week',
-                '2W': '2 Weeks Ago'
+                'TW': 'Esta Semana',
+                'LW': 'Ultima Semana',
+                '2W': '2 Semanas Atras'
             },
             'mainChart'  : {
                 'TW': [
                     {
-                        'name' : 'Frontend',
+                        'name' : 'Supermercado',
                         'value': 15
                     },
                     {
-                        'name' : 'Backend',
+                        'name' : 'Servicios',
                         'value': 20
                     },
                     {
-                        'name' : 'API',
+                        'name' : 'Electrodomesticos',
                         'value': 38
                     },
                     {
-                        'name' : 'Issues',
+                        'name' : 'Otros',
                         'value': 27
                     }
                 ],
@@ -1123,41 +1120,41 @@ export class ProjectDashboardDb
                 ]
             },
             'footerLeft' : {
-                'title': 'Tasks Added',
+                'title': 'Consumos',
                 'count': {
-                    '2W': 487,
-                    'LW': 526,
-                    'TW': 594
+                    '2W': 7,
+                    'LW': 6,
+                    'TW': 14
                 }
             },
             'footerRight': {
-                'title': 'Tasks Completed',
+                'title': 'el Mes Anterior',
                 'count': {
-                    '2W': 193,
-                    'LW': 260,
-                    'TW': 287
+                    '2W': 3,
+                    'LW': 0,
+                    'TW': 7
                 }
             }
         },
         'widget7'      : {
-            'title'   : 'Schedule',
+            'title'   : 'Consumos en Comercio',
             'ranges'  : {
-                'T' : 'Today',
-                'TM': 'Tomorrow'
+                'T' : 'Este Mes',
+                'TM': 'El Mes Pasado'
             },
             'schedule': {
                 'T' : [
                     {
-                        'title'   : 'Group Meeting',
-                        'time'    : 'In 32 minutes',
+                        'title'   : 'Supermercado La Anonima',
+                        'time'    : '21/07/2021',
                         'location': 'Room 1B'
                     },
                     {
-                        'title': 'Coffee Break',
+                        'title': 'Claro',
                         'time' : '10:30 AM'
                     },
                     {
-                        'title': 'Public Beta Release',
+                        'title': 'Supermercado La Anonima',
                         'time' : '11:00 AM'
                     },
                     {
@@ -1165,15 +1162,15 @@ export class ProjectDashboardDb
                         'time' : '12:10 PM'
                     },
                     {
-                        'title': 'Dinner with David',
+                        'title': 'Supermercado La Anonima',
                         'time' : '17:30 PM'
                     },
                     {
-                        'title': 'Jane\'s Birthday Party',
+                        'title': 'Party',
                         'time' : '19:30 PM'
                     },
                     {
-                        'title': 'Overseer\'s Retirement Party',
+                        'title': 'Supermercado La Anonima',
                         'time' : '21:30 PM'
                     }
                 ],
