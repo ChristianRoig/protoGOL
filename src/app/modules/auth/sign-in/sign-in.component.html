@@ -2,12 +2,13 @@
     <div class="md:flex md:items-center md:justify-end w-full sm:w-auto md:h-full md:w-1/2 py-8 px-4 sm:p-12 md:p-16 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none sm:bg-card">
         <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
             <!-- Logo -->
-            <div class="w-12">
-                <img src="assets/images/logo/logo.svg">
+            <div class="w-64" style="margin-left: 30px;">
+                <img src="assets/images/logo/logo_tarjetaLA.png">
+                <!--img src="assets/images/logo/logo.svg"-->
             </div>
 
             <!-- Title -->
-            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Tarjeta La Anónima</div>
+            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Gestion Online</div>
             <div class="flex items-baseline mt-0.5 font-medium">
                 <div>¿No tiene una Cuenta?</div>
                 <a
@@ -35,16 +36,13 @@
 
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Correo Electrónico</mat-label>
+                    <mat-label>DNI o Email</mat-label>
                     <input
                         id="email"
                         matInput
                         [formControlName]="'email'">
                     <mat-error *ngIf="signInForm.get('email').hasError('required')">
-                        El Correo Electrónico es REQUERIDO
-                    </mat-error>
-                    <mat-error *ngIf="signInForm.get('email').hasError('email')">
-                        Ingrese un Correo Electrónico Válido
+                        El DNI es REQUERIDO
                     </mat-error>
                 </mat-form-field>
 
@@ -188,7 +186,7 @@
                         class="flex-0 w-10 h-10 rounded-full ring-4 ring-offset-1 ring-gray-800 ring-offset-gray-800 object-cover"
                         src="assets/images/avatars/male-16.jpg">
                 </div>
-                <div class="ml-4 font-medium tracking-tight text-gray-400">Mas de 6.321 persona se sumaron a nuestra Fintech, es su turno</div>
+                <div class="ml-4 font-medium tracking-tight text-gray-400">Mas de 6.321 persona se sumaron a nuestra Fintech, es su turno.</div>
             </div>
         </div>
     </div>
