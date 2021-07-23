@@ -29,6 +29,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:cloud',
                 link : '/apps/file-manager'
+            },
+            {
+                id   : 'pages.settings',
+                title: 'Consultas',
+                type : 'basic',
+                icon : 'heroicons_outline:search',
+                link : '/pages/settings'
             },        
             {
                 id   : 'apps.tasks',
@@ -36,6 +43,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
                 link : '/apps/tasks'
+            },
+            {
+                id   : 'pages.profile',
+                title: 'Mi Cuenta',
+                type : 'basic',
+                icon : 'heroicons_outline:user-circle',
+                link : '/pages/profile'
             }
         ]
     },    
@@ -726,7 +740,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         link : '/pages/pricing/table'
                     }
                 ]
-            },
+            }/*,
             {
                 id   : 'pages.profile',
                 title: 'Profile',
@@ -740,7 +754,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:cog',
                 link : '/pages/settings'
-            }
+            }*/
         ]
     },
     {
