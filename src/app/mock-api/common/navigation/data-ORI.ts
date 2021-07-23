@@ -3,88 +3,19 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id      : 'tarjeta',
-        title   : 'Tarjeta de Crédito',
-        subtitle: 'Servicios de Tarjeta de Crédito',
-        type    : 'group',
-        icon    : 'heroicons_outline:home',
-        children: [
-            {
-                id   : 'dashboards.project.tla',
-                title: 'Bienvenida',
-                type : 'basic',
-                icon : 'heroicons_outline:home',
-                link : '/dashboards/project'
-            },
-            {
-                id   : 'pages.invoice.printable.compact',
-                title: 'Ultimo Resumen',
-                type : 'basic',
-                icon : 'heroicons_outline:clipboard-check',
-                link : '/pages/invoice/printable/compact'
-            },
-            {
-                id   : 'apps.file-manager',
-                title: 'Resúmenes de Cuenta',
-                type : 'basic',
-                icon : 'heroicons_outline:cloud',
-                link : '/apps/file-manager'
-            },        
-            {
-                id   : 'apps.tasks',
-                title: 'Recargas Virtuales',
-                type : 'basic',
-                icon : 'heroicons_outline:check-circle',
-                link : '/apps/tasks'
-            }
-        ]
-    },    
-    {
-        id      : 'prestamos',
-        title   : 'Préstamos',
-        subtitle: 'Otra opción Multiproducto',
-        type    : 'group',
-        icon    : 'heroicons_outline:home',
-        children: [
-            {
-                id   : 'apps.ecommerce.inventory',
-                title: 'Productos',
-                type : 'basic',
-                icon : 'heroicons_outline:shopping-cart',
-                link : '/apps/ecommerce/inventory'
-            }
-        ]
-    },  
-    {
-        id      : 'seguros',
-        title   : 'Seguros',
-        subtitle: 'Otra opción Multiproducto',
-        type    : 'group',
-        icon    : 'heroicons_outline:home',
-        children: [
-            {
-                id   : 'apps.contacts',
-                title: 'Contactos',
-                type : 'basic',
-                icon : 'heroicons_outline:user-group',
-                link : '/apps/contacts'
-            },
-        ]
-    },  
-    {
         id      : 'dashboards',
         title   : 'Dashboards',
         subtitle: 'Unique dashboard designs',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
-            /*{
+            {
                 id   : 'dashboards.project',
                 title: 'Project',
                 type : 'basic',
                 icon : 'heroicons_outline:clipboard-check',
                 link : '/dashboards/project'
-            },*/
+            },
             {
                 id   : 'dashboards.analytics',
                 title: 'Analytics',
@@ -123,14 +54,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:chat-alt',
                 link : '/apps/chat'
             },
-            /*{
+            {
                 id   : 'apps.contacts',
                 title: 'Contacts',
                 type : 'basic',
                 icon : 'heroicons_outline:user-group',
                 link : '/apps/contacts'
             },
-            /*{
+            {
                 id      : 'apps.ecommerce',
                 title   : 'ECommerce',
                 type    : 'collapsable',
@@ -150,7 +81,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:cloud',
                 link : '/apps/file-manager'
-            },*/
+            },
             {
                 id      : 'apps.help-center',
                 title   : 'Help Center',
@@ -209,14 +140,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:view-boards',
                 link : '/apps/scrumboard'
-            }/*,
+            },
             {
                 id   : 'apps.tasks',
                 title: 'Tasks',
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
                 link : '/apps/tasks'
-            }*/
+            }
         ]
     },
     {

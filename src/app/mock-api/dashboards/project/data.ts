@@ -275,7 +275,7 @@ export const project = {
         },
         {
             id    : 'c318e31f-1d74-49c5-8dae-2bc5805e2fdb',
-            avatar: 'assets/images/avatars/male-01.jpg',
+            avatar: 'assets/images/avatars/ch-roig.jpg',
             name  : 'Santiago Roig',
             email : 'martinrichards@mail.biz',
             phone : '+1-902-500-2668',
