@@ -5,23 +5,23 @@ export const project = {
     githubIssues      : {
         overview: {
             'this-week': {
-                'new-issues'   : 4,
-                'closed-issues': 1,
+                'new-issues'   : 214,
+                'closed-issues': 75,
                 'fixed'        : 3,
                 'wont-fix'     : 4,
                 're-opened'    : 8,
                 'needs-triage' : 6
             },
             'last-week': {
-                'new-issues'   : 7,
-                'closed-issues': 2,
+                'new-issues'   : 197,
+                'closed-issues': 72,
                 'fixed'        : 6,
-                'wont-fix'     : 1,
+                'wont-fix'     : 11,
                 're-opened'    : 6,
                 'needs-triage' : 5
             }
         },
-        labels  : ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+        labels  : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         series  : {
             'this-week': [
                 {
@@ -60,7 +60,7 @@ export const project = {
                 'completed': 260
             }
         },
-        labels  : ['Super', 'Electro', 'Ropa', 'Otros'],
+        labels  : ['API', 'Backend', 'Frontend', 'Issues'],
         series  : {
             'this-week': [15, 20, 38, 27],
             'last-week': [19, 16, 42, 23]
@@ -69,36 +69,36 @@ export const project = {
     schedule          : {
         today   : [
             {
-                title   : 'Supermercado La Anonima',
-                time    : '20/07/2021 17:43',
-                location: 'Puerto Madryn'
+                title   : 'Group Meeting',
+                time    : 'in 32 minutes',
+                location: 'Conference room 1B'
             },
             {
-                title: 'Fravega',
+                title: 'Coffee Break',
                 time : '10:30 AM'
             },
             {
-                title: 'Supermercado La Anonima',
+                title: 'Public Beta Release',
                 time : '11:00 AM'
             },
             {
-                title: 'Telecom',
+                title: 'Lunch',
                 time : '12:10 PM'
             },
             {
-                title   : 'Supermercado La Anonima',
+                title   : 'Dinner with David',
                 time    : '05:30 PM',
-                location: 'Viedma'
+                location: 'Magnolia'
             },
             {
-                title   : 'Supermercado La Anonima',
+                title   : 'Jane\'s Birthday Party',
                 time    : '07:30 PM',
-                location: 'Viedma'
+                location: 'Home'
             },
             {
-                title   : 'Camuzzi Gas',
+                title   : 'Overseer\'s Retirement Party',
                 time    : '09:30 PM',
-                location: 'Viedma'
+                location: 'Overseer\'s room'
             }
         ],
         tomorrow: [
@@ -146,7 +146,7 @@ export const project = {
         ]
     },
     weeklyExpenses    : {
-        amount: 663,
+        amount: 17663,
         labels: [
             moment().subtract(47, 'days').format('DD MMM') + ' - ' + moment().subtract(40, 'days').format('DD MMM'),
             moment().subtract(39, 'days').format('DD MMM') + ' - ' + moment().subtract(32, 'days').format('DD MMM'),
@@ -163,7 +163,7 @@ export const project = {
         ]
     },
     monthlyExpenses   : {
-        amount: 546,
+        amount: 54663,
         labels: [
             moment().subtract(31, 'days').format('DD MMM') + ' - ' + moment().subtract(24, 'days').format('DD MMM'),
             moment().subtract(23, 'days').format('DD MMM') + ' - ' + moment().subtract(16, 'days').format('DD MMM'),
@@ -178,7 +178,7 @@ export const project = {
         ]
     },
     yearlyExpenses    : {
-        amount: 413,
+        amount: 648813,
         labels: [
             moment().subtract(79, 'days').format('DD MMM') + ' - ' + moment().subtract(72, 'days').format('DD MMM'),
             moment().subtract(71, 'days').format('DD MMM') + ' - ' + moment().subtract(64, 'days').format('DD MMM'),
@@ -251,36 +251,36 @@ export const project = {
     teamMembers       : [
         {
             id    : '2bfa2be5-7688-48d5-b5ac-dc0d9ac97f14',
-            avatar: 'assets/images/avatars/female-11.jpg',
-            name  : 'Marina Dris',
+            avatar: 'assets/images/avatars/female-10.jpg',
+            name  : 'Nadia Mcknight',
             email : 'nadiamcknight@mail.com',
             phone : '+1-943-511-2203',
-            title : '4218 3800 0522 0714'
+            title : 'Project Director'
         },
         {
             id    : '77a4383b-b5a5-4943-bc46-04c3431d1566',
             avatar: 'assets/images/avatars/male-19.jpg',
-            name  : 'Lucas Roig',
+            name  : 'Best Blackburn',
             email : 'blackburn.best@beadzza.me',
             phone : '+1-814-498-3701',
-            title : '4218 3800 0522 0715'
+            title : 'Senior Developer'
         },
         {
             id    : '8bb0f597-673a-47ca-8c77-2f83219cb9af',
-            avatar: 'assets/images/avatars/female-01.jpg',
-            name  : 'Francesca Roig',
+            avatar: 'assets/images/avatars/male-14.jpg',
+            name  : 'Duncan Carver',
             email : 'duncancarver@mail.info',
             phone : '+1-968-547-2111',
-            title : '4218 3800 0522 0716'
+            title : 'Senior Developer'
         },
         {
             id    : 'c318e31f-1d74-49c5-8dae-2bc5805e2fdb',
             avatar: 'assets/images/avatars/male-01.jpg',
-            name  : 'Santiago Roig',
+            name  : 'Martin Richards',
             email : 'martinrichards@mail.biz',
             phone : '+1-902-500-2668',
-            title : '4218 3800 0522 0717'
-        }/*,
+            title : 'Junior Developer'
+        },
         {
             id    : '0a8bc517-631a-4a93-aacc-000fa2e8294c',
             avatar: 'assets/images/avatars/female-20.jpg',
@@ -320,6 +320,6 @@ export const project = {
             email : 'mistyramsey@mail.us',
             phone : '+1-990-457-2106',
             title : 'Consultant'
-        }*/
+        }
     ]
 };
