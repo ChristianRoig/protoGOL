@@ -9,7 +9,7 @@ import { NotificationsService } from 'app/layout/common/notifications/notificati
 
 @Component({
     selector       : 'notifications',
-    templateUrl    : './notifications.component.html',
+    templateUrl    : './notifications_SP.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs       : 'notifications'
