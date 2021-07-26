@@ -24,13 +24,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/pages/invoice/printable/compact'
             },
             {
-                id   : 'apps.file-manager',
-                title: 'Resúmenes de Cuenta',
-                type : 'basic',
-                icon : 'heroicons_outline:cloud',
-                link : '/apps/file-manager'
-            },
-            {
                 id   : 'pages.settings',
                 title: 'Consultas',
                 type : 'basic',
@@ -43,6 +36,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
                 link : '/apps/tasks'
+            },
+            {
+                id   : 'apps.file-manager',
+                title: 'Resúmenes de Cuenta',
+                type : 'basic',
+                icon : 'heroicons_outline:cloud',
+                link : '/apps/file-manager'
             },
             {
                 id   : 'pages.profile',
@@ -66,6 +66,46 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:shopping-cart',
                 link : '/apps/ecommerce/inventory'
+            },
+            {
+                id      : 'apps.help-center2',
+                title   : 'Consultas',
+                type    : 'collapsable',
+                icon    : 'heroicons_outline:support',
+                link    : '/apps/help-center',
+                children: [
+                    {
+                        id        : 'apps.help-center.home2',
+                        title     : 'Movimientos Recientes',
+                        type      : 'basic',
+                        link      : '/apps/help-center',
+                        exactMatch: true
+                    },
+                    {
+                        id   : 'apps.help-center.faqs2',
+                        title: 'Cuotas Pendientes',
+                        type : 'basic',
+                        link : '/apps/help-center/faqs'
+                    },
+                    {
+                        id   : 'apps.help-center.guides2',
+                        title: 'Liquidaciones',
+                        type : 'basic',
+                        link : '/apps/help-center/guides'
+                    }, 
+                    {
+                        id   : 'apps.help-center.guides3',
+                        title: 'Débitos Automáticos',
+                        type : 'basic',
+                        link : '/apps/help-center/guides'
+                    },
+                    {
+                        id   : 'apps.help-center.support',
+                        title: 'Historial de Pagos',
+                        type : 'basic',
+                        link : '/apps/help-center/support'
+                    }
+                ]
             }
         ]
     },  
