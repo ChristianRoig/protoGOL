@@ -91,12 +91,12 @@
                 <!-- Home -->
                 <mat-tab label="Inicio">
                     <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 w-full min-w-0">
                             <!-- Summary -->
                             <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                 <div class="flex items-start justify-between">
                                     <div class="text-lg font-medium tracking-tight leading-6 truncate">Disponible</div>
-                                    <div class="ml-2 -mt-2 -mr-3">
+                                    <div class="ml-2 -mt-2 -mr-3"><!-- menu de la card -->
                                         <button
                                             mat-icon-button
                                             [matMenuTriggerFor]="summaryMenu">
@@ -111,8 +111,9 @@
                                         </mat-menu>
                                     </div>
                                 </div>
+                              <div class="flex flex-row justify-between">
                                 <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500">$ 1.100</div>
+                                    <div class="text-5xl sm:text-5xl font-bold tracking-tight leading-none text-green-500">$ 1.100</div>
                                     <div class="text-lg font-medium text-green-600 dark:text-green-500">En un pago</div>
                                     <div class="flex items-center justify-center w-full mt-5 text-secondary">
                                         <div class="text-md font-medium truncate">Limite:</div>
@@ -120,18 +121,19 @@
                                     </div>
                                 </div>                                
                                 <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">$ 2.300</div>
+                                    <div class="text-5xl sm:text-5xl font-bold tracking-tight leading-none text-blue-500">$ 2.300</div>
                                     <div class="text-lg font-medium text-green-600 dark:text-blue-500">En cuotas</div>
                                     <div class="flex items-center justify-center w-full mt-5 text-secondary">
                                         <div class="text-md font-medium truncate">Limite:</div>
                                         <div class="ml-1.5 text-lg font-semibold">$ 2.400</div>
                                     </div>
                                 </div>
+                              </div>
                             </div>
                             <!-- Overdue -->
                             <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                 <div class="flex items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">En cuotas</div>
+                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Fechas</div>
                                     <div class="ml-2 -mt-2 -mr-3">
                                         <button
                                             mat-icon-button
@@ -147,17 +149,29 @@
                                         </mat-menu>
                                     </div>
                                 </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">$ 1.700</div>
-                                    <div class="text-lg font-medium text-blue-600 dark:text-blue-500">Disponible</div>
-                                    <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                        <div class="text-md font-medium truncate">Limite:</div>
-                                        <div class="ml-1.5 text-lg font-semibold">$ 2.900</div>
+                                <div class="flex flex-row justify-between">
+                                    <div class="flex flex-col items-center mt-1">
+                                        <div class="text-lg font-medium tracking-tight leading-6 truncate">Cierre mensual</div>
+                                        <div class="text-5xl sm:text-5xl font-bold tracking-tight leading-none text-amber-500">24/07</div>
+                                        <div class="text-lg font-medium text-amber-600 dark:text-amber-500">Viernes</div>
+                                        <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                            <div class="text-md font-medium truncate">Consumos:</div>
+                                            <div class="ml-1.5 text-lg font-semibold">1</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center mt-1">
+                                        <div class="text-lg font-medium tracking-tight leading-6 truncate">Vencimiento</div>
+                                        <div class="text-5xl sm:text-5xl font-bold tracking-tight leading-none text-red-500">27/07</div>
+                                        <div class="text-lg font-medium text-red-600 dark:text-red-500">Lunes</div>
+                                        <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                            <div class="text-md font-medium truncate">Deuda:</div>
+                                            <div class="ml-1.5 text-lg font-semibold">SIN DEUDA</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Issues -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <!-- <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                 <div class="flex items-start justify-between">
                                     <div class="text-lg font-medium tracking-tight leading-6 truncate">Cierre mensual</div>
                                     <div class="ml-2 -mt-2 -mr-3">
@@ -174,18 +188,11 @@
                                             <button mat-menu-item>3 meses atrás</button>
                                         </mat-menu>
                                     </div>
+                                   
                                 </div>
-                                <div class="flex flex-col items-center mt-2">
-                                    <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500">24/07</div>
-                                    <div class="text-lg font-medium text-amber-600 dark:text-amber-500">Viernes</div>
-                                    <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                        <div class="text-md font-medium truncate">Consumos:</div>
-                                        <div class="ml-1.5 text-lg font-semibold">1</div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> -->
                             <!-- Features -->
-                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                            <!-- <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                 <div class="flex items-start justify-between">
                                     <div class="text-lg font-medium tracking-tight leading-6 truncate">Vencimiento</div>
                                     <div class="ml-2 -mt-2 -mr-3">
@@ -211,7 +218,7 @@
                                         <div class="ml-1.5 text-lg font-semibold">SIN DEUDA</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- Github issues summary -->
                             <div class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
                                 <div class="flex flex-col sm:flex-row items-start justify-between">
