@@ -17,6 +17,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { InventoryComponent } from 'app/modules/admin/apps/ecommerce/inventory/inventory.component';
 import { InventoryListComponent } from 'app/modules/admin/apps/ecommerce/inventory/list/inventory.component';
 import { ecommerceRoutes } from 'app/modules/admin/apps/ecommerce/ecommerce.routing';
+import { InventoryService } from './inventory/inventory.service';
 
 @NgModule({
     declarations: [

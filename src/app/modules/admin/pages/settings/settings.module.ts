@@ -17,6 +17,9 @@ import { SettingsPlanBillingComponent } from 'app/modules/admin/pages/settings/p
 import { SettingsNotificationsComponent } from 'app/modules/admin/pages/settings/notifications/notifications.component';
 import { SettingsTeamComponent } from 'app/modules/admin/pages/settings/team/team.component';
 import { settingsRoutes } from 'app/modules/admin/pages/settings/settings.routing';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ECommerceModule } from '../../apps/ecommerce/ecommerce.module';
 
 @NgModule({
     declarations: [
@@ -38,7 +41,10 @@ import { settingsRoutes } from 'app/modules/admin/pages/settings/settings.routin
         MatSidenavModule,
         MatSlideToggleModule,
         FuseAlertModule,
-        SharedModule
+        SharedModule,
+        MatPaginatorModule,
+        MatSortModule, 
+        /* ECommerceModule */
     ]
 })
 export class SettingsModule

@@ -66,6 +66,7 @@ export class InventoryService
      */
     get products$(): Observable<InventoryProduct[]>
     {
+        console.log(this._products);
         return this._products.asObservable();
     }
 

@@ -45,22 +45,22 @@
                     <div class="grid">
                         <!-- Header -->
                         <div
-                            class="inventory-grid z-10 sticky top-0 grid gap-4 py-4 px-6 md:px-8 shadow text-md font-semibold text-secondary bg-gray-50 dark:bg-black dark:bg-opacity-5"
+                            class="inventory-grid z-10 sticky top-0 grid py-4 px-6 md:px-8 shadow text-md font-semibold text-secondary bg-gray-50 dark:bg-black dark:bg-opacity-5"
                             matSort
                             matSortDisableClear>
-                            <div></div>
+                            <div class="ml-6"></div>
                             <div
                                 class="hidden md:block"
                                 [mat-sort-header]="'sku'">
-                                SKU
+                                Cupón
                             </div>
-                            <div [mat-sort-header]="'name'">Name</div>
+                            <div [mat-sort-header]="'name'">Comercio</div>
                             <div
                                 class="hidden sm:block"
                                 [mat-sort-header]="'price'">
-                                Price
+                                Precio
                             </div>
-                            <div
+                            <!-- <div
                                 class="hidden lg:block"
                                 [mat-sort-header]="'stock'">
                                 Stock
@@ -69,32 +69,30 @@
                                 class="hidden lg:block"
                                 [mat-sort-header]="'active'">
                                 Active
-                            </div>
-                            <div class="hidden sm:block">Details</div>
+                            </div> -->
+                            <div class="hidden sm:block">Detalle</div>
                         </div>
                         <!-- Rows -->
                         <ng-container *ngIf="(products$ | async) as products">
                             <ng-container *ngFor="let product of products; trackBy: trackByFn">
-                                <div class="inventory-grid grid items-center gap-4 py-3 px-6 md:px-8 border-b">
+                                <div class="inventory-grid grid items-center py-3 px-6 md:px-8 border-b">
 
                                     <!-- Image -->
                                     <div class="flex items-center">
                                         <div class="relative flex flex-0 items-center justify-center w-12 h-12 mr-6 rounded overflow-hidden border">
-                                            <img
+                                            <!-- <img
                                                 class="w-8"
                                                 *ngIf="product.thumbnail"
                                                 [alt]="'Product thumbnail image'"
-                                                [src]="product.thumbnail">
-                                            <div
-                                                class="flex items-center justify-center w-full h-full text-xs font-semibold leading-none text-center uppercase"
-                                                *ngIf="!product.thumbnail">
-                                                NO THUMB
+                                                [src]="product.thumbnail"> -->
+                                            <div class="flex items-center justify-center w-full h-full text-xs font-semibold leading-none text-center uppercase">
+                                                SIN LOGO
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- SKU -->
-                                    <div class="hidden md:block truncate">
+                                    <div class="hidden md:block truncate mr-6">
                                         {{product.sku}}
                                     </div>
 
@@ -108,22 +106,22 @@
                                         {{product.price | currency:'USD':'symbol':'1.2-2'}}
                                     </div>
 
-                                    <!-- Stock -->
+                                    <!-- Stock - ->
                                     <div class="hidden lg:flex items-center">
                                         <div class="min-w-4">{{product.stock}}</div>
-                                        <!-- Low stock -->
+                                        <!- - Low stock - ->
                                         <div
                                             class="flex items-end ml-2 w-1 h-4 bg-red-200 rounded overflow-hidden"
                                             *ngIf="product.stock < 20">
                                             <div class="flex w-full h-1/3 bg-red-600"></div>
                                         </div>
-                                        <!-- Medium stock -->
+                                        <!- - Medium stock - ->
                                         <div
                                             class="flex items-end ml-2 w-1 h-4 bg-orange-200 rounded overflow-hidden"
                                             *ngIf="product.stock >= 20 && product.stock < 30">
                                             <div class="flex w-full h-2/4 bg-orange-400"></div>
                                         </div>
-                                        <!-- High stock -->
+                                        <!- - High stock - ->
                                         <div
                                             class="flex items-end ml-2 w-1 h-4 bg-green-100 rounded overflow-hidden"
                                             *ngIf="product.stock >= 30">
@@ -131,7 +129,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Active -->
+                                    <!- - Active - ->
                                     <div class="hidden lg:block">
                                         <ng-container *ngIf="product.active">
                                             <mat-icon
@@ -143,7 +141,7 @@
                                                 class="text-gray-400 icon-size-5"
                                                 [svgIcon]="'heroicons_solid:x'"></mat-icon>
                                         </ng-container>
-                                    </div>
+                                    </div-->
 
                                     <!-- Details button -->
                                     <div>

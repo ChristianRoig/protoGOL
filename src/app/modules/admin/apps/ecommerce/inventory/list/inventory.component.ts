@@ -20,7 +20,7 @@ import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inv
                 grid-template-columns: 48px auto 40px;
 
                 @screen sm {
-                    grid-template-columns: 48px auto 112px 72px;
+                    grid-template-columns: 48px auto 112px;/* 72px */
                 }
 
                 @screen md {
@@ -28,7 +28,7 @@ import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inv
                 }
 
                 @screen lg {
-                    grid-template-columns: 48px 112px auto 112px 96px 96px 72px;
+                    grid-template-columns: 48px 112px auto 112px 72px; /*  */
                 }
             }
         `
@@ -141,6 +141,7 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
 
         // Get the products
         this.products$ = this._inventoryService.products$;
+        console.log(this.products$);
 
         // Get the tags
         this._inventoryService.tags$
