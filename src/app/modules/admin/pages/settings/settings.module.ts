@@ -19,7 +19,6 @@ import { SettingsTeamComponent } from 'app/modules/admin/pages/settings/team/tea
 import { settingsRoutes } from 'app/modules/admin/pages/settings/settings.routing';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { ECommerceModule } from '../../apps/ecommerce/ecommerce.module';
 
 @NgModule({
     declarations: [

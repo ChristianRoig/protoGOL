@@ -10,6 +10,7 @@ import { InventoryBrand, InventoryCategory, InventoryPagination, InventoryProduc
 import { Observable } from 'rxjs/internal/Observable';
 import { takeUntil, debounceTime, switchMap, map } from 'rxjs/operators';
 import { merge, Subject } from 'rxjs';
+import { SettingsService } from '../settings.service';
 
 @Component({
     selector       : 'settings-account',
@@ -69,7 +70,7 @@ export class SettingsAccountComponent implements OnInit,AfterViewInit,OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         private _fuseConfirmationService: FuseConfirmationService,
         private _formBuilder: FormBuilder,
-        private _inventoryService: InventoryService
+        private _inventoryService: SettingsService
     )
     {
     }
