@@ -24,7 +24,7 @@
                 <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between py-8 px-6 md:px-8">
                     <!-- Title -->
                     <div>
-                        <div class="text-4xl font-extrabold tracking-tight leading-none">Recargas(Tasks)</div>
+                        <div class="text-4xl font-extrabold tracking-tight leading-none">Recargas </div>
                         <div class="ml-0.5 font-medium text-secondary">
                             <span *ngIf="tasksCount.incomplete === 0">Ninguna recarga reciente!</span>
                             <span *ngIf="tasksCount.incomplete !== 0">{{tasksCount.incomplete}} recargas realizadas</span>
@@ -124,7 +124,7 @@
                                                 <span>{{task.title}}</span>
                                             </ng-container>
                                             <ng-container *ngIf="!task.title">
-                                                <span class="select-none text-hint">{{task.type | titlecase}} title</span>
+                                                <span class="select-none text-hint">{{task.type | titlecase}} benja</span>
                                             </ng-container>
                                         </div>
                                         <!-- Priority -->

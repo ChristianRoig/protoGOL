@@ -63,7 +63,7 @@
         <!-- Title -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
-                <mat-label>{{task.type === 'task' ? 'Task title' : 'Section title'}}</mat-label>
+                <mat-label>{{task.type === 'task' ? 'Importe' : 'Importe'}}</mat-label>
                 <textarea
                     matInput
                     [formControlName]="'title'"
@@ -75,7 +75,7 @@
 
         <!-- Tags -->
         <div class="mt-8">
-            <div class="font-medium mb-1.5">Tags</div>
+            <div class="font-medium mb-1.5"></div>
             <div class="flex flex-wrap items-center -m-1.5">
                 <!-- Tags -->
                 <ng-container *ngIf="task.tags.length">
@@ -202,7 +202,7 @@
 
             <!-- Priority -->
             <div>
-                <div class="font-medium">Priority</div>
+                <div class="font-medium">Prioridad</div>
                 <div
                     class="flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
                     [ngClass]="{'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500': task.priority === 0,
@@ -278,7 +278,7 @@
 
             <!-- Due date -->
             <div class="ml-6">
-                <div class="font-medium">Due date</div>
+                <div class="font-medium">Fecha</div>
                 <div
                     class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
                     [ngClass]="{'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700': !task.dueDate,
@@ -321,7 +321,7 @@
         <!-- Notes -->
         <div class="mt-8">
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
-                <mat-label>Notes</mat-label>
+                <mat-label>Comentario / Nota</mat-label>
                 <textarea
                     matInput
                     [formControlName]="'notes'"
