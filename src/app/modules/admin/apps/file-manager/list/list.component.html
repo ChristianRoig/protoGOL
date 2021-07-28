@@ -27,7 +27,7 @@
                         <div class="text-4xl font-extrabold tracking-tight leading-none">Resúmenes y comprobantes</div>
                         <div class="flex items-center mt-0.5 font-medium text-secondary">
                             <ng-container *ngIf="!items.path.length">
-                                {{items.folders.length}} folders, {{items.files.length}} files
+                                {{items.folders.length}} períodos, {{items.files.length}} resúmenes
                             </ng-container>
                             <!-- Breadcrumbs -->
                             <ng-container *ngIf="items.path.length">
@@ -163,7 +163,7 @@
                         <mat-icon
                             class="icon-size-24"
                             [svgIcon]="'iconsmind:file_hide'"></mat-icon>
-                        <div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">There are no items!</div>
+                        <div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">No se encontraron los archivos</div>
                     </div>
                 </ng-template>
 
