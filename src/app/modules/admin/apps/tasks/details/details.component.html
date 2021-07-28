@@ -17,7 +17,7 @@
                 <ng-container *ngIf="!taskForm.get('completed').value">
                     <div class="flex items-center justify-center">
                         <mat-icon [svgIcon]="'heroicons_outline:check-circle'"></mat-icon>
-                        <span class="ml-2 font-semibold">MARK AS COMPLETE</span>
+                        <span class="ml-2 font-semibold">REALIZAR RECARGA</span>
                     </div>
                 </ng-container>
 
@@ -27,7 +27,7 @@
                         <mat-icon
                             class="text-primary"
                             [svgIcon]="'heroicons_outline:check-circle'"></mat-icon>
-                        <span class="ml-2 font-semibold">MARK AS INCOMPLETE</span>
+                        <span class="ml-2 font-semibold">REALIZAR RECARGA</span>
                     </div>
                 </ng-container>
             </button>
@@ -63,7 +63,7 @@
         <!-- Title -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
-                <mat-label>{{task.type === 'task' ? 'Importe' : 'Importe'}}</mat-label>
+                <mat-label>{{task.type === 'task' ? 'Linea' : 'Linea'}}</mat-label>
                 <textarea
                     matInput
                     [formControlName]="'title'"
@@ -321,12 +321,11 @@
         <!-- Notes -->
         <div class="mt-8">
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
-                <mat-label>Comentario / Nota</mat-label>
-                <textarea
+                <mat-label>Importe</mat-label>
+                <input
                     matInput
                     [formControlName]="'notes'"
-                    [spellcheck]="false"
-                    matTextareaAutosize></textarea>
+                    [spellcheck]="false">
             </mat-form-field>
         </div>
 
