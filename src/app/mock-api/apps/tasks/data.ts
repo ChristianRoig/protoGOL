@@ -2,27 +2,27 @@
 export const tags = [
     {
         id   : 'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270',
-        title: 'Api'
+        title: 'Movistar'
     },
     {
         id   : 'c6058d0d-a4b0-4453-986a-9d249ec230b1',
-        title: 'Frontend'
+        title: 'Claro'
     },
     {
         id   : 'd3ef4226-ef2c-43b0-a986-3e3e07f32799',
-        title: 'Bug'
+        title: 'Personal'
     },
     {
         id   : '51483dd3-cb98-4400-9128-4bd66b455807',
-        title: 'Backend'
+        title: 'Nextel'
     },
     {
         id   : '91658b8a-f382-4b0c-a53f-e9390351c2c5',
-        title: 'Urgent'
+        title: 'Tuenti'
     },
     {
         id   : '2b884143-419a-45ca-a7f6-48f99f4e7798',
-        title: 'Discuss'
+        title: 'Otros'
     }
 ];
 export const members = [
@@ -132,24 +132,21 @@ export const tasks = [
         id        : 'f65d517a-6f69-4c88-81f5-416f47405ce1',
         type      : 'section',
         title     : 'Linea Movistar (011) 4258-4582',
-        notes     : 'Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit.',
+        notes     : '200',
         completed : false,
         dueDate   : '2017-10-18T13:03:37.943Z',
         priority  : 1,
-        tags      : [
-            '91658b8a-f382-4b0c-a53f-e9390351c2c5',
-            '51483dd3-cb98-4400-9128-4bd66b455807'
-        ],
+        tags      : [ ],
         assignedTo: null,
         subTasks  : [
             {
                 id       : '2768a969-a316-449b-bf82-93cff4252cbf',
-                title    : '21/07/2021 - $ 200.-',
+                title    : '11-4258-4582',
                 completed: false
             },
             {
                 id       : '6cc5ac8f-3a02-47e6-ad4b-0bd0222e2717',
-                title    : '14/07/2021 - $ 300.-',
+                title    : '11-4222-2885',
                 completed: false
             }
         ],
@@ -158,10 +155,10 @@ export const tasks = [
     {
         id        : '0fcece82-1691-4b98-a9b9-b63218f9deef',
         type      : 'task',
-        title     : '21/07/2021 - $ 200.-',
-        notes     : 'Et in lorem qui ipsum deserunt duis exercitation lorem elit qui qui ipsum tempor nulla velit aliquip enim consequat incididunt pariatur duis excepteur elit irure nulla ipsum dolor dolore est.\n\nAute deserunt nostrud id non ipsum do adipisicing laboris in minim officia magna elit minim mollit elit velit veniam lorem pariatur veniam sit excepteur irure commodo excepteur duis quis in.',
+        title     : '11-45589878',
+        notes     : '150',
         completed : false,
-        dueDate   : null,
+        dueDate   : '2017-10-18T13:03:37.943Z',
         priority  : 0,
         tags      : [],
         assignedTo: 'e2c81627-a8a1-4bbc-9adc-ac4281e040d4',
@@ -171,26 +168,24 @@ export const tasks = [
     {
         id        : '2e6971cd-49d5-49f1-8cbd-fba5c71e6062',
         type      : 'task',
-        title     : '14/07/2021 - $ 300.-',
-        notes     : 'Id fugiat et cupidatat magna nulla nulla eu cillum officia nostrud dolore in veniam ullamco nulla ex duis est enim nisi aute ipsum velit et laboris est pariatur est culpa.\n\nCulpa sunt ipsum esse quis excepteur enim culpa est voluptate reprehenderit consequat duis officia irure voluptate veniam dolore fugiat dolor est amet nostrud non velit irure do voluptate id sit.',
+        title     : '2262-469822',
+        notes     : '150',
         completed : false,
         dueDate   : '2019-05-24T03:55:38.969Z',
         priority  : 0,
         tags      : [
-            'c6058d0d-a4b0-4453-986a-9d249ec230b1',
-            '2b884143-419a-45ca-a7f6-48f99f4e7798',
-            '91658b8a-f382-4b0c-a53f-e9390351c2c5'
+            
         ],
         assignedTo: '88a2a76c-0e6f-49da-b617-46d7c3b6e64d',
         subTasks  : [
             {
                 id       : 'b9566b52-82cd-4d2a-b9b6-240c6b44e52b',
-                title    : 'Nulla officia elit adipisicing',
+                title    : '2262-469822',
                 completed: false
             },
             {
                 id       : '76f4dc8d-4803-4d98-b461-367a1d3746a8',
-                title    : 'Magna nisi ut aliquip aliquip amet deserunt',
+                title    : '2262-469822',
                 completed: false
             }
         ],
@@ -199,13 +194,13 @@ export const tasks = [
     {
         id        : '974f93b8-336f-4eec-b011-9ddb412ee828',
         type      : 'task',
-        title     : '12/07/2021 - $ 100.-',
-        notes     : 'Excepteur deserunt tempor do lorem elit id magna pariatur irure ullamco elit dolor consectetur ad officia fugiat incididunt do elit aute esse eu voluptate adipisicing incididunt ea dolor aliqua dolor.\n\nConsequat est quis deserunt voluptate ipsum incididunt laboris occaecat irure laborum voluptate non sit labore voluptate sunt id sint ut laboris aute cupidatat occaecat eiusmod non magna aliquip deserunt nisi.',
+        title     : '2262-469822',
+        notes     : '550',
         completed : true,
-        dueDate   : null,
+        dueDate   : '2017-10-18T13:03:37.943Z',
         priority  : 2,
         tags      : [
-            'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270'
+           
         ],
         assignedTo: null,
         subTasks  : [
@@ -235,13 +230,13 @@ export const tasks = [
     {
         id        : '5d877fc7-b881-4527-a6aa-d39d642feb23',
         type      : 'task',
-        title     : '10/07/2021 - $ 130.-',
-        notes     : 'Labore mollit in aliqua exercitation aliquip elit nisi nisi voluptate reprehenderit et dolor incididunt cupidatat ullamco nulla consequat voluptate adipisicing dolor qui magna sint aute do excepteur in aliqua consectetur.\n\nElit laborum non duis irure ad ullamco aliqua enim exercitation quis fugiat aute esse esse magna et ad cupidatat voluptate sint nulla nulla lorem et enim deserunt proident deserunt consectetur.',
+        title     : '249-4525997',
+        notes     : '100',
         completed : true,
-        dueDate   : null,
+        dueDate   : '2017-10-18T13:03:37.943Z',
         priority  : 1,
         tags      : [
-            '51483dd3-cb98-4400-9128-4bd66b455807'
+           
         ],
         assignedTo: '4678ad07-e057-48a9-a5d1-3cf98e722eeb',
         subTasks  : [
@@ -262,13 +257,12 @@ export const tasks = [
         id        : '1a680c29-7ece-4a80-9709-277ad4da8b4b',
         type      : 'section',
         title     : 'Linea Claro (0249) 453-7781',
-        notes     : 'Magna laborum et amet magna fugiat officia deserunt in exercitation aliquip nulla magna velit ea labore quis deserunt ipsum occaecat id id consequat non eiusmod mollit est voluptate ea ex.\n\nReprehenderit mollit ut excepteur minim veniam fugiat enim id pariatur amet elit nostrud occaecat pariatur et esse aliquip irure quis officia reprehenderit voluptate voluptate est et voluptate sint esse dolor.',
+        notes     : '110',
         completed : false,
         dueDate   : '2020-02-08T22:42:35.937Z',
         priority  : 2,
         tags      : [
-            'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270',
-            '2b884143-419a-45ca-a7f6-48f99f4e7798'
+            ''
         ],
         assignedTo: '3e353312-6a9b-46af-adda-5061b06e806b',
         subTasks  : [],
@@ -277,14 +271,12 @@ export const tasks = [
     {
         id        : 'c49c2216-8bdb-4df0-be25-d5ea1dbb5688',
         type      : 'task',
-        title     : '10/07/2021 - $ 320.-',
-        notes     : 'Adipisicing laboris ipsum fugiat et cupidatat aute esse ad labore et est cillum ipsum sunt duis do veniam minim officia deserunt in eiusmod eu duis dolore excepteur consectetur id elit.\n\nAnim excepteur occaecat laborum sunt in elit quis sit duis adipisicing laboris anim laborum et pariatur elit qui consectetur laborum reprehenderit occaecat nostrud pariatur aliqua elit nisi commodo eu excepteur.',
+        title     : '249-4537781',
+        notes     : '220',
         completed : false,
         dueDate   : '2019-08-10T06:18:17.785Z',
         priority  : 1,
-        tags      : [
-            'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270'
-        ],
+        tags      : [],
         assignedTo: '368aab1e-ebce-43ba-8925-4cf13937867b',
         subTasks  : [
             {
@@ -298,14 +290,12 @@ export const tasks = [
     {
         id        : '3ef176fa-6cba-4536-9f43-540c686a4faa',
         type      : 'task',
-        title     : '10/07/2021 - $ 250.-',
-        notes     : 'Culpa duis nostrud qui velit sint magna officia fugiat ipsum eiusmod enim laborum pariatur anim culpa elit ipsum lorem pariatur exercitation laborum do labore cillum exercitation nisi reprehenderit exercitation quis.\n\nMollit aute dolor non elit et incididunt eiusmod non in commodo occaecat id in excepteur aliqua ea anim pariatur sint elit voluptate dolor eu non laborum laboris voluptate qui duis.',
+        title     : '2262-459132',
+        notes     : '350',
         completed : false,
         dueDate   : '2024-08-23T14:33:06.227Z',
         priority  : 2,
-        tags      : [
-            '91658b8a-f382-4b0c-a53f-e9390351c2c5'
-        ],
+        tags      : [],
         assignedTo: '271e6a06-0d37-433d-bc8d-607b12bcbed9',
         subTasks  : [
             {
@@ -339,16 +329,12 @@ export const tasks = [
     {
         id        : '7bc6b7b4-7ad8-4cbe-af36-7301642d35fb',
         type      : 'task',
-        title     : '10/07/2021 - $ 210.-',
-        notes     : 'Ea proident dolor tempor dolore incididunt velit incididunt ullamco quis proident consectetur magna excepteur cillum officia ex do aliqua reprehenderit est esse officia labore dolore aute laboris eu commodo aute.\n\nOfficia quis id ipsum adipisicing ipsum eu exercitation cillum ex elit pariatur adipisicing ullamco ullamco nulla dolore magna aliqua reprehenderit eu laborum voluptate reprehenderit non eiusmod deserunt velit magna do.',
+        title     : '249-4466860',
+        notes     : '150',
         completed : true,
         dueDate   : '2017-08-16T12:56:48.039Z',
         priority  : 1,
-        tags      : [
-            '51483dd3-cb98-4400-9128-4bd66b455807',
-            'd3ef4226-ef2c-43b0-a986-3e3e07f32799',
-            'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270'
-        ],
+        tags      : [],
         assignedTo: '4d24cf48-a322-4d53-89cb-9140dfd5c6ba',
         subTasks  : [
             {
@@ -384,7 +370,7 @@ export const tasks = [
         id        : '1ebde495-1bcd-4e8f-b6f6-cf63b521ad06',
         type      : 'section',
         title     : 'Linea Personal (023) 4121-7858',
-        notes     : 'Aute commodo reprehenderit cupidatat duis nulla mollit sint cupidatat elit adipisicing fugiat sunt cupidatat amet proident fugiat aute adipisicing et non minim occaecat ea esse consectetur aute culpa exercitation incididunt.\n\nEnim et lorem anim dolor excepteur qui tempor cupidatat do proident adipisicing esse incididunt mollit quis irure amet ad officia culpa minim cillum veniam voluptate lorem exercitation sunt cillum dolor.',
+        notes     : '500',
         completed : false,
         dueDate   : '2018-08-04T19:32:53.652Z',
         priority  : 1,
@@ -407,8 +393,8 @@ export const tasks = [
     {
         id        : '4e7ce72f-863a-451f-9160-cbd4fbbc4c3d',
         type      : 'task',
-        title     : '10/07/2021 - $ 210.-',
-        notes     : 'Exercitation sit eiusmod enim officia exercitation eiusmod sunt eiusmod excepteur ad commodo eiusmod qui proident quis aliquip excepteur sit cillum occaecat non dolore sit in labore ut duis esse duis.\n\nConsequat sunt voluptate consectetur dolor laborum enim nostrud deserunt incididunt sint veniam laboris sunt amet velit anim duis aliqua sunt aliqua aute qui nisi mollit qui irure ullamco aliquip laborum.',
+        title     : '11-52266812',
+        notes     : '210',
         completed : true,
         dueDate   : '2020-09-29T02:25:14.111Z',
         priority  : 1,
@@ -441,14 +427,12 @@ export const tasks = [
     {
         id        : '0795a74f-7a84-4edf-8d66-296cdef70003',
         type      : 'task',
-        title     : '10/07/2021 - $ 210.-',
-        notes     : 'Minim commodo cillum do id qui irure aliqua laboris excepteur laboris magna enim est lorem consectetur tempor laboris proident proident eu irure dolor eiusmod in officia lorem quis laborum ullamco.\n\nQui excepteur ex sit esse dolore deserunt ullamco occaecat laboris fugiat cupidatat excepteur laboris amet dolore enim velit ipsum velit sint cupidatat consectetur cupidatat deserunt sit eu do ullamco quis.',
+        title     : '0381-478951',
+        notes     : '200',
         completed : true,
         dueDate   : '2019-03-09T02:34:29.592Z',
         priority  : 2,
         tags      : [
-            'c6058d0d-a4b0-4453-986a-9d249ec230b1',
-            'd3ef4226-ef2c-43b0-a986-3e3e07f32799'
         ],
         assignedTo: '6617b0a3-0ccd-44ea-af78-c6633115d683',
         subTasks  : [
@@ -478,13 +462,12 @@ export const tasks = [
     {
         id        : '05532574-c102-4228-89a8-55fff32ec6fc',
         type      : 'task',
-        title     : '10/07/2021 - $ 210.-',
-        notes     : 'Reprehenderit anim consectetur anim dolor magna consequat excepteur tempor enim duis magna proident ullamco aute voluptate elit laborum mollit labore id ex lorem est mollit do qui ex labore nulla.\n\nUt proident elit proident adipisicing elit fugiat ex ullamco dolore excepteur excepteur labore laborum sunt ipsum proident magna ex voluptate laborum voluptate sint proident eu reprehenderit non excepteur quis eiusmod.',
+        title     : '011-2395844',
+        notes     : '800',
         completed : true,
         dueDate   : '2023-12-08T23:20:50.910Z',
         priority  : 2,
         tags      : [
-            'a0bf42ca-c3a5-47be-8341-b9c0bb8ef270'
         ],
         assignedTo: null,
         subTasks  : [],
@@ -493,8 +476,8 @@ export const tasks = [
     {
         id        : 'b3917466-aa51-4293-9d5b-120b0ce6635c',
         type      : 'task',
-        title     : '10/07/2021 - $ 210.-',
-        notes     : 'Ipsum officia mollit qui laboris sunt amet aliquip cupidatat minim non elit commodo eiusmod labore mollit pariatur aute reprehenderit ullamco occaecat enim pariatur aute amet occaecat incididunt irure ad ut.\n\nIncididunt cupidatat pariatur magna sint sit culpa ad cupidatat cillum exercitation consequat minim pariatur consectetur aliqua non adipisicing magna ad nulla ea do est nostrud eu aute id occaecat ut.',
+        title     : '2494-487956',
+        notes     : '200',
         completed : false,
         dueDate   : '2018-01-14T09:58:38.444Z',
         priority  : 1,
