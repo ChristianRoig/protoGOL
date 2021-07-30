@@ -3,20 +3,20 @@
     cdkScrollable>
 
     <!-- Main -->
-    <div class="inline-block p-6 sm:p-10 text-left print:p-0">
+    <div class="inline-block p-6 text-left print:p-0" *ngIf="innerWidth > 600; else elseTemplateResponsive">
 
         <!-- Invoice -->
         <div class="w-240 p-16 rounded-2xl shadow bg-card print:w-auto print:rounded-none print:shadow-none print:bg-transparent">
-
-            <div class="flex items-start justify-between">
+            <!-- Header resumen part 1-->
+            <div class="flex items-center justify-between">
                 <div class="grid grid-cols-1 gap-x-2 gap-y-2">
                     <div class="text-4xl tracking-tight text-secondary">RESUMEN DE CUENTA</div>
-                    <div class="text-3xl"> NRO #00000280</div>
+                    <div class="text-4xl"> NRO #00000280</div>
                 </div>
                 <div class="grid auto-cols-max grid-flow-col gap-x-8 gap-y-1 -mr-16 px-8 rounded-l-2xl">
                     <div class="place-self-center w-full">
                         <img
-                            class="w-9/12"
+                            class="w-9/12 mb-6"
                             src="assets/images/logo/logo_tarjetaLA.png">
                     </div>
                     
@@ -26,10 +26,11 @@
             <!-- Divider -->
             <div class="col-span-12 my-4 border-b"></div>
 
-            <div class="grid grid-cols-1 gap-4 ml-16">
-                <div class="grid grid-cols-3 gap-4">
+            <!-- header resumen part 2 -->
+            <div class="grid grid-cols-1 gap-2 ml-8 ">
+                <div class="grid grid-cols-3 gap-2 p-6">
                     <div class="grid-span-2">
-                        <div class="font-medium tracking-tight text-secondary">CIERRE</div>
+                        <div class="md:font-medium sm:font-small tracking-tight text-secondary">CIERRE</div>
                         <div class="font-medium">Jul 19, 2022</div>
                     </div>
                     <div class="grid-span-2">
@@ -53,123 +54,245 @@
                         <div class="font-medium">$500,000.00</div> 
                     </div>
                 </div>
+                <!-- <ng-template #elseTemplateHeader>
+                    <div class="w-4/12 grid grid-cols-2 gap-2">
+                        <div class="grid-span-1">
+                            <div class="font-sm tracking-tight text-secondary">CIERRE</div>
+                            <div class="font-sm">Jul 19, 2022</div>
+                        </div>
+                        <div class="grid-span-1">
+                            <div class="font-medium tracking-tight text-secondary">PAGO MINIMO</div>
+                            <div class="font-medium">$98,510.00</div> 
+                        </div>
+                        <div class="grid-span-1">
+                            <div class="font-medium tracking-tight text-secondary">SALDO EN PESOS</div>
+                            <div class="font-medium">$350,000.00</div> 
+                        </div>
+                        <div class="grid-span-1">
+                            <div class="font-medium tracking-tight text-secondary">VENCIMIENTO</div>
+                            <div class="font-medium">Aug 19, 2022</div>
+                        </div>
+                        <div class="grid-span-1">
+                            <div class="font-medium tracking-tight text-secondary">PAGO TOTAL</div>
+                            <div class="font-medium">$235,000.00</div>
+                        </div>
+                        <div class="grid-span-1">
+                            <div class="font-medium tracking-tight text-secondary">SALDO EN DOLARES</div>
+                            <div class="font-medium">$500,000.00</div> 
+                        </div>
+
+                    </div>
+                </ng-template>  -->
             </div>
 
             <!-- Divider -->
             <div class="col-span-12 my-4 border-b"></div>
-            
-            <!-- <div class="text-md">
-                <div class="text-xl font-medium">Brian Hughes</div>
-                <div>9301 Wood Street Philadelphia, PA 19111</div>
-                <div>hughes.brian@company.com</div>
-                <div>+55 552 455 87</div>
-            </div> -->
 
-            <div class="grid grid-cols-12 gap-x-1 mt-12">
-                <!-- Columns -->
-                <div class="col-span-8 font-medium text-md text-secondary">SERVICE</div>
-                <div class="font-medium text-md text-right text-secondary">RATE</div>
-                <div class="font-medium text-md text-right text-secondary">QTY</div>
-                <div class="col-span-2 font-medium text-md text-right text-secondary">TOTAL</div>
+            <!-- body resumen  -->
+            <div class="grid grid-cols-1 gap-1 mt-12" >
+                <div class="grid grid-cols-12 sm:grid-cols-10 gap-x-2" 
+                    style="overflow-x: scroll; white-space: wrap; font-family: monospace; padding: 1rem; border-radius: 0.75rem; margin-top: 1rem; background-color: rgb(221, 231, 238); background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 1.5rem, transparent 0px, transparent 3rem);">
+                    <!-- Columns -->
+                    <div class="col-span-8 font-medium text-md text-secondary">SERVICE</div>
+                    <div class="font-medium text-md text-right text-secondary">RATE</div>
+                    <div class="font-medium text-md text-right text-secondary">QTY</div>
+                    <div class="col-span-2 font-medium text-md text-right text-secondary">TOTAL</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Prototype & Design</div>
-                <div class="self-center text-right">$75.00</div>
-                <div class="self-center text-right">240</div>
-                <div class="col-span-2 self-center text-right">$18,000.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg  font-medium">Prototype & Design</div>
+                    <div class="self-center text-right">$75.00</div>
+                    <div class="self-center text-right">240</div>
+                    <div class="col-span-2 self-center text-right">$18,000.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Development</div>
-                <div class="self-center text-right">$60.50</div>
-                <div class="self-center text-right">350</div>
-                <div class="col-span-2 self-center text-right">$21,175.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg  font-medium">Development</div>
+                    <div class="self-center text-right">$60.50</div>
+                    <div class="self-center text-right">350</div>
+                    <div class="col-span-2 self-center text-right">$21,175.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Testing</div>
-                <div class="self-center text-right">$25.00</div>
-                <div class="self-center text-right">50</div>
-                <div class="col-span-2 self-center text-right">$1,250.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg font-medium">Testing</div>
+                    <div class="self-center text-right">$25.00</div>
+                    <div class="self-center text-right">50</div>
+                    <div class="col-span-2 self-center text-right">$1,250.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Documentation & Training</div>
-                <div class="self-center text-right">$26.50</div>
-                <div class="self-center text-right">260</div>
-                <div class="col-span-2 self-center text-right">$6,890.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg font-medium">Documentation & Training</div>
+                    <div class="self-center text-right">$26.50</div>
+                    <div class="self-center text-right">260</div>
+                    <div class="col-span-2 self-center text-right">$6,890.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Critical bug fixes for a year</div>
-                <div class="self-center text-right">$25,000</div>
-                <div class="self-center text-right">2</div>
-                <div class="col-span-2 self-center text-right">$50,000.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg font-medium">Critical bug fixes for a year</div>
+                    <div class="self-center text-right">$25,000</div>
+                    <div class="self-center text-right">2</div>
+                    <div class="col-span-2 self-center text-right">$50,000.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Extended security updates for a year</div>
-                <div class="self-center text-right">$15.000</div>
-                <div class="self-center text-right">2</div>
-                <div class="col-span-2 self-center text-right">$30,000.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg font-medium">Extended security updates for a year</div>
+                    <div class="self-center text-right">$15.000</div>
+                    <div class="self-center text-right">2</div>
+                    <div class="col-span-2 self-center text-right">$30,000.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-4 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-4 border-b"></div>
 
-                <!-- Item -->
-                <div class="col-span-8 text-lg font-medium">Extended updates for a year</div>
-                <div class="self-center text-right">$50.000</div>
-                <div class="self-center text-right">2</div>
-                <div class="col-span-2 self-center text-right">$100,000.00</div>
+                    <!-- Item -->
+                    <div class="col-span-8 text-lg font-medium">Extended updates for a year</div>
+                    <div class="self-center text-right">$50.000</div>
+                    <div class="self-center text-right">2</div>
+                    <div class="col-span-2 self-center text-right">$100,000.00</div>
 
-                <!-- Spacer -->
-                <div class="col-span-12 mt-16"></div>
+                    <!-- Spacer -->
+                    <div class="col-span-12 mt-16"></div>
 
-                <!-- Subtotal -->
-                <div class="col-span-10 self-center font-medium tracking-tight text-secondary">SUBTOTAL</div>
-                <div class="col-span-2 text-right text-lg">$227,315.00</div>
+                    <!-- Subtotal -->
+                    <div class="col-span-10 self-center font-medium tracking-tight text-secondary">SUBTOTAL</div>
+                    <div class="col-span-2 text-right text-lg">$227,315.00</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-3 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
 
-                <!-- Tax -->
-                <div class="col-span-10 self-center font-medium tracking-tight text-secondary">TAX</div>
-                <div class="col-span-2 text-right text-lg">$11,365.75</div>
+                    <!-- Tax -->
+                    <div class="col-span-10 self-center font-medium tracking-tight text-secondary">TAX</div>
+                    <div class="col-span-2 text-right text-lg">$11,365.75</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-3 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
 
-                <!-- Discount -->
-                <div class="col-span-10 self-center font-medium tracking-tight text-secondary">DISCOUNT</div>
-                <div class="col-span-2 text-right text-lg">$3,680.75</div>
+                    <!-- Discount -->
+                    <div class="col-span-10 self-center font-medium tracking-tight text-secondary">DISCOUNT</div>
+                    <div class="col-span-2 text-right text-lg">$3,680.75</div>
 
-                <!-- Divider -->
-                <div class="col-span-12 my-3 border-b"></div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
 
-                <!-- Total -->
-                <div class="col-span-10 self-center text-2xl font-medium tracking-tight text-secondary">TOTAL</div>
-                <div class="col-span-2 text-right text-2xl font-medium">$235,000.00</div>
+                    <!-- Total -->
+                    <div class="col-span-10 self-center text-2xl font-medium tracking-tight text-secondary">TOTAL</div>
+                    <div class="col-span-2 text-right text-2xl font-medium">$235,000.00</div>
+
+                </div>
+                
             </div>
+            <ng-template #elseTemplateBody >
+                <div 
+                style="overflow-x: scroll; white-space: wrap; font-family: monospace; padding: 1rem; border-radius: 0.75rem; margin-top: 1rem; background-color: rgb(221, 231, 238); background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 1.5rem, transparent 0px, transparent 3rem);">
+                    <!-- Columns -->
+                    <div class="w-4/12 grid grid-cols-12 gap-2">
+                        <div class="col-span-4 font-medium text-md text-secondary">SERVICE</div>
+                        <div class="col-span-3 font-medium text-md text-right text-secondary">RATE</div>
+                        <div class="col-span-3 font-medium text-md text-right text-secondary">QTY</div>
+                        <div class="col-span-2 font-medium text-md text-right text-secondary">TOTAL</div>
+                    </div>
 
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2 grid-grow">
+                        <!-- Item -->
+                        <div class="col-span-5 text-md  font-medium">Prototype & Design</div>
+                        <div class="col-span-3 self-center text-right">$75.00</div>
+                        <div class="col-span-2 self-center text-right">240</div>
+                        <div class="col-span-2 self-center text-right">$18,000.00</div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2 grid-grow">
+                        <!-- Item -->
+                        <div class="col-span-5 text-md  font-medium">Development</div>
+                        <div class="col-span-3 self-center text-right">$75.00</div>
+                        <div class="col-span-2 self-center text-right">240</div>
+                        <div class="col-span-2 self-center text-right">$18,000.00</div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2 grid-grow">
+                        <!-- Item -->
+                        <div class="col-span-5 text-md  font-medium">Testing</div>
+                        <div class="col-span-3 self-center text-right">$75.00</div>
+                        <div class="col-span-2 self-center text-right">240</div>
+                        <div class="col-span-2 self-center text-right">$18,000.00</div>
+                    </div>
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2 grid-grow">
+                        <!-- Item -->
+                        <div class="col-span-5 text-md  font-medium">Documentation and training</div>
+                        <div class="col-span-3 self-center text-right">$75.00</div>
+                        <div class="col-span-2 self-center text-right">240</div>
+                        <div class="col-span-2 self-center text-right">$18,000.00</div>
+                    </div>
+
+                    <!-- Spacer -->
+                    <div class="col-span-12 mt-16"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2">
+                        <!-- Subtotal -->
+                        <div class="col-span-4 self-center text-md font-medium tracking-tight text-secondary">SUBTOTAL</div>
+                        <div class="col-span-2"></div>
+                        <div class="col-span-2 text-right text-md">$227,315.00</div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2">
+                        <!-- Tax -->
+                        <div class="col-span-4 self-center text-md font-medium tracking-tight text-secondary">TAX</div>
+                        <div class="col-span-2"></div>
+                        <div class="col-span-2 text-right text-md">$11,365.75</div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2">
+                        <!-- Discount -->
+                        <div class="col-span-4 self-center text-md font-medium tracking-tight text-secondary">DISCOUNT</div>
+                        <div class="col-span-2"></div>
+                        <div class="col-span-2 text-right text-md">$3,680.75</div>
+                    </div>    
+                    <!-- Divider -->
+                    <div class="col-span-12 my-3 border-b"></div>
+
+                    <div class="w-4/12 grid grid-cols-12 gap-2">
+                        <!-- Total -->
+                        <div class="col-span-4 self-center text-md font-medium tracking-tight text-secondary">TOTAL</div>
+                        <div class="col-span-2"></div>
+                        <div class="col-span-2 text-right text-md font-medium">$235,000.00</div>
+                    </div>
+                </div>
+            </ng-template>
+            
+
+            <!-- footer resumen -->
             <div class="mt-16">
                 <div class="font-medium">Please pay within 15 days. Thank you for your business.</div>
                 <div class="flex items-start mt-4">
                     <img
                         class="flex-0 w-10 mt-2"
-                        src="assets/images/logo/logo.svg">
+                        src="assets/images/logo/logo_tarjetaLA.png">
                     <div class="ml-6 text-sm text-secondary">
                         In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue dolor. Quisque scelerisque lacus sed feugiat fermentum.
                         Cras aliquet facilisis pellentesque. Nunc hendrerit quam at leo commodo, a suscipit tellus dapibus. Etiam at felis volutpat est mollis lacinia.
@@ -181,5 +304,205 @@
         </div>
 
     </div>
+
+    <!-- Template Responsive Width < 600px -->
+    <ng-template #elseTemplateResponsive>
+        <div class="w-screen p-5 inline-block rounded-2xl shadow bg-card print:w-auto print:rounded-none print:shadow-none print:bg-transparent">
+             <!-- Header resumen part 1-->
+             <div class="flex flex-col items-center justify-between">
+                <!--  Image -->
+                <div class="grid auto-cols-max grid-flow-col gap-x-2 gap-y-1 rounded-l-2xl">
+                    <div class="place-self-center">
+                        <img
+                            class="w-40 mb-2"
+                            src="assets/images/logo/logo_tarjetaLA.png">
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <div class="grid grid-cols-1 gap-x-2 gap-y-2">
+                    <div class="text-2xl tracking-tight text-secondary">RESUMEN DE CUENTA</div>
+                    <div class="text-2xl"> NRO #00000280</div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="col-span-12 my-4 border-b"></div>
+
+            <!-- Header resumen part 2 -->
+            <div class="grid grid-cols-2 gap-2">
+
+                <div class="grid-span-1">
+                    <div class="font-sm tracking-tight text-secondary">CIERRE</div>
+                    <div class="font-sm">Jul 19, 2022</div>
+                </div>
+                <div class="grid-span-1">
+                    <div class="font-medium tracking-tight text-secondary">VENCIMIENTO</div>
+                    <div class="font-medium">Aug 19, 2022</div>
+                </div>
+                <div class="grid-span-1">
+                    <div class="font-medium tracking-tight text-secondary">PAGO MINIMO</div>
+                    <div class="font-medium">$98,510.00</div> 
+                </div>
+                <div class="grid-span-1">
+                    <div class="font-medium tracking-tight text-secondary">PAGO TOTAL</div>
+                    <div class="font-medium">$235,000.00</div>
+                </div>
+                <div class="grid-span-1">
+                    <div class="font-medium tracking-tight text-secondary">SALDO EN PESOS</div>
+                    <div class="font-medium">$350,000.00</div> 
+                </div>
+                <div class="grid-span-1">
+                    <div class="font-medium tracking-tight text-secondary">SALDO EN DOLARES</div>
+                    <div class="font-medium">$500,000.00</div> 
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="col-span-12 my-6"></div>
+
+            <!-- Body resumen -->
+            <div
+            style="overflow-x: scroll; white-space: wrap; font-family: monospace; padding: 1rem; border-radius: 0.75rem; margin-top: 1rem; background-color: rgb(221, 231, 238); background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 1.5rem, transparent 0px, transparent 3rem);">
+               
+                <div class="flex flex-col items-center text-left flex-wrap flex-grow">
+                    SALDOS ANTERIORES 46709.28 .-
+                    07 Junio 21 SU PAGO EN PESOS 46.709,28-
+                    ________________________________________________________________________________________________________________
+                    20 Mayo 21 000751 * MERCADOPAGO*MERCADOLIBRE C.03/03 1.800,53
+                    23 Mayo 21 000912 * MERCADOPAGO*MERCADOLIBRE C.02/03 1.897,28
+                    25 Mayo 21 002781 * MERCADOPAGO*MERCADOLIBRE C.02/03 3.496,73
+                    08 Junio 21 002838 * NETFLIX_COM 1.097,16
+                    16 Junio 21 006027 * MERCADOPAGO*MERCADOLIBRE 3.645,00
+                    16 Junio 21 006063 * MERCADOPAGO*MERCADOLIBRE 3.999,00
+                    Tarjeta 8031 Total Consumos de ADRIAN WALT ORLOVAS 15.935,70 * 0,00 *
+                    **************************************************************************************
+                    .
+                    Plan Cuotificate. Abonando el pago mínimo de $ 3984,00 podes cancelar en cuotas
+                    fijas tu saldo financiable de $ 11951,70 en:
+                    3 cuotas de $ 4422,86 (TNA Fija: 65,870% - TEA: 89,931%) *
+                    6 cuotas de $ 2385,96 (TNA Fija: 65,870% - TEA: 89,931%) *
+                    12 cuotas de $ 1380,12 (TNA Fija: 65,870% - TEA: 89,931%) *
+                    CFTEA - Ejemplo: cada $ 1000, su CFTEA será:
+                    Con IVA: 3 cuotas 116,44%/ 6 cuotas 116,44%/12 cuotas 116,44%
+                    Sin IVA: 3 cuotas 89,95%/ 6 cuotas 89,95%/12 cuotas 89,95%
+                    * El valor de la cuota no incluye IVA sobre los intereses.
+                    Sujeto al límite disponible de la cuenta. Válido para tarjetas en estado normal.
+                    .
+                    **************************************************************************************
+                    _________________________________________________________________________________________
+                    Cuotas a vencer:
+                    Agosto/21 Setiembre/21 Octubre/21 Noviembre/21 Diciembre/21 Enero/22
+                    $5.394,01 $0,00 $0,00 $0,00 $0,00 $0,00
+                    _________________________________________________________________________________________
+                    Los intereses de financiación se calculan desde el Vto. de su resumen anterior.
+                    _________________________________________________________________________________________
+                    Tarjetas del Mar SA le informa que los créditos documentados en el presente resumen
+                    han sido cedidos fiduciariamente total o parcialmente en términos de los Art. 70 a 72
+                    de la Ley 24441
+                    _________________________________________________________________________________________
+                    *USTED DISPONE DE 30 DIAS DESDE LA RECEPCION PARA CUESTIONAR ESTE RESUMEN*
+                    ____________________________________________________________________________
+                    Para su mayor comodidad, Ud. puede abonar su resumen a través de las siguientes
+                    modalidades: Banco Provincia, Ripsa, Cobro Express, Link Pagos, Banelco,
+                    Rapipago, Pago Fácil, Pago mis Cuentas, cajas habilitadas para el cobro de
+                    servicios en supermercados La Anónima y/o adhiriéndose al débito automático
+                    en cuenta bancaria.
+                    ____________________________________________________________________________
+                    La tasa de interés que se aplicará para el próximo período no superará:
+                    TNA 99,99%, TEA 161,20%, CFT con IVA 216,59%, CFT sin IVA 161,20%
+                    ____________________________________________________________________________
+                    Tarjeta La Anónima es emitida y administrada por TARJETAS DEL MAR S.A.,
+                    CUIT 30-68142472-1, Domicilio legal en Alem N° 1134, Piso 8°, Ciudad
+                    Autónoma de Buenos Aires.
+                    ____________________________________________________________________________
+                    El monto de IVA discriminado no puede computarse como crédito fiscal.
+                    ____________________________________________________________________________
+                    Usted puede consultar el ?Régimen de Transparencia? elaborado por el Banco Central sobre la base de la información proporcionada por los sujetos obligados a fin de comparar los costos y características de los productos y servicios financieros ingresando a http://www.bcra.gob.ar/BCRAyVos/Regimen_de_transparencia.asp
+                    ____________________________________________________________________________
+                    Puede comunicarse a nuestro Centro de Atención Telefónica llamando al
+                    0810 - 555 - 0 - 222, de Lunes a Viernes de 9 a 18 hs.
+                    O accediendo al servicio de Autoconsulta las 24 hs. los 365 días del año.
+                    ____________________________________________________________________________
+                    Para realizar una denuncia por robo o extravío de la tarjeta de crédito La
+                    Anónima o La Anónima Visa, comuníquese al 0810-666-3368, las 24 hs. los 365
+                    días del año.
+                    ____________________________________________________________________________
+                    Si Ud. tiene saldos en dólares liquidados en su resumen, podrá cancelarlos en
+                    dólares o en pesos hasta el vencimiento de dicho resumen, al tipo de cambio vendedor de la
+                    fecha de cancelación. Si a la fecha de vencimiento la deuda en dólares no
+                    hubiera sido cancelada, la entidad la convertirá a pesos al tipo de cambio
+                    vendedor del día de vencimiento del resumen.
+                    ____________________________________________________________________________
+                    Informamos a Ud. que ciertos derechos de cobro de los indicados en el presente
+                    resumen a favor de Tarjetas del Mar S.A. han sido cedidos al Banco de Galicia
+                    y Buenos Aires S.A.
+                    ____________________________________________________________________________
+                    El Pago Mínimo es equivalente al: I) 25% de los consumos del período realizados
+                    en hasta 3 cuotas, más II) 100% de los consumos del período en planes de 4 o más
+                    cuotas, más III) 100% de los importes por adelantos en efectivo realizados en
+                    un solo pago, más IV) 100% de los intereses y cargos respectivos, más V) el 100%
+                    de las cuotas de los planes V y adelantos, más VI) 25% del saldo del mes anterior,
+                    más VII) 100% del pago mínimo anterior impago.
+                    ____________________________________________________________________________
+                    Si la operación se acordó en cuotas, el monto indicado en este resumen (y en el
+                    importe del cupón correspondiente) incluye los intereses por financiación
+                    conforme a la tasa que el comercio informó al efectuarse la transacción.
+                    ____________________________________________________________________________
+                    Los intereses de financiación se calculan desde el Vto. de su resumen anterior.
+                    ____________________________________________________________________________
+                    Los intereses devengados por montos adeudados por el o los periodos anteriores no serán
+                    capitalizados.
+                    ____________________________________________________________________________
+                    De acuerdo con la ley n°27 541 - Ley de solidaridad social y reactivación productiva,
+                    desde el 23/12/2019 todas las transacciones realizadas en moneda extranjera se
+                    encuentran alcanzadas por el Impuesto Para una Argentina Inclusiva y Solidaria (PAIS),
+                    con una alícuota del 30% sobre el monto total de la operación, con excepción de
+                    prestaciones correspondientes a servicios digitales para quienes la alícuota será del 8% y
+                    con una percepción del 35% a cuenta del impuesto a las ganancias según disposición BCRA
+                    PERIODO ACTUAL F.CIERRE : 22-07-21 SALDO 15935.70 0.00
+                    F.VENCIM.: 09-08-21 P.MINIMO 3984.00 0.00
+                </div>
+            </div>
+
+            
+            <!-- footer resumen -->
+            <div class="mt-16 flex flex-col items-center justify-items-stretch" >
+                <div class="font-medium">Tarjeta 8031 Total Consumos de ADRIAN WALT ORLOVAS 15.935,70 * 0,00 *</div>
+
+                <div class="flex flex-col items-center mt-4">
+                    
+                    <div class="text-sm text-secondary">
+                        De acuerdo con la ley n°27 541 - Ley de solidaridad social y reactivación productiva,
+                        desde el 23/12/2019 todas las transacciones realizadas en moneda extranjera se
+                        encuentran alcanzadas por el Impuesto Para una Argentina Inclusiva y Solidaria (PAIS),
+                        con una alícuota del 30% sobre el monto total de la operación, con excepción de
+                        prestaciones correspondientes a servicios digitales para quienes la alícuota será del 8% y
+                        con una percepción del 35% a cuenta del impuesto a las ganancias según disposición BCRA
+                        PERIODO ACTUAL F.CIERRE : 22-07-21 SALDO 15935.70 0.00
+                        F.VENCIM.: 09-08-21 P.MINIMO 3984.00 0.00
+                    </div>
+
+                    <div class="mt-4">
+                        <img src="data:image/png;base64,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" width="140" height="42" alt="Gestión Online">
+                    </div>
+
+                    <div class="mt-4 text-black font-extrabold text-3xl mb-4"> Tarjeta La Anónima </div>
+                    
+                    <div class="mt-4 text-1xl mb-4">
+                        Copyright © 2021 Tarjetas del Mar S.A. 
+                    </div>
+
+                    <div class="flex flex-col items-center justify-items-stretch m-auto bg-yellow-500 bg-opacity-50 border-b">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAABVCAYAAABdNJhgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTIxMDRBNTAwQzFGMTFFODkxMzRBRDU5NUEzRDRCQTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTIxMDRBNTEwQzFGMTFFODkxMzRBRDU5NUEzRDRCQTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMjEwNEE0RTBDMUYxMUU4OTEzNEFENTk1QTNENEJBMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMjEwNEE0RjBDMUYxMUU4OTEzNEFENTk1QTNENEJBMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiVYXHMAADE1SURBVHja7H0HvB1Vnf9vyi3vvfReIb1BCJCEkAKEFqo0gUVFV6WIiIiCCGLd/2JhV1Hcxf0Li8IqogsqvQbpvSSEEkICSUjv9b1779yZ2d/3e2bunXvfS0hCS+KcD4+8d+/MOWfOnN/59e/P2vCrcXNFpIf+eJK2tKXt424Z/Vnh6v8660/7dD3Slradpnl2ugZpS9vO11LCTFvaUsJMW9rSlhJm2tKWEmba0pa2D6q5O3RXGIpYVvID/lfzWRiYzy3nPa4Lzb+tPsO9dutxJbperG2YAz4Ion6s+oeI5mi1HqfmGeoa+7dq16DVekT3tpp/UL1/h9ez7lnq51FZn+Sc7dbP09Y8eI1vzmvL2sJ61L/TtO0kHDNsvQFCq/p34EtYataeM0r2eQm9Fn3XxWgzb7nLVgQT1hNGTMBOZWOEpc06Xrnad1jtKPSazf1uo4RlT38KVYL2SzqnMr/D3+ynFRGG0QZ1an/iceI1CKP5xvOICaRuPtzwoVmfVkSJe5Pj1y9vucVc1+pZ6g635PpU1ilJlNXnCcsl029lTTy+K3Hy7I/rZ04H8069zTXvtOZ50/bxckxsCHfgYZLd70xpufvrIvpi8Vl2zJlid+wnhUd/LFZjN2k47Lvi7DmZGyBYPUeKT1wt/pKXJHvAl8TpubcU7r9MN0BGX3BBcgdeIHYnvfeBK8xnSjD5w74vTo8R0nLnhRI2rzInvm6IhqN/KnbngYYLavMXvSDFJ38pwaalkh13tt4zSvu+nN9l9z5NsmM/L5LrKOGGxVJ86pdSfvcZZQS22N1HSv7w74nVrqeIbjLv9dul9OINVS6nhGt3HyH5I68Uy81VqMTKNpnx1i+S7ITzpOX288XpO05yB10sLfdeKuGaeeQ0dvdRkj/kMmnR5ww3LWO/dtdh0nDcz8R78z4pPn2NWJmGaD0P1bmewvtBvFzP/f5ZnH7jpXDvN801e06R/MHfFGnoos+ySOdwjT7L0zqfdqZPnX/5rfslf+zPdQ2GVw8N25Vw8ypp/stZ4g4+UnKTLqg8Y1hcL8Vnr5Py2w/rlC2x2veVhoMvEbv3viLFjVJ6+SbxZt2qfeh6ZNtLw+TviDNgCvv0F78oxUeulLCwnn+n7ePmmHpyWg2dlbhGKc1lotM+0A3eXewug5RQC5Kf8nVxBx1CYiz+XTd2Tl/qif+p93URG9d1HVQ94bFhO+2hnw02n+mpbXfoK5mhR+gYI8XdY6LhDvqd5WQ5LjZS6Zn/ktLMW8TV63JTlRDLRb2vl9jdhvCkd4cdq0T1A732URJ8sHk55+B0G85TPn/4DyRY844S8RXc1LlJXyFhx5wo1HlZ+Y463x66QX8vpRduUML9nW7k3+gB87Ju4t46l724wa18J3G6D5X8JD1EwGmUk1j59uL0Hq1E3cBnDHV+WBO78x6SGXkc7yEHxXrmOijRTJXM6NMjCcDnszh6MISBp3MeIQ3HXy3lhU/rs3xbAj2oGk66Vj8fxj5wGFk6TxwIGNNfMVtKz/4X58t5v3ILOZzdeU8dq5357Nn/L+H6xdJ4/M90nJF8jobjf67vcKC+s38Vb950XaPvijvyBCW+dfpOL9I5HialJ38hxYf/hX3lj/pxa26dto9Tx0yIcK30J0fsXnuJ98ZdUnr+Om4Ef9UcaTrzNkO4FH/a6C+WAJVTZZTThnpi+8tfU8I7Ukqv3VaV6/Qf760HpPzOY9qXRyLLjT9buWKHqv6jn2X2OknK83UjP/z/lAvrCf/us9LurPt1cx0qpY1LlKt3kuLfrlLifFu8OfeQc7p7TlLCu7ZGLwNHKL3yRyX85kgEtPkMdp+xreRNd8ihkhlxnHhKCBXxNpq0lWnU74/QsaaL229/cfrsr4fG9BoRPXfA2frZIxKsfK36uYqb7qCDydULetBJaQMPhnZffECc/geqNDLPSA8U/XUc2zxr8eXfkZtyYW3HiM/kniulNOP37NubfZe0O/dRPWBG8zJIKJv/cIaUFz8vlh5Wjr6vrK6jN+sWsfVA9N68R4rP/UYEnF77azjqSh4w5JqpzrkzW2UtnuD+/Cclu/9nJXfoFWKp2BmsmSubbzpBT/I3dPfmtkLuxqiADewvel430M0UE20VsQxBG0LAZrCalPN27K+bfKxyw1XkmBXqhlimhBesfZtECY4NHTfYvELv7UDRLli3kBwUY1n5zlJ89CcqSn4rEluTq+Pq+H04B1u5pKUiHfWspAKIDb9ppR5G96hI+w2dW8+aAyiEFNB1iHK4ocrFfiv+6rmUCGLCxZj+4pkSbFgqeb3f6KBhhRtZDR0pBVDcxAGkB1LzrZ+n6CqZxla6Jjk956s/jV0pMpu1CTh3q6mHXtNFReVxXI9ARW2sEaSdsHmF2PoZ1i1Yv0BPi3bss/yOvtN9P8V36uiz+PMfk803n2H0UDslyp3HKrsFuoQeWHzqGj1FN5KT5SeeryfzPdTvRHWarZ4D4EQd+qs4NkYKs/6sm/UFI571Hy/eq7eKFRmDGg7/PkU+iIvYxC0PfFdF4GIbltUEx7IiowcNGWUp3He55KddKY2n/VYPjvlSfOZa5Qh3R5s4ahSre0vj6f9j/lbu1XLnBXrAvNrG8eaq3vif0tT/RslN/Ir2dW+iH+V6Aw5WEXSN+Mtm6KZ+Qg+uz/FACFvWGENMcZ2K/jdI0z/dqFLC0UakrbG6xpZY87u/+i0SKnS/WhtAi+rx50hm71ON2DrjjzqvX1S4r91lgDSdcbMSXlYPry4qxt+hRPeIcuWpddZpq8oF9Z2Wnv4P5dabzDud9FXT7xM/M9enhLmzEKbVhlk+4XawsyoS/lpFwD9JRvWS7OSvSmPfsSomnRqJn0GdyTG6F2LbnhNJOOUFT+qJ/a6KZc8rdzlKCfM2sy+1/6LqR8HKN5Xj/YcUX/itlOc+oE/RsBVLr5VwjQg3JfQmGESgv4FIGo69SomwjxSfv75KnJHhpHD/tyOOHFJXbdPYAaPV5mVSePxn1G3DlnWRvhpyPHfI4VKe93eKkt5bD0pu8oXi9Bqjc7/PXKOcD1zIe/1OGnn8pTPqrLdhzbNANG5l3eXbzKnoeZv28zeKspivBSsqrOQ6x2DDMmm55xIl3E9KRqWFguqLeCc8uJJrlHCt8ADQe4vPqd76yp/1nR4quSlf53q13HtJ266itH3EoixeQFimqAM9A+IPLLOWk6OBwdJTtvGTN6iudbwEGxdL6eUbpfmWT9PoAb0qLG7SDdPB0LVXMPfrxuXvuhGcXnvr5spK/tDvSOMJ19LSCw4K8Yvj6cYMlFuU5z3IUzs75gxagTmnZPOKKgJ2NZwUIhqMLNCNdBy78yBpOPk6bm5/2Uxp/tt5Upqph8hepxhRNuFXBXGBSPylL/JacL8tbUJYbL037tDD5DnlmucbHRXWXRXnne7DVIfbSxp13NykC8llXFg4Ky4Hi0RFyUJFyczoTxpXBueAMV1zqKnoCKt140nXSWbUicrFmutej0MRvrzgCSkvfMKI8zwMI66rnDhY+gqNP+CEmZGfMOuj0gEOVLpK4ArRg4hiu2/Gbjzler32JH2ni/QwvEGllCv0sDlMrA79tmA3SNtHSpgwLgQrXuPmzalIA9cHiNAddjRFIuhyoV/gxswMOVLc/gdKZvjx5IZwe2DT2u17Se7AL4vdYyQtkZnBU2k9xUaBm6H8zhMSrl+o3GUF+4RI5g48uEoUIGTVtTwVd6EbZcZ8KuJoMTcPxJv3sHLaw9m/rbpdboKO13EPGkYgkoHgs+PPEVd12MzQaeL22Vc38TsUX2tccxDndF7Ujal/xr5Yq/oTO+op+oVSfPxqrgOJXPtzB04lgfoLn9Q1WCkhCEf1cFiUqY+qXg6OBasz3DDFp6+tiq7KqbhmjZ2Vy53CNctN+JLq3vvofBcYVwZ9kyYgANZku/twcmiIp1g3B4YqPQgsGoJs6o1wL5Vm3api77kkrkD1f0gH+YOUE/Yaret2qrjDjzFcnodBgeNmhkyjkQzum2DjUhEaftLgsQ+jOZcf2+db+m/DtpGxQ3GsvOBpyQw7SrnMJ/miSjNvNoQCQ8bbSkwd+io3+7Ruvmk05RcevlJP6pncEP7SWbrJTpbsqJOUQ+4jJRUfSy/dKHanPcWFfjn9X6QMy+u7z9D6aikhk7upzgnXAD6XlrXGGqhEho0HwoYxyNKN6S98ilwhLGyQ7H6f5cEBw01h+g/5Hbgo/J+ZfU4n13EHHqJ9PieFx64y4iGIJHaXKKfG4VCN2BHznXJpW3W08pz7aYyym7pSRMUlMKaEKjLC8AJd0+0/VvwlM6X46E85Tll1TBjC3H7j9fMZ7BtuFR9+SeXq/vJX9d925Ib+/MclWDef12fHnaVc6wQdq7sUHvyBcsSneJ+jxApLLQ4Wcuaug9i3q+qD2/8A/Ww4rb12UzdKOlgruLqCla+L0+8AfZ+rqfvysBgwWd/bpyjdlJ67XrwZv9cx9HDAPbqG2X0/re/9GB5ALSri4/BEn2n7wFuLteFX41brL122L9DAcChsXnArWg0zeXN6Bx6/pwURupcSiFKD8elFBgr9ghZBiE34u2I5RL/wjyZPYXwGAwN0u/rvwUUpBmYNtwMBgaPCxgvRGmNmG80c4F+MxwFnjyyYjHgpbqAuVmPIQF+MDsq26c+lCAeumPw9YfAxUUfx937t9/zMM9wYv8On6WQTbpLImBV9xjWCmKkHFOYK0T1eT7M+rpk7xd5QWkXkoJ84uigeh89XiuZlmzWhn7pT4p02RO+0TLGe1lvq6Osj3TObktCH09bsEGEmfAGyxVjTLcV2xpuvEiJWFyPa1rVJI06b31tbuD+os2q2NYetxMq2Od62jJv8bEt9bK3vNr7f4nrWz2NLJvO2xmxjDjv8TtP2QRLm+5NDtuZY3qruYW3hXus9Ptve7+2t7B9rGxzj1jZ+t7V5WTvQdxvfb3E9rR3vs63rd/idpu3js8qmLW1p2zkJM4xcGzWnLvS7SJdi5sFWTmxYKMNkpE6bgwQVPfYfsiHmtj6DJG0pYW6tZYYdTZ9dhTjhq+sxUuzOAxhzmhl6tLTKW6qofCVx+4wVt98EY/ygAaLYWo/JNEh2/y8a48LHFSRNw9LHMDastLl2khl4aNv5oGlLCbM1t2wRd9Ch4vTer8LRwAHhr0T0DTJDEHjObpl76Bk/GLgouKBfFqfPfozTpNW0oYu4w080VtPIEBOWNonbdzxCCSRsWdvaoQ/u7Mf9Nlc3L7NTSolDwK/NGcQ9pc219/C6cmKOfvWZEBoXhFUHOvoOvEoGiPmsaPqMo3ySUgTuq+SKBom5WeZQigIm4j6NtTqMCLO9rsvRJpdV16PV4ZW23b5tn/FH95E35z76/rx5D5m0rcZudI0g7xIuh9Izv45SmspidxlsiLiwjmlLln7uzb4b1BBlXBzJQHLxNom/fJYEG5cx4NvuOpREaSsHJnHCRRJzE3Bmy6EPFIcD0sC4cbU/u8MAxr6yf6RCwV2zYTHdHpzLHpOYh0jfJAgU7oGO/SWjXJxRPguf4lzhx0OGClxA5YXP6hxW8X4QPwLr4UsN1szTA2mCOD3HiL/6TfohTbieIUqks5GwNq/k+mA+uIdGzQ79KT2E6xfp8wySzICDJdy4ROf1aEIS8ShZOL1GS3npDAmWvVJdh7SlHLOGLp2c+EteJMEg64J5fshLRIheyxomFyMZGmlbjm6q3OSv08oH4sxNvICfZ4Yfo+LwsSY6pqEziRmclpteN2HDtB/zOgRZM1E5zl0U4z9FFE/+sO8xUwL5msitZA5jY2cVf79gko1VD0bgeGbECYxbBZdGZgTD/pAkffBlJki92wjJH3QpRWcQHnMMETCQ7cBYU7tdb0bkICwtP+1HkjvkMuaTwkGPvrPjzlFCXivZfc6QzJgzjf5NjltQAj5AsnufLmHzGh4IDcf+e4QcoM8w/hztuxeTp/ksSq04oHKTL2J4HK6BVIEACPSJXE+EJko55Zwpx2yTMm1ysGDtfHIVxK3iVPdXvFlrzEGCL3IOlbMguwGbPDP8Eyb4OjT9IEYT3BcpSMyD1Gsc5b6F6T9g2hfCyxqO+TeGiPngcG5kxleuhBhc5GkinrPxxF+TqCqiYJK9RyKtO/JE5od6r/2FYYW5qVcoB+tFrouImeKTOkfblszYsxhZ4739kDj9x0nxxf8mJ7XznU0A/ZNX69yeY9ACxHAkLiPTA1E4uUO+JdbMTHSAZU2kkh4iIHoHEgCzOwYx7A6iqq8cMDflEvFm3sznQbZJwynXmbxViMiF9YxGCpST+qtm6zofIGXtM/UepoS5Bdp0SHCIwyzPuVesTv3F181VE9ni5JmADM7knDKCYizC7MKaIHCL3NJCziSSet2sBNiAIz6h3OczujmV6/TZV8rzH6+6wS0THRS2rBc715GEiBhPRtBU8GvCxL+hiRPV/t3BRxjUgUDF727DKV6W5z4oOeVYjafdpKLoMypm32kiXLImwoVGLuiJCEXctELF4iXk8pQ0lbCy+54pWeX2iJCxKoYqA+kRrFtgDihAdSghA6YDScl4ZojsjJ5p7Eq1AIYz3AsuyuTjzSuYXQNx2wacSPNKEyqYwnikouwWG4KtdVNiA8EQRA66cTH1vqrIq7qdctWWu74m3lv3qy42UbnDxVH4WR1Xi/5GalJmv8+peDpJvFeUi7xwvfhLZxoIk3pF147SlOIIlQRUSeX3ZFqU6phAKwhWzlaCeUdKM/9ATgQxtHDPxcpJb2Owe8Nxv2B8bDUxu35cE6iO/vKHXE6dr/TCb3S+f4zAqqr5jODg/so3GcSPNSq/83fGAzt9xpm0Ll5TpPTBea19m5hJkEJMqFsy6ifdqClhboM4C9wZcITsAeeJr9ywXnzEJiWRDZjCJOeWey+mTsf42ZpmXCNhFFsKg4k363/JYYN1i5i6Fb6nu8QywyI+F+BabgMtmegrhgJBZkvYslrF37+I98adJv9QP3dVvM6omOvNvkNa7r5YddvN5KZhUNJbM0bfi62ySYhIiLIq8pZm/IFB52GE3ZM8dHA/xFlIFsgfxXqBAzt7HKiE+XKUELCcRAux3Js7XQ+FnhGOknJaFc8RLI+1RoA+9NYwTbFKRdn3Ik4gpWX3OtmAUzFI2q+6KCwV5ZbPIuHa3YYxuyOAKFhcr/tONzHgLinuLdQN3SgNx18jxSf+XYn8GclO/Io4ffc34F0A6ao3eFS4rlVxd/CwUPHQX/YqjSzgVEhNAioBuE/ptVvJ4WIRFvfDiBWseF1yB10iVse+kW/WM3mX+j3mC0MUEBmQFVPhopZx6YAgG474oY71hjg9RkdB4olDBBkcSozINiEX1IMHqVIO1gIiMfI39aDIH/Ltig8Y+mc4935dn068HlIGRFqI9EXVN1NR9h+n7WAQe0jiw4keYtPGGfBOzmDsAHISmQ76vdtrbyZIwx3C3MNcJ7O5C+sMRg3cHN1HEhsI3AFWU3AIEG3YvNpwCbg2LOMPZNJ0aaNJrsYDYA74O0qIdqHTQY8DMWBWSA9Dln6+My2b8FlSlCQWrM/cTheuF+RMEjnAi0RWmzohsG9g2YWxCJg4sR4ZjwX91VcCp8VVReP6dcLzmowQ3xA/ksqVezP5GZZp1ZVhNQ70WbFGJD7ot5kmwqcgsdtf9SZdK6m75B+mvY/skhioOLlZiA7nV+E3EKJH6Io4Rciuog3EOimd7141nQv+PYiG7CPKPkkGT5NDOlXRsv5vpnSZpG6Ty+y0nguy9SuiaUCiZCKxk/hcooAFO56XFwFxJVqcPhZDebbF0Wg8chM6cFB7XTx+Is2LY0egXITDxLgpt/yHIswdf9sRFkyrz6xEl7CI2nUlEuqzFwjmnLDoKtFsNYmhfoPW/w2u3eZ99XOpjs9czLZ0Vyc5rza4VXIsaxvma9mtMzTaHN+q3GfZKZdMjT9pS1vaUsLciVXvRDzrDjZEIMW1VT6GbBFaunf6+iJWNE8/3XIpYW5DY5zvEOLcxOGA20uUwHzN7v95GrYgqiN8sGIk+/CpUtxeY2hE26lR7OAWQtBF+14pcb5vwqyvwFWPRRrWlU8IkziyYV35gC30sV1jRoaSrfVR/3fs2qm/JuoLcbzuoMMYtUP4yMo45bargtWNj8AB1HBBQD6D8TsAle9LURpbUP1pq782Pw+r47S1gSv3ROvse5IZfZoB24ozU9qcf7Jamb/l/ra21q0nUx1ni88WBZWoFJEZcjjrsDCk8r2IM3bH1eyvsDqv3SgSYzsJ0+CfVhcmNlJEi4ONB/CqOEKmlaUysnw679FHjYGkzggD41EFpMqAc1kd+hjQ51hcdHK1Ilx8f5SAbbfvyUB8k04VRxCZOSBwAL7O0ku/Y8geAakYSmgzcgffGbE0Tu0KDJJfvmNUACkgVKbV1Eu8l2+i6whRPahcxrBBWottkyaHIAj8TdhMg2PLgHqE6GWbqsnieGaO05MFnMJydd78Xd+JCaiwIoCtvBQe+TFDDBmfHPXPawAAXek3Wne4Z4CiF92PZ8SzxpXPzOemVgzXGqBgbSW7cz18g1iIdUsYu5jmB+TB5DyjlDiWkUAJiqbubaTQGWJnqCRKY3TqXx0rNqjxvXWrALHtDm074CsN4eQOupQ+Qvgvs6NOJgZp+c37GPydm3A+Fzwz/FjGuMIK2nDczyXcuEyClW9IFjivnQaw8hX0LwSQIwQvP/ki7eMeEhnia+nkj+ozIsskd8C5JiXL1xN2wBSGAgKSERwBGRkIEs+OPIGbBz6//EEXM+4W8JYgytykiySgj7LMbBJkcqCkHMRVRC4BsS9/6PfYb2bEJyRY/hqBmlnbY91C7R9ZIN8lVCTgMBlgoXNE9kn+4G8RVZ19KmcsL35JRdh/lszAKQyQCDcu12fZzNIJ/tt/Z5oZAheAZYv5Z3QNA6a8LWWSeW7i1xj1g8/D5rVcN+DfItjABearzg+bE3izceI559BjlLjDj9fnniPB+oWSG3eW8eeunE0i4/x772MybjYs0bWfq/fuz/eJOGLk1JZ1fk7f8VwvwF4CLjNYOYcBFk7nwZI7+FL9fBTR8aWwjvi/FWRB+qjbS/7wH4qzxwTm1AJEGzHIOJxYFhGlEruPEFfX0Nd5YQ8hEioz/Dj6r5F5RPxfJApU+jWElp94IQGqIfq6Oj4CW5DRlB3zGcKUZvHe1i+WEPjAu75rqcXeHm7JJGM9uQD0zFoYvcfQOY/TEUDDiBUNlr9K0YSB3XoKIjuEFaX0JIVoSKLWBYVTHfGx2NQ29IzGrnwpkmsi1qmJgTXcwmrsXH1J6DeqWwKcU+DZttx9kRSfupriJ6KQCMHIIrNhVGSoiwkS79CXKWUtt3/F1LbUOdv6LEzg7rufHiaPScsdX2Y0D8IB6cZQYgYwMjBiW+79phQe/iFLDIAogalLbnjXhVK471JGFgFMGpks5UUvSeGh73OTMYVMT3Tj88yzJgpKDuA+HAw4EOL81eLjV0nznRcw4wUYr3Tz6PMgX7Plgcv1Wb9BgraVEPGMAK4uvfjfrFeK3NTs2C+Y8MeGjjqu4ZbZ8WcziaD5L2ezTkt23Bcj5PUsD5vS07+SwoNXcImxhoVHf8RnRfZPdsK5xLgFDi9qnGJ9MJ47ZFpdoWA9NMd8mu8W61t6+X9Yro8ShBK1q0RVmP499osDAIct82F1bZCzilqiKN8AoiZIdczVGVTSnUWnmnW9mm8/j4dVZq+TTZC/Hn4IcWy+/Usm1LFN19eu17braGFmyfwnxB14kJQXPMWF9cC5dCFBYNhkwYZFjNhBsjNOQW/mnxitAwJgALxyNCj9KM4KVHaIIKhNgs3Gsn2LXzS5mk5TrR5RL1IrwYEr4wWByPE7UsZqEA+sxP1ANUc0kBIfTn7G1qLylZ7ySPkKVqH0wvSEHhZW6oESiBkAy3otOChqayLUEJFC4AIN034k5XefNeMjgCLeHJbV2iiKeYBbIBxRxdXyoueZIoeDCCX/MqNOYoYND4UoUgjrhUK1jC5C0sCat3nYWE1dTbC8EgyIF1IHOIkZPxrYcZmrGrTrpVz0XAkh+qNiGvJclbOgTgwjjhD/266PCZpY/655F/odAJ6R5I0kbswtf/RPCepdfOwndf5nR99nP/Feu5UJ5ozkUu6NeQCEGuGPJuUt6nfw4aYoEmrVIOneNpFT/oKneUCVFz1rngCfb1hMcO3cxK9SpMeBimQEpiGqRAKVg6Ix/eq7R2Lc9umYyDNc/kqURnUoUcKxmR3lHNDZGNJmZyjOoX4jcgtR4IZB7SNPJFFiIzGTH0HkKkJJaSODyGmda+xOlHRG0lDXCGqDx2MDAI+UnBL0/7LKFrhgTkUdVJCOA+Ir+KiRcYOVmZHlMtmItd7ch/QQWVzFSA2Cqv5XgwhpS7UUglSyWQxq+iwp6AaFFIADIn/Yd6qcunIytIE3m6yShX8jwGckfYPjY01BMDw8ovuZvYNf7Uhvi6tfi18dS/thqQerDtISwNWl9foeNqoIupZxyVh3K9bl4w0dR1nFldFi9HnVKcHlio/9mx4o7zIZHhXFyNVwkMWRU1Yi6ydpdKuZryTKSlgJY2B0fwy5gs9YG6eoUtcYyU+9TIl7Nt8bUu4qfYVBFJ3lyO6EdbudRYVsxrgGKnqgPALEVmxKkwhc4OfYsNj4dA/oiQ/iZUI19ELlDszaAIzH6jkqin6WBWqxmQxnMtcTJgRcBIaLCBuIWSjIYUQGBo0SHhONkbeJjVa475s8DBhjih/AnahYxZxPiLJABQAsyJwHyJmCZTNMJJBlJTZLG89b3GAqTKtYbsrm2QYmZO186pvQuYoqurb89RzG48ISGxfV3aoRLfk7xL32fTgflLfzFzxuCCxpzLCktoIZk9Z1PTIduD5YeyAikKskA/8Dg+jgL3+dNUfL8x42xhuGMiYODqypHnDc60gKwNrBXaSHY7BpORMSYHwqPv1LlnlnQV3cpuoBkCCIflhcR3Ee94IbWvpMrJIGyJiOJtsnUI6PuGNKFvDz6jPCpcR4YqhH3Ycy6wbvjSKt3gMVCAdVaQbyZp8yOEgVPXL3TB3fIS0ZRWigqKNaNLgViRUiahQHyqKnLGO3gicqRDcYYsxmy5gyqsteFVv1I2Rp4MSF8QMiJUQ1QJE0nvwb6oHQ+5jJoeIikA3cUSfoxn3CpHO1rNOT9DtME4NhAyIdiAcvMT/12yyKA7gTQvvDYKPiZnby15TjNxgiUv0qLrHXphskcj14r/9VD4FvsLYl+oOoRz0031F1sPNNBo0SK7JnKA3EVuYt2NBqvwuj7JglJJb8UT9lVgoOEcvN8lCo3BcTZ2hqfvJZldByKF2/5EWVXKaYkoWUGKrUDKkF84fEACgYf9ksERBoUhIh0azmwdhw5L/SaAQDGYgZ7wcGIxqmlHuxhoyKnCCQ3H6fpbSz+Y+nM2UPRibYC4BMYdbdMQe4Pl/D0VdRZXAGTJbSSzdFMDDNLFZEooQ/ExLDO4+Z/NgTrpHmP32GagQgWGCgY8VwFDya/2jte9rN2vYHsUdiHBRyZunTctrdGIY8UzqOJnMYWlSEZXYHDBi4Rk9ec0obNwr8e+yDRXw6VcqRg3j5HTJXQDjA6oForFwVHJZVxUD0ANnSjQYjA6o6l6Fr0bXgUfxBuXIQEIxMRAHQf0FEgBRBZWfowjgwCB/Svi/14ypSXUee6kTQA7dVTkDjlYq/sDRKNA6srNiocAdADKcLhs/Wh5zCBPpnKerDWko3CfIsOZYYtwI4GNYGKsKAg8zhpuIajEUw+kAvo/ENXAViDvCWMG/8DVeDzsuJdF5YpWkAA1dStQHrz3KAqrfBCgv9lHooq20bbCMQTUUMBfYSjEv6/ir9IccVawRAM9XvgOaAtDnMk9IMXDCo/oU8VtXbkcWDamS5CedJQSWAcMNSiuBO/0lEafCXvmSK79JN08NwRX0nIFTYCkx5xhyfk3tAOSvLGephxapx1F31clTDRtYPM4hKuxP33MHskthRHGdDRDmRtVkgnpGUY59m4NeZscMoqyTK1odog8OP1yQyTqJTn34zWjUjJLq45LofZ6PYtZn/cZEc6o1WNQidyc9e9XPqbnZivET0TrKGR3SfCTpP+EnBuSM/oZX0wTIbxa2yOT/KxKnPyol1LFyLg6Bs8GytWIzFvJO6Wtx3PO+aZ81U1yzwqs9X89xOjV/XZANl6nyG5jCs9ld9p+ZZnWgNYp0/qL4PrI+qEtBBQUzARTJ9JPrF33ZinvjOL0eu1Vz1kEjugWhs6sXxPkIflTS93UqkfZ9FhdKWthodx6MuCfEeyeAI0oCRKU1Z237CTFcsbR+gKTFDsbjwwGWGu4H7pUT50Rl/0pa2rVqclUDTPNKP0l2StrSlLSXMtKUtJcy0pS1tqY6Ztg+5wQ3iRzmKybBGy6qGHqYtJcy0fUQt9qk2dhG7Q3/mb1bichGeh6glQGEiOAH5mLaTrllKmGn78DikQSFAkjVyHJn6BkLcvJKYtaYimhLrnlPEYdjkQvFRYhCRVm5dSYa0pYSZtg+IKBFDOuI4BtEjNhlxwigBKOVmg8rQvrf4QMNH9g4DxPeT7P5nMuaVSde2k4q3KWGm7YMlypCZLsjQKc34van7glxOxMgixrfPGCIRCHJP2/Xgd6irgljYzMjjSbhEkEBLiXOnaOlb2KWJ0hhzCHeSaZDSzJslLKA48NGS2ec0gwrRfRjjUBHwbjV1MTVUVs0xdTizjVJ68Uaxm7qKq9y20mfaUsJM2/toyhFRTQxgYCgliODy3IFfppgKQKzsuC8ooW4g1hCKJJXnPmxSyvaczL+RvYHMltLLNzObh5ktfqmWG9egHEr197gWaIVrRy2JoldJWG91olRR7SqogWEtwmLls6B2Hm2h7yUPqq0i+KWEmbYPuyGbRMVS4C+V59zHwk0Gdc9hfiz0S6SoAYPI2WOiZIZOIygXUt28V/7MawGRgvtRlKn81v3MaUWfJBpYdpVokXNaJcKw+jvwhAKDMAHQsjhDh6IyDE9E6zPpgVVityq1XIglC9whjqHXZ/I6XjXrhVXZXFOkCqlp/Buhfvy7KYGXmyBG9IEiyLuBOL4dKHlp27m4pSfuoKkmEX3+k0yHApeEiIr8VIirKO2HBOc4/9RWgnH6H0AQK1YoA7Aay8+/a3Ca9Hds+mD1PA4BYC+n8x5i99pbgiUvE2IyM+pE4hu5/cZLdsw/MQc1O/pUIjq4g6eKnWvH3FWka7l9x4rVoTcBv5Bcj/QwEGRmyBFR2lggmWFH6yHRz8BsAlxswnnsMzPiGAM/02dfcYceSaIjMJqOSSBrzBPlFnVuQA0kvMvAg/TaaUyIr0Fn2PVaS8oxd1XdEvArsLQunRnJPg7dIvhMVHxF8jAQ+oDIZ0VEAuQAJp3rZiYBwkqrREqigO6pxEruB66LZGUkfbuGC0FPteCKUYIkt0UCtRJLdr/PKJG/wcRwJIwDWa/06q0sWoxMk/JrfyPHhl8VyeSExNTDAtehjim5LLgq4UwXEJUhN/5sQp7S5wocKa8g5dl3G9dOjE1MkdknyBt1bCxLyzoRlG4sbt7ldeWUMHdJwvSJkAfiwgamqwPEtGm5lJUYiekLggRCQUNXEqD31gO8FlyxrNwP0Jt2l4EGOygC5ia8SyQyUkQFusG6hWI3djVQn9onkQkHH8brynOnU4cF1AfGYK1T1VuBpkBkBQA/A3pSiY2EDpS/zSuUSw8kN+chosRNhAMAUnfsK/6SGQTbAkRoGCEZwJocMtHeMaKvPjsBuLsMjoDWStSrmRSebU9ISyIj7MJlF1JRdpfUL8vkWiAU4CBVivrqBiYsSNchRnQEsa19x2D0AJoTGxuIC4TgfJtRQQDqDsB1I0R4YO2EayO4F4iPyikBokY9TrkaK4irGEooGeDzkDjXU5QMNi4XB1XAVZwFFhEODhCm/87jxHIChhEwf4izqyItQbXiwsQgIm+z2KpvAvMHYNIQr43bxyOEJTk74C51TIK3AadIiTpcM4++WRYwBsHiwAL0DJDvd019syVFMNhFrbG26o1Oz70IgMXNB1yi/hMi3+VQs4GVSwJpLrPPqUQHBNodysZTTFTxkESrOieRClfM5j1E1gdhQMzFxmZ+pWPyKyP0vxAcm2UuAmL5oK+YgFjqAYYpQILEkDNxjG6M7kfuGUFyhmGE2GfzHsKfiE1uDgNWjFkUl1xgqYVKMERsTKqitvN+iLpxgnY9YVbAx6xqzRYrCYETWX9tJ/o9MIJlDHdCiM1yFZKzUmLDieBz7CpUTMyxCVEabI/emyIY7KrNFMuO8HCw2cCFVDwsL36BoqO/+m0jHoZlEh3C9ETFXGMYcQ1kZo+RptRE9xFiA8RbOVGlKBA4T+dBOoZjiHjTMvZPAtRDIGheBZxLU+cEwGngULSQ6j7MNZpiRiyihHL3jeRw6JdQlrDcogYMsIqU8CAqA5cWojQ4JkDAMTeUqiCQNMRr3KtjQJcFd4TobMCsu5JT81mBVIhZ4Dti9eYMmFuySnhcaRy6LfpVndrSebA/JUCoAAYUbpXOualSuwaAbsQmAqBbx360ghuLtcGGgiWc9WsAyQkkB6wX6rwgLBJrBRBu1n9JRdndWMcMSCBOr9EV+E8izXUeQKskjDjAiAXgmNOhL/XEcP0iyR90CfVQINpl9j5ZMnudRENQee5DFI0hLsJ9AoMLuGVu/Be5maC/AfIThOkMnEJCoKEFGD/dBkt29GnKZR+PTgxHcpMuoKjMQHndzBBbMRbEZqDq4UBBxBE3u/aTHfs50ooLjh+UWAHMm3kzfbQQdwGmTVcQyt7r5kcABSoCgGiy4z5PsT2rzwOid4CYSLE5R58ukQsj9w8OmOywaUQ7BNIhykxkUS8FfSvNuji8ALINlwsqvun4iD0GZwchwi9MjOR+48mZIZlgvcnV9b7c2C9Q1M8deJ5YLP/QngcSrNz5SRfyWYHstw2JA6lVdtc02Tk80Vm5DJyIqIIlljGAHkfXgmWQzn3AVa58kwRM1HwVXVGxy5tzv27+W4xfEBCQSkTA8wVOMDBeedLrZvR1U6FshdtvAjkxYD3p6ojFOb0mgMgJToH5wLCjc4KLhKh4BAlfb7hnk3I3wIaWIm6jYikhRMHx3QaDrav9gLCot25YYuJ9YxEBemTkoyXEJaBFdR1Yha2xG3GFwfUJfk2s3548vOIKYtCZETPs9B7N5+Dz6DwgluMazJnlJmBgAvGozkoujHnqoQWsXdSBwfxhlfZRJkTXCiUjeOBh7sX14ukcQNR0Ra2dT3cOfLuQWsJkAEdqld3d5NgIIR61N1ETJrJYEg1fNwLcCxU7EWqkYEPDd6k6JYiMxBgRF4w0tJJmmpSDDDeEGUZBAI1dxFGuACsrLb2wdMLAgk0OtwrG1b5AAG6/cTqXUSR875U/Udwj5wHngHUYYqXOy+4xgpZiED0tv7DcAi8YZStm381r8BmQ/KmDgkiIW7vc9Im+MJ5uclZkgyirBMwaKX3HMXoJVdGcrkMIVo3ACisqG4jvEFQRqJiP6mwUyyGeYh7gbJtWah9j9RnGmQAIEC9cNBCTuw9j1BQMWSA6ECSJGml1eM4I8d9WicDWdSo+f704/cZynVBOxJt1q/Exdx26TcWEU1F2FxZnKW4pIUC8Itg2a3P2N1wFlk7lnplBU5V7DDEuCxUdTfGgniyVCCQ7ipwoW9G8khsfOijEVOpWSvjgTABYBte1Yk4NDqL/Vrg3AKOxwSGqoeiRcllew1L3HucBgxPETzbMDwYoGJfAHcEZ4faB6wM+WOU+EAPhoyXiPGqMbloq/sJnKgj/MDCFLaupT6JYEUoZGktvs+G4uAfcWcdi6YfAFHuCr5TPrM/FKgIgtgVPm0MKSPuwUuv3MWfnWuJarAUKQilH9WEoi2qzQkXgGBCVVUUAx2RlAX0mFE+iRdkz9XpYKwfvydv0Xtbi1Cq7q7tNUB4PG4GlEViysCud+yA21JOET7D4yE9oTKHfj3paB25QRAhRxOo9hkQBEaz8xl1VkGcWaJKKn5REFkTFgSqA1b4Bs7as6Bo/AcSciayXfhW8OdL3aqyh8XcVAOtSZKiJQK+pQzs09lSqasdIDIFXrdQdFySy7eo8WAUsWy2+m0Cc53V+uVrSIkLX5zPHY8XFkGIrbGxttt3ocCxFxZyjefO+cnVOFctxApzaek8dM7XK7uqt/NaDLNzq7DGJtVWgf3mv/tW4NBo70+rKuiTKAeBThLvEWAth5VT9TDkj9E1GEYGjJU/yGGm/ovhkWis/2GRuYqM5Tt29kYshRm53og6SeLPJcn6txrVqa17ivuS9Mao8CbeNeST7dtqA1HSdLY/t1D+sUzt3Plc+oQPnase26taifj1THXN3NQK5FNm8N+4woXK99zGntm1K9lHfjLkW3BFwP4BjKjEiqRrBAG6/A+gPhc+T4loKNbJzvNp0CXbxphwD3BAZJijBDvE1NsyESJhm1oepGQILKNwHZbgQ9HOIweXFL0ppxh9McaftONHT9iHb91IdczdpcJgjk6Pn3vS9MYStYz+GwDFbBNE7sGiqOGv8dgF9bjB0sGpYSpQ7U0t1zN2Hc2aM5XP9YmO27zJYJd28iZRB4V4x+ZWsqam6JDlkFO+aEuXO11LC3M10TuqdxY0G00d/aCWURFn0KJ6VumfSqJK2lDDT9mErKHbbXDBpHU3bzn3GpkuQtrSlhJm2tKUtJcy0pS0lzLSlLW0fUIPxZ63+IFbJS5cjbWn72Btoce3/CTAAOGAszQpPQPAAAAAASUVORK5CYII=" alt="independiente">
+                    </div>
+                </div>
+               <!--  <img class="flex-0 flex-end self-center w-10 mt-2 z-10" src="assets/images/logo/logo_tarjetaLA.png"> -->
+            </div>
+
+        </div>
+    </ng-template>
+    
 
 </div>

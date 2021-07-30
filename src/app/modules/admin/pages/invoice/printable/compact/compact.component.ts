@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector       : 'compact',
@@ -8,6 +8,12 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 })
 export class CompactComponent
 {
+    innerWidth: any = window.innerWidth;
+    @HostListener('window:resize', ['$event'])
+    onResize(event){
+        this.innerWidth = window.innerWidth;
+        console.log(this.innerWidth > 600)
+    }    
     /**
      * Constructor
      */
