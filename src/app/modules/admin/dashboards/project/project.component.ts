@@ -7,7 +7,7 @@ import { ProjectService } from 'app/modules/admin/dashboards/project/project.ser
 
 @Component({
     selector       : 'project',
-    templateUrl    : './project.component.html',
+    templateUrl    : './project.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -12,7 +12,6 @@ export class CompactComponent
     @HostListener('window:resize', ['$event'])
     onResize(event){
         this.innerWidth = window.innerWidth;
-        console.log(this.innerWidth > 600)
     }    
     /**
      * Constructor
