@@ -15,10 +15,19 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { SharedModule } from 'app/shared/shared.module';
 import { ProjectComponent } from 'app/modules/admin/dashboards/project/project.component';
 import { projectRoutes } from 'app/modules/admin/dashboards/project/project.routing';
+import { ProgresbarComponent } from './components/progresbar/progresbar.component';
+
+/**
+ * benja'ss imports
+ */
+
+
+
 
 @NgModule({
     declarations: [
-        ProjectComponent
+        ProjectComponent,
+        ProgresbarComponent
     ],
     imports     : [
         RouterModule.forChild(projectRoutes),
@@ -34,7 +43,8 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
         MatTabsModule,
         NgApexchartsModule,
         TranslocoModule,
-        SharedModule
+        SharedModule,
+        
     ]
 })
 export class ProjectModule

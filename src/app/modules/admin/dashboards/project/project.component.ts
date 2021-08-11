@@ -1,18 +1,48 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApexOptions } from 'ng-apexcharts';
 import { ProjectService } from 'app/modules/admin/dashboards/project/project.service';
 
+/**
+ * benja's declarations things
+ */
+ import {
+    ApexAxisChartSeries,
+    ApexChart,
+    ChartComponent,
+    ApexDataLabels,
+    ApexXAxis,
+    ApexPlotOptions
+  } from "ng-apexcharts";
+
+
+/**
+ * banja's exports types
+ */
+
+export type ChartOptions = {
+    series: ApexAxisChartSeries;
+    chart: ApexChart;
+    dataLabels: ApexDataLabels;
+    plotOptions: ApexPlotOptions;
+    xaxis: ApexXAxis;
+};
+
+
 @Component({
     selector       : 'project',
     templateUrl    : './project.component_v1.html',
+    styleUrls      : ['./project.component.scss'],
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectComponent implements OnInit, OnDestroy
 {
+    /**
+     * fuse's team declarations
+     */
     chartGithubIssues: ApexOptions = {};
     chartTaskDistribution: ApexOptions = {};
     chartBudgetDistribution: ApexOptions = {};
@@ -24,7 +54,30 @@ export class ProjectComponent implements OnInit, OnDestroy
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
-     * Constructor
+     * benja's declarations 
+     */
+    totalBar1: number = 100;
+    limiteTotalBar1: number = 1300;
+
+    totalBar2: number = 2000;
+    limiteTotalBar2: number = 2300;
+
+    innerWidth: number;
+    @HostListener('window:resize', ['$event'])
+    onResize(event) { // detecta el cambio de pantalla (responsive)
+         const innerWidth = window.innerWidth;
+         this.innerWidth = innerWidth;
+ 
+     }
+
+
+
+
+     // @ViewChild("chart") chart: ChartComponent;
+     public chartOptions: Partial<ChartOptions>;
+
+    /**
+     * Constructor fuse's team
      */
     constructor(
         private _projectService: ProjectService,

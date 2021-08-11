@@ -2,6 +2,31 @@
 import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
+    
+    {
+        id: 'home',
+        title:'',
+        subtitle: '',
+        type: 'group',
+        children: [
+            {
+                id: 'dashboards.project.tla',
+                title: 'Home',
+                type: 'basic',
+                icon: 'heroicons_outline:home',
+                link: '/dashboards/project'
+            }
+        ]
+
+    },
+    {
+        id: 'datos personales',
+        title: 'Datos Personales',
+        subtitle: 'datos personales',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard-check',
+        link: 'datos-persnales'
+    },
     {
         id      : 'tarjeta',
         title   : 'Tarjeta de Crédito',
@@ -11,48 +36,144 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id   : 'dashboards.project.tla',
-                title: 'Bienvenida',
+                title: 'Límites',
                 type : 'basic',
-                icon : 'heroicons_outline:home',
-                link : '/dashboards/project'
+                icon : 'heroicons_outline:chart-square-bar',
+                link : '/dashboards/limites'
             },
             {
+                id   : 'dashboards.project.tla',
+                title: 'Disponíbles',
+                type : 'basic',
+                icon : 'heroicons_outline:trending-up',
+                link : '/dashboards/disponibles'
+            },
+            {
+                id   : 'dashboards.project.tla',
+                title: 'Consumos',
+                type : 'basic',
+                icon : 'heroicons_outline:cash',
+                link : '/dashboards/consumos'
+            },
+            {
+                id   : 'dashboards.project.tla',
+                title: 'Debito automático',
+                type : 'basic',
+                icon : 'heroicons_outline:credit-card',
+                link : '/dashboards/debitos-automaticos'
+            },
+            {
+                id   : 'dashboards.project.tla',
+                title: 'Historial de pagos',
+                type : 'basic',
+                icon : 'heroicons_outline:archive',
+                link : '/dashboards/historial-pagos'
+            },
+            {
+                id   : 'dashboards.project.tla',
+                title: 'Cuotas pendientes',
+                type : 'basic',
+                icon : 'heroicons_outline:receipt-tax',
+                link : '/dashboards/cuotas-pendientes'
+            },
+            {
+                id   : 'dashboards.project.tla',
+                title: 'Mi cuenta',
+                type : 'basic',
+                icon : 'heroicons_outline:user-circle',
+                /* link : '/dashboards/mi-cuenta' */
+                /* children: [
+                    {
+                        id: 'movimientos-recientes',
+                        title: 'Movimientos recientes',
+                        type: 'basic',
+                        icon: 'heroicons_outline:refresh',
+                        link: '/dashboard/movimintos-recientes'
+                    },
+                    {
+                        id: 'resumenes',
+                        title: 'Resúmenes',
+                        type: 'basic',
+                        icon: 'heroicons_outline:clipboard-list',
+                        link: '/dashboard/resumenes'
+                    },
+                    {
+                        id: 'consultas',
+                        title: 'Consultas',
+                        type: 'basic',
+                        icon: 'heroicons_outline:question-mark-circle',
+                        link: '/dashboard/consultas'
+                    }
+                ] */
+            },
+            {
+                id: 'resumenes',
+                title: 'Resúmenes',
+                type: 'basic',
+                icon: 'heroicons_outline:clipboard-list',
+                link: '/dashboard/resumenes'
+            },
+            {
+                id: 'consultas',
+                title: 'Consultas',
+                type: 'basic',
+                icon: 'heroicons_outline:question-mark-circle',
+                link: '/dashboard/consultas'
+            },
+            /* {
                 id   : 'pages.invoice.printable.compact',
                 title: 'Ultimo Resumen',
                 type : 'basic',
                 icon : 'heroicons_outline:clipboard-check',
                 link : '/pages/invoice/printable/compact'
-            },
+            }, 
             {
                 id   : 'pages.settings',
                 title: 'Consultas',
                 type : 'basic',
                 icon : 'heroicons_outline:search',
                 link : '/pages/settings'
-            },        
-            {
-                id   : 'apps.tasks',
-                title: 'Recargas Virtuales',
-                type : 'basic',
-                icon : 'heroicons_outline:check-circle',
-                link : '/apps/tasks'
-            },
-            {
-                id   : 'apps.file-manager',
-                title: 'Resúmenes de Cuenta',
-                type : 'basic',
-                icon : 'heroicons_outline:cloud',
-                link : '/apps/file-manager'
-            },
-            {
+            },  */       
+            
+            /* {
                 id   : 'pages.profile',
                 title: 'Mi Cuenta',
                 type : 'basic',
                 icon : 'heroicons_outline:user-circle',
                 link : '/pages/profile'
-            }
+            } */
         ]
-    },    
+    },
+    {
+        id   : 'apps.tasks',
+        title: 'Recargas Virtuales',
+        type : 'basic',
+        icon : 'heroicons_outline:check-circle',
+        link : '/apps/tasks'
+    },
+    /* {
+        id   : 'apps.file-manager',
+        title: 'Resúmenes de Cuenta',
+        type : 'basic',
+        icon : 'heroicons_outline:cloud',
+        link : '/apps/file-manager'
+    }, */
+    {
+        id      : 'seguros-y-asistencias',
+        title   : 'Seguros y asistencias',
+        subtitle: 'Otra opción Multiproducto',
+        type    : 'group',
+        icon    : 'heroicons_outline:home',
+        children: [
+            {
+                id   : 'apps.contacts',
+                title: 'Contactos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/apps/contacts'
+            },
+        ]
+    },     
     {
         id      : 'prestamos',
         title   : 'Préstamos',
@@ -108,23 +229,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 ]
             }
         ]
-    },  
-    {
-        id      : 'seguros',
-        title   : 'Seguros',
-        subtitle: 'Otra opción Multiproducto',
-        type    : 'group',
-        icon    : 'heroicons_outline:home',
-        children: [
-            {
-                id   : 'apps.contacts',
-                title: 'Contactos',
-                type : 'basic',
-                icon : 'heroicons_outline:user-group',
-                link : '/apps/contacts'
-            },
-        ]
-    },  
+    },   
     {
         id      : 'dashboards',
         title   : 'Dashboards',

@@ -1,0 +1,6 @@
+<div class="flex-auto min-w-0 m-auto my-2 progress-bar-container">
+    <div [ngClass]="{'hidden': progress > 0,'block': progress < 1}" class="text-secondary pt-2 text-center">Consumo: {{ '$ '+ shoowTrueProgress }} </div>
+    <div [ngClass]="{'hidden': progress < 1, 'block': progress > 0}" class="progress-bar {{color}} relative text-center text-gray-600" [ngStyle]="{'width':progress + '%'}"> 
+        Consumo: {{ '$ '+ shoowTrueProgress }} 
+    </div><!-- <span class="mr-1 justify-end"> / Disp.: {{'$ '+ showTrueLimite }}</span> --> 
+</div>
