@@ -3,6 +3,12 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     
+    /* {
+        id: 'user.name',
+        title:'Lenadro Anache',
+        subtitle: 'titular de la cuenta',
+        type: 'group',
+    }, */
     {
         id: 'home',
         title:'',
@@ -11,7 +17,8 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id: 'dashboards.project.tla',
-                title: 'Home',
+                title: 'Páguina principal',
+                subtitle: '',
                 type: 'basic',
                 icon: 'heroicons_outline:home',
                 link: '/dashboards/project'
@@ -22,19 +29,19 @@ export const defaultNavigation: FuseNavigationItem[] = [
     {
         id: 'datos personales',
         title: 'Datos Personales',
-        subtitle: 'datos personales',
+        subtitle: '',
         type: 'basic',
         icon: 'heroicons_outline:clipboard-check',
-        link: 'datos-persnales'
+        link: '/ui/forms/layouts'//datos-persnales
     },
     {
         id      : 'tarjeta',
         title   : 'Tarjeta de Crédito',
-        subtitle: 'Servicios de Tarjeta de Crédito',
+        subtitle: '',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
-            {
+            /* {
                 id   : 'dashboards.project.tla',
                 title: 'Límites',
                 type : 'basic',
@@ -54,15 +61,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:cash',
                 link : '/dashboards/consumos'
-            },
-            {
+            }, */
+            /* {
                 id   : 'dashboards.project.tla',
                 title: 'Debito automático',
                 type : 'basic',
                 icon : 'heroicons_outline:credit-card',
                 link : '/dashboards/debitos-automaticos'
-            },
-            {
+            }, */
+           /*  {
                 id   : 'dashboards.project.tla',
                 title: 'Historial de pagos',
                 type : 'basic',
@@ -75,14 +82,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:receipt-tax',
                 link : '/dashboards/cuotas-pendientes'
-            },
-            {
+            }, */
+            /* {
                 id   : 'dashboards.project.tla',
                 title: 'Mi cuenta',
                 type : 'basic',
                 icon : 'heroicons_outline:user-circle',
-                /* link : '/dashboards/mi-cuenta' */
-                /* children: [
+                link : '/dashboards/mi-cuenta'
+                children: [
                     {
                         id: 'movimientos-recientes',
                         title: 'Movimientos recientes',
@@ -104,22 +111,22 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         icon: 'heroicons_outline:question-mark-circle',
                         link: '/dashboard/consultas'
                     }
-                ] */
-            },
+                ]
+            }, */
             {
                 id: 'resumenes',
                 title: 'Resúmenes',
                 type: 'basic',
                 icon: 'heroicons_outline:clipboard-list',
-                link: '/dashboard/resumenes'
+                link: '/apps/contacts'
             },
-            {
-                id: 'consultas',
-                title: 'Consultas',
+            /* {
+                id: 'ayuda',// Se cambiaria en etapa II a "Consultas"  
+                title: 'Ayuda',
                 type: 'basic',
                 icon: 'heroicons_outline:question-mark-circle',
-                link: '/dashboard/consultas'
-            },
+                link: '/dashboard/ayuda'
+            }, */
             /* {
                 id   : 'pages.invoice.printable.compact',
                 title: 'Ultimo Resumen',
@@ -161,7 +168,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     {
         id      : 'seguros-y-asistencias',
         title   : 'Seguros y asistencias',
-        subtitle: 'Otra opción Multiproducto',
+        subtitle: '',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
@@ -177,7 +184,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     {
         id      : 'prestamos',
         title   : 'Préstamos',
-        subtitle: 'Otra opción Multiproducto',
+        subtitle: '',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [

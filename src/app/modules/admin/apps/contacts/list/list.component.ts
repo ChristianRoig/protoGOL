@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Inject, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -8,10 +8,17 @@ import { filter, switchMap, takeUntil } from 'rxjs/operators';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { Contact, Country } from 'app/modules/admin/apps/contacts/contacts.types';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
+import { MatTableDataSource } from '@angular/material/table';
+
+type DataSourceMobile = {
+    producto: string,
+    fechaCierre: string,
+    resumen: string
+}
 
 @Component({
     selector       : 'contacts-list',
-    templateUrl    : './list.component.html',
+    templateUrl    : './list.component_v2.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -30,6 +37,17 @@ export class ContactsListComponent implements OnInit, OnDestroy
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
+     * benja's propiedades
+     */
+    items: string[] = ['item','item','item','item', 'item'];
+    dataSource: MatTableDataSource<DataSourceMobile>;
+    innerWidth: number = window.innerWidth;
+    @HostListener('window:resize')
+    onResize($event){
+        const iw = window.innerWidth;
+        this.innerWidth = iw;
+    }
+    /**
      * Constructor
      */
     constructor(
@@ -41,6 +59,24 @@ export class ContactsListComponent implements OnInit, OnDestroy
         private _fuseMediaWatcherService: FuseMediaWatcherService
     )
     {
+
+        this.dataSource = new MatTableDataSource<DataSourceMobile>([
+            {
+                fechaCierre: '10/09/21',
+                producto: 'Tarjeta LA ANONIMA',
+                resumen:'NO'
+            },
+            {
+                fechaCierre: '10/08/21',
+                producto: 'Tarjeta LA ANONIMA',
+                resumen:'SI'
+            },
+            {
+                fechaCierre: '10/07/21',
+                producto: 'Tarjeta LA ANONIMA',
+                resumen:'SI'
+            }
+        ]);
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -102,7 +138,7 @@ export class ContactsListComponent implements OnInit, OnDestroy
             .subscribe();
 
         // Subscribe to MatDrawer opened change
-        this.matDrawer.openedChange.subscribe((opened) => {
+        /* this.matDrawer.openedChange.subscribe((opened) => {
             if ( !opened )
             {
                 // Remove the selected contact when drawer closed
@@ -111,7 +147,7 @@ export class ContactsListComponent implements OnInit, OnDestroy
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             }
-        });
+        }); */
 
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$

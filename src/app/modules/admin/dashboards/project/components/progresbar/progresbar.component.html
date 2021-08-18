@@ -1,6 +1,10 @@
-<div class="flex-auto min-w-0 m-auto my-2 progress-bar-container">
-    <div [ngClass]="{'hidden': progress > 0,'block': progress < 1}" class="text-secondary pt-2 text-center">Consumo: {{ '$ '+ shoowTrueProgress }} </div>
-    <div [ngClass]="{'hidden': progress < 1, 'block': progress > 0}" class="progress-bar {{color}} relative text-center text-gray-600" [ngStyle]="{'width':progress + '%'}"> 
-        Consumo: {{ '$ '+ shoowTrueProgress }} 
-    </div><!-- <span class="mr-1 justify-end"> / Disp.: {{'$ '+ showTrueLimite }}</span> --> 
+<div class="flex-auto min-w-0 m-auto my-2 progress-bar-container items-center" role="progressbar">
+    <div [ngClass]="{'hidden': progress > 0,'block': progress < 1}" class="text-secondary pt-2 text-center">Disponible: {{ '$ '+ shoowTrueProgress }} </div>
+    
+    <div [ngClass]="{'hidden': progress < 1, 'block': progress > 0}" 
+         class="progress-bar {{color}} relative text-center overflow-clip text-secondary font-semibold"
+         [ngStyle]="{'width': progress + '%'}"> 
+         <div class="z-40 whitespace-nowrap text-center m-auto w-5/12 positions"> Disponible en {{ where }}: $  {{ total - shoowTrueProgress }} </div> <!-- / {{ '$'+total }} -->
+    </div>
+     <!-- <span class="mr-1 justify-end"> / Disp.: {{'$ '+ showTrueLimite }}</span> --> 
 </div>

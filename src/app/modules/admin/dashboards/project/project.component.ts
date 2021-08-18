@@ -33,7 +33,7 @@ export type ChartOptions = {
 
 @Component({
     selector       : 'project',
-    templateUrl    : './project.component_v1.html',
+    templateUrl    : './project.component_v3.html',
     styleUrls      : ['./project.component.scss'],
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -52,29 +52,27 @@ export class ProjectComponent implements OnInit, OnDestroy
     data: any;
     selectedProject: string = 'Tarjeta de Credito';
     private _unsubscribeAll: Subject<any> = new Subject<any>();
+    
 
     /**
      * benja's declarations 
      */
-    totalBar1: number = 100;
-    limiteTotalBar1: number = 1300;
+    unPago: number = 49;
+    limiteTotalBarUnPago: number = 1300;
 
-    totalBar2: number = 2000;
-    limiteTotalBar2: number = 2300;
+    enCuotas: number = 2000;
+    limiteTotalBarEnCuotas: number = 2300;
 
     innerWidth: number;
     @HostListener('window:resize', ['$event'])
     onResize(event) { // detecta el cambio de pantalla (responsive)
-         const innerWidth = window.innerWidth;
-         this.innerWidth = innerWidth;
+        const innerWidth = window.innerWidth;
+        this.innerWidth = innerWidth;
  
-     }
-
-
-
+    }
 
      // @ViewChild("chart") chart: ChartComponent;
-     public chartOptions: Partial<ChartOptions>;
+    public chartOptions: Partial<ChartOptions>;
 
     /**
      * Constructor fuse's team

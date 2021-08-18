@@ -7,8 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProgresbarComponent implements OnInit {
 
-	@Input() progress: number;
-	@Input() total: number;
+	@Input('progress') progress: number;
+	@Input('total') total: number;
+	@Input('where') where: string;
 	color: string;
 
 	middleBar: number = 65;
@@ -23,6 +24,7 @@ export class ProgresbarComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		console.log(this.total, this.progress	)
 		if(!this.progress){
 			this.progress = 0;
 		}
@@ -35,7 +37,10 @@ export class ProgresbarComponent implements OnInit {
 
 		this.showTrueLimite = this.total;
 		this.shoowTrueProgress = this.progress;
-		this.showDisp = this.total - this.progress;
+		this.showDisp = this.progress - this.total;
+
+		// limiteTotalBar1 - totalBar1
+		//[progress]="totalBar1" [total]="limiteTotalBar1"
 
 		if(this.progress > this.total) {
 			this.progress = 100;

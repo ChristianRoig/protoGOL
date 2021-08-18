@@ -1,0 +1,277 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div class="dark bg-accent-300 text-on-accent-300 bg-card dark:border-b">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
+                <!-- Avatar and name -->
+                <div class="flex flex-auto items-center min-w-0">
+                    <div class="hidden flex-0 w-16 h-16 rounded-full overflow-hidden"><!-- quitar primer clase hidden -->
+                        <!-- <img
+                            class="w-full h-full object-cover"
+                            src="assets/images/avatars/brian-hughes.jpg"> -->
+                    </div>
+                    <div class="flex flex-col min-w-0 ml-4">
+                        <ng-container *transloco="let t">
+                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{t('Hola')}}, Leandro!</div>
+                        </ng-container>
+                        <!-- <div class="flex items-center">
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_solid:bell'"></mat-icon>
+                            <div class="ml-1.5 leading-6 truncate text-secondary">Ud. tiene (cant) tramites pendientes</div>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- Actions -->
+                <!-- Esta parte se descomentaria en la etapa II -->
+                <!-- <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3" >
+                    <button 
+                        class="fuse-mat-button-rounded bg-accent-600"
+                        mat-flat-button
+                        [color]="'accent'">
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                        <span class="ml-2">Notificaciones</span>
+                    </button>
+                    
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Main -->
+    <div class="flex-auto mt-4 sm:mt-6">
+        <div class="w-full max-w-screen-xl mx-auto">
+
+            <!-- Tabs -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                <!-- Summary -->
+                <div class="flex flex-col col-span-4 flex-auto p-6 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
+                    <div class="flex items-start justify-between mb-2">
+                        <!-- <div class="text-lg font-medium tracking-tight leading-6 truncate">Disponibles</div> -->
+                        
+                    </div>
+                    <div class="flex flex-auto flex-wrap md:items-center md:justify-evenly"> <!-- content card -->
+                        
+                        <div class="w-full flex-nowrap md:w-5/12 m-auto">
+                            <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
+                                  <div class="text-md font-medium text-left text-secondary m-auto justify-self-start whitespace-nowrap">Ya consumiste: <span class="text-sm md:text-xl font-bold"> $ {{unPago}} </span> </div>
+                                <div class="flex items-center justify-end w-full mt-2 text-secondary">
+                                    <div class="text-sm font-medium">Limite:</div>
+                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}}</div>
+                                </div>
+                            </div>
+                            <app-progresbar [progress]="unPago" [where]="'un pago'" [total]="limiteTotalBarUnPago"></app-progresbar>
+                        </div>
+
+                        <div class="w-full md:w-5/12 m-auto">
+                            <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
+                                <div class="text-md font-medium text-right m-auto whitespace-nowrap text-secondary justify-self-end">Ya Consumiste: <span class="text-sm md:text-xl font-bold"> $ {{ enCuotas}} </span>  </div>
+                                <div class="flex items-center justify-end w-full mt-2 text-secondary">
+                                    <div class="text-sm font-medium">Limite:</div>
+                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}}</div><!-- cambiar por el limite -->
+                                </div>
+                            </div>
+                            <app-progresbar [progress]="enCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Fechas -->
+                <div class="flex flex-col w-full md:w-10/12 m-auto col-span-4 p-6 bg-default text-on-accent-300
+                                items-between justify-between rounded-2xl overflow-hidden">
+                    <!-- header fechas -->
+                    <div class="flex flex-row m-auto items-center m-auto justify-between rounded-tr-xl rounded-tl-xl border-2 border-b-0 
+                                        py-4 px-2 mx-2 bg-accent-300 text-on-accent-300">
+                        <div class="items-self-start text-secondary text-left pl-6 font-medium font-bold">
+                            Vencimiento : <span class="text-left">17/02/2022</span>
+                        </div>
+                        <div class="items-self-end text-rigth text-secondary text-sm font-semibold pr-6">
+                            Cierre : <span class="text-right"> 12/01/2022</span>
+                        </div>
+                    </div>
+                    <!-- Fechas saldo a pagar -->
+                    <div class="flex flex-col m-auto flex-nowrap items-start rounded-bl-xl rounded-br-xl border-2 border-t-0 mx-2 bg-accent-300 
+                                        text-on-accent-300">
+
+                        <!--  <div class="flex flex-col flex-nowrap flex-shrink m-auto items-center h-auto justify-center m-auto p-5">
+
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate md:py-2">Vencimiento</div>
+                            <div class="text-4xl md:text-7xl sm:text-4xl font-bold tracking-tight leading-none text-red-500 p-3">27/07</div>
+                            <div class="text-md font-medium text-red-600 dark:text-red-500 md:py-2">Lunes</div>
+
+                        </div> -->
+
+                        <!-- Leyenda -->
+                        <div class="col-span-2 text-2xl font-bold ml-4 text-left px-4 text-secondary font-semibold">
+                            Tu resúmen está disponible
+                        </div>
+                        <!-- Saldo a pagar -->
+                        <div class="grid grid-cols-3 gap-2 relative ml-7 w-10/12 md:w-9/12 py-6">
+
+                            <!-- pago total -->
+                            <!-- <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                                <div class="text-sm md:text-md font-large truncate text-on-accent-300">Total: </div>
+                                <div class="text-sm md:text-md font-large truncate text-on-accent-300"> $70.000,00</div>
+                            </div> -->
+                            <!-- pago en pesos -->
+                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                                <div class="text-sm md:text-md font-large text-secondary">Saldo en $: </div>
+                                <div class="text-sm md:text-md font-large text-secondary"> $20.00,00</div>
+                            </div>
+                            <!-- pago en usd -->
+                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                                <div class="text-sm md:text-md font-large text-secondary">Saldo en U$$: </div>
+                                <div class="text-sm md:text-md font-large text-secondary"> $200,00</div>
+                            </div>
+                            <!-- saldo a favor -->
+                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                                <div class="text-sm md:text-md font-large text-secondary">A favor: </div>
+                                <div class="text-sm md:text-md font-large text-secondary">$1.000,00</div>
+                            </div>
+                            <!-- pago en minimo -->
+                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                                <div class="text-sm md:text-md font-semibold font-large text-secondary">Pago mínimo: </div>
+                                <div class="text-sm md:text-md font-semibold font-large text-secondary">$1.000,00</div>
+                            </div>
+                        
+                        </div>
+                        <!-- boton ver/descargar resumen -->
+                        <div class="flex flex-row w-full justify-self-start items-self-end p-2 border-t-2">
+                            <button class="justify-self-start items-self-end bg-default m-auto ml-2 hover:border-1 hover:border-white text-secondary" matButton mat-stroked-button>
+                                Ver resúmen
+                            </button>
+                        </div>
+
+                        <!-- <div class="flex flex-col items-center justify-center w-content p-2 m-auto">
+
+                            <div class="text-lg flex-shrink font-medium tracking-tight text-center leading-6 truncate md:py-1">Cierre</div>
+                            <div class="text-4xl flex-shrink md:text-7xl sm:text-4xl font-bold tracking-tight leading-none text-amber-500 p-3">24/07</div>
+                            <div class="text-lg flex-shrink font-medium text-amber-600 dark:text-amber-500 md:py-1">Viernes</div>
+
+                        </div> -->
+                        
+                    </div>
+
+                </div>
+
+                <!-- <div class="flex flex-col sm:col-span-1 md:col-span-1 flex-auto p-6 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
+                    <div class="flex flex-row flex-nowrap justify-self-end content-center m-auto items-center">
+
+                        <div class="text-secondary">
+                                
+                                <div class="text-sm md:text-md whitespace-wrap text-secondary">
+                                    <mat-button-toggle-group title="descargar resúmen" value="this-week" #githubIssuesWeekSelector="matButtonToggleGroup">
+                                        <mat-button-toggle value="this-week">Descargar resúmen</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                            </div>
+                            
+                        </div>
+                </div> -->
+                <!-- Consumos recientes -->
+                <div class="col-span-4 w-full md:w-10/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300 rounded-2xl overflow-hidden">
+                    <div class="flex flex-col sm:flex-row items-start justify-between">
+                        <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Detalle de últimos consumos</div>
+                        <div class="mt-3 sm:mt-0 sm:ml-2">
+                            <mat-button-toggle-group class="hidden"
+                                value="today"
+                                #scheduleDaySelector="matButtonToggleGroup">
+                                <mat-button-toggle value="today">Esta Semana</mat-button-toggle>
+                                <mat-button-toggle value="tomorrow">Semana Pasada</mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+                    <div class="flex flex-col mt-2 divide-y">
+                        <ng-container *ngFor="let scheduleItem of data.schedule[scheduleDaySelector.value]; trackBy: trackByFn">
+                            <div class="flex flex-row items-center justify-between py-4 px-0.5">
+                                <div class="flex flex-col">
+                                    <div class="font-medium">{{scheduleItem.title}}</div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
+                                        <ng-container *ngIf="scheduleItem.time">
+                                            <div class="flex items-center">
+                                                <mat-icon
+                                                    class="icon-size-5 text-hint"
+                                                    [svgIcon]="'heroicons_solid:clock'"></mat-icon>
+                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.time}}</div>
+                                            </div>
+                                        </ng-container>
+                                        <!-- <ng-container *ngIf="scheduleItem.location">
+                                            <div class="flex items-center">
+                                                <mat-icon
+                                                    class="icon-size-5 text-hint"
+                                                    [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
+                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
+                                            </div>
+                                        </ng-container> -->
+                                    </div>
+                                </div>
+                                <!-- <button mat-icon-button>
+                                    <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                </button> -->
+                                <div>
+                                    $ 30.000,00
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <button class="w-4/12 m-auto" mat-stroked-button title="pantalla de consumos recientes">Ver más</button>
+                </div>
+                <!-- Historial de pagos -->
+                <div class="col-span-4 w-full md:w-10/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300 rounded-2xl overflow-hidden">
+                    <div class="flex flex-col sm:flex-row items-start justify-between">
+                        <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Historial de pagos</div>
+                        <div class="mt-3 sm:mt-0 sm:ml-2">
+                            <mat-button-toggle-group class="hidden"
+                                value="today"
+                                #scheduleDaySelector="matButtonToggleGroup">
+                                <mat-button-toggle value="today">Esta Semana</mat-button-toggle>
+                                <mat-button-toggle value="tomorrow">Semana Pasada</mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+                    <div class="flex flex-col mt-2 divide-y">
+                        <ng-container *ngFor="let scheduleItem of data.schedule[scheduleDaySelector.value]; trackBy: trackByFn">
+                            <div class="flex flex-row items-center justify-between py-4 px-0.5">
+                                <div class="flex flex-col">
+                                    <div class="font-medium">{{scheduleItem.title}} </div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
+                                        <ng-container *ngIf="scheduleItem.time">
+                                            <div class="flex items-center">
+                                                <mat-icon
+                                                    class="icon-size-5 text-hint"
+                                                    [svgIcon]="'heroicons_solid:clock'"></mat-icon>
+                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.time}}</div>
+                                            </div>
+                                        </ng-container>
+                                        <!-- <ng-container *ngIf="scheduleItem.location">
+                                            <div class="flex items-center">
+                                                <mat-icon
+                                                    class="icon-size-5 text-hint"
+                                                    [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
+                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
+                                            </div>
+                                        </ng-container> -->
+                                    </div>
+                                </div>
+                                <!-- <button mat-icon-button>
+                                    <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                </button> -->
+                                <div>
+                                    $ 46.000,59
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <button class="w-4/12 m-auto" mat-stroked-button title="pantalla de historial de pagos">Ver más</button>
+                </div>
+
+            </div>       
+
+        </div>
+    </div>
+
+</div>
