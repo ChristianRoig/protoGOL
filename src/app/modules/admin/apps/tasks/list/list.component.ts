@@ -10,9 +10,13 @@ import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/co
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 
+type DataShedule = {
+    shedule: any[]
+}
+
 @Component({
     selector       : 'tasks-list',
-    templateUrl    : './list.component.html',
+    templateUrl    : './list.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,6 +32,9 @@ export class TasksListComponent implements OnInit, OnDestroy
         completed : 0,
         incomplete: 0,
         total     : 0
+    };
+    data: DataShedule = {
+        shedule: []
     };
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -55,6 +62,11 @@ export class TasksListComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
+        /**
+         * benja's declarations
+         */
+        this.data.shedule = this.getMockAPI();
+
         // Get the tags
         this._tasksService.tags$
             .pipe(takeUntil(this._unsubscribeAll))
@@ -69,7 +81,7 @@ export class TasksListComponent implements OnInit, OnDestroy
         this._tasksService.tasks$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((tasks: Task[]) => {
-                this.tasks = tasks;
+                this.tasks = [];
 
                 // Update the counts
                 this.tasksCount.total = this.tasks.filter(task => task.type === 'task').length;
@@ -92,7 +104,7 @@ export class TasksListComponent implements OnInit, OnDestroy
                         const menuItem = this._fuseNavigationService.getItem('apps.tasks', mainNavigation);
 
                         // Update the subtitle of the item
-                        menuItem.subtitle = this.tasksCount.incomplete + ' remaining tasks';
+                        /* menuItem.subtitle = this.tasksCount.incomplete + ' remaining tasks'; */
 
                         // Refresh the navigation
                         mainNavigationComponent.refresh();
@@ -235,5 +247,24 @@ export class TasksListComponent implements OnInit, OnDestroy
     trackByFn(index: number, item: any): any
     {
         return item.id || index;
+    }
+
+    getMockAPI(): Array<any> {
+
+        return [
+            { linea: '2494-466860', compania: 'Moviestar', fecha: '20/02/2021' },
+            { linea: '011-4595622', compania: 'Claro', fecha: '20/03/20016' },
+            { linea: '2964-588965', compania: 'Claro', fecha: '21/02/2020' },
+            { linea: '2266-411589', compania: 'Moviestar', fecha: '05/08/2020' },
+            { linea: '2964-588965', compania: 'Claro', fecha: '21/02/2020'  },
+            { linea: '011-4595622', compania: 'Moviestar', fecha: '20/03/2019' },
+            { linea: '011-4595622', compania: 'Moviestar', fecha: '20/03/2015' },
+            { linea: '2964-588965', compania: 'Claro', fecha: '21/07/2020'  }
+        ];
+
+    }
+
+    getRandomImporte(): any {
+        return Math.floor((Math.random() * 500));
     }
 }

@@ -73,6 +73,30 @@
             </mat-form-field>
         </div>
 
+        <!-- DDN - ->
+        <div>
+            <mat-form-field class="fuse-mat-rounded fuse-mat-no-subscript w-full" appearance="outline">
+                <mat-label>Linea de teléfono</mat-label>
+                <input maxlength="4" minlength="2"
+                    matInput
+                    [formControlName]="'ddn'"
+                    [spellcheck]="false"
+                    #titleField>
+            </mat-form-field>
+        </div>
+        < !-- Numero de teléfono - ->
+        <div>
+            <mat-form-field class="fuse-mat-rounded fuse-mat-no-subscript w-full" appearance="outline">
+                <mat-label>Número de teléfono</mat-label>
+                <input
+                    matInput
+                    [formControlName]="'num_telefono'"
+                    [spellcheck]="false"
+                    >
+            </mat-form-field>
+        </div>
+         -->
+
         <!-- Tags -->
         <div class="mt-8">
             <div class="font-medium mb-1.5"></div>

@@ -66,7 +66,7 @@ export class InventoryService
      */
     get products$(): Observable<InventoryProduct[]>
     {
-        console.log(this._products);
+       // console.log(this._products);
         return this._products.asObservable();
     }
 
@@ -138,7 +138,7 @@ export class InventoryService
         }).pipe(
             tap((response) => {
                 this._pagination.next(response.pagination);
-                this._products.next(response.products);
+                this._products.next(response.products);//response.products
             })
         );
     }

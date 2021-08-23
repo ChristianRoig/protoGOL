@@ -12,7 +12,7 @@ import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inv
 
 @Component({
     selector       : 'inventory-list',
-    templateUrl    : './inventory.component.html',
+    templateUrl    : './inventory.component_v1.html',
     styles         : [
         /* language=SCSS */
         `
@@ -141,7 +141,9 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
 
         // Get the products
         this.products$ = this._inventoryService.products$;
-        console.log(this.products$);
+            //new Observable<InventoryProduct[]>();
+        console.log(this.products$)
+        //console.log(this.products$);
 
         // Get the tags
         this._inventoryService.tags$

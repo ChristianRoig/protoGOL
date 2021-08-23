@@ -152,7 +152,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         ]
     },
     {
-        id   : 'apps.tasks',
+        id   : 'recarga virtual',
         title: 'Recargas Virtuales',
         type : 'basic',
         icon : 'heroicons_outline:check-circle',

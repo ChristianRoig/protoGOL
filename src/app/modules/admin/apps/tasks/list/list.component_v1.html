@@ -1,0 +1,115 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+
+    <mat-drawer-container
+        class="flex-auto h-full bg-card dark:bg-transparent"
+        (backdropClick)="onBackdropClicked()">
+
+        <!-- Drawer -->
+        <mat-drawer
+            class="w-full sm:w-128 dark:bg-gray-900"
+            [mode]="drawerMode"
+            [opened]="false"
+            [position]="'end'"
+            [disableClose]="true"
+            #matDrawer>
+            <router-outlet></router-outlet>
+        </mat-drawer>
+
+        <mat-drawer-content class="flex flex-col">
+
+            <!-- Main -->
+            <div class="flex flex-col flex-auto">
+
+                <!-- Header -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between py-8 px-6 md:px-8">
+                    <!-- Title -->
+                    <div>
+                        <div class="text-4xl font-extrabold tracking-tight leading-none">Recargas </div>
+                        <div class="ml-0.5 font-medium text-secondary">
+                            <!-- <span *ngIf="tasksCount.incomplete === 0">Ninguna recarga reciente!</span>
+                            <span *ngIf="tasksCount.incomplete !== 0">{{tasksCount.incomplete}} recargas realizadas</span> -->
+                        </div>
+                    </div>
+                    <!-- Actions -->
+                    <div class="mt-4 sm:mt-0">
+                        <!-- Add section button -->
+                        <button 
+                            class="bg-default"
+                            mat-flat-button
+                            (click)="createTask('section')"
+                            [matTooltip]="'Shortcut: Ctrl + .'">
+                            <!-- <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon> -->
+                            <span class="ml-2 mr-1">Celular</span>
+                        </button>
+                        <!-- Add task button -->
+                        <button
+                            class="ml-3 bg-default"
+                            mat-flat-button
+                            (click)="createTask('task')"
+                            [matTooltip]="'Shortcut: Ctrl + /'">
+                            <!-- <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon> -->
+                            <span class="ml-2 mr-1">Direct Tv</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tasks list -->
+                <ng-container *ngIf="tasks && tasks.length > 0; else noTasks">
+                   
+                </ng-container>
+
+                <ng-template #noTasks>
+                    <div class="col-span-4 w-full md:w-10/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300
+                    overflow-hidden">
+                       <div class="flex flex-col sm:flex-row items-start justify-between">
+                           <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Historial de recargas</div>
+                           <div class="mt-3 sm:mt-0 sm:ml-2">
+                               
+                           </div>
+                       </div>
+                       <div class="flex flex-col mt-2 divide-y">
+                           <ng-container *ngFor="let scheduleItem of data.shedule">
+                               <div class="flex flex-row items-center justify-between py-4 px-0.5">
+                                   <div class="flex flex-col">
+                                       <div class="font-medium">{{scheduleItem.linea}} </div>
+                                       <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
+                                           <ng-container *ngIf="scheduleItem">
+                                               <div class="flex items-center">
+                                                   <mat-icon
+                                                       class="icon-size-5 text-hint"
+                                                       [svgIcon]="'heroicons_solid:clock'"></mat-icon>
+                                                   <div class="ml-1.5 text-md text-secondary">{{scheduleItem.fecha}}</div>
+                                               </div>
+                                           </ng-container>
+                                           <!-- <ng-container *ngIf="scheduleItem.location">
+                                               <div class="flex items-center">
+                                                   <mat-icon
+                                                       class="icon-size-5 text-hint"
+                                                       [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
+                                                   <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
+                                               </div>
+                                           </ng-container> -->
+                                       </div>
+                                   </div>
+                                   <!-- <button mat-icon-button>
+                                       <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                   </button> -->
+                                   <div class="self-start">
+                                       $ {{ getRandomImporte() }}
+                                   </div>
+                               </div>
+                           </ng-container>
+                       </div>
+                       <button class="w-4/12 m-auto" mat-stroked-button title="pantalla de historial de pagos">Ver más</button>
+                   </div>
+                </ng-template>
+
+            </div>
+
+        </mat-drawer-content>
+
+    </mat-drawer-container>
+
+    
+
+</div>

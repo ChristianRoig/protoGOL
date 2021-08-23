@@ -10,20 +10,30 @@
             <div class="flex-auto items-center  p-6">
                 <div class="p-3">
                     <div class="text-4xl font-extrabold tracking-tight leading-none">Mis resúmenes</div>
-                    <div class="ml-0.5 font-sm text-secondary">
+                    <!-- <div class="ml-0.5 font-sm text-secondary">
                         14/11/50
-                    </div>
+                    </div> -->
                 </div>
                 <div class="p-3 m-auto bg-accent-300 rounded">
+
+                    <div class="grid grid-cols-8 gap-2 mt-2 mb-2 flex-shrink-0">
+                        <div class="col-span-5"></div>
+                        <div *ngIf="innerWidth < 650" class="col-span-1 text-right text-secondary font-sm">
+                            Ver
+                        </div>
+                        <div *ngIf="innerWidth < 650" class="col-span-2 text-center text-secondary font-sm pr-2 tracking-tighter">
+                            Descargar
+                        </div>
+                    </div>
                     
                     <div class="grid grid-cols-8 gap-2 mt-2 mb-2" *ngFor="let item of items">
-                        <div class="flex col-span-3 bg-default rounded items-center text-left pl-2 mx-0 md:mx-2">
+                        <div class="flex col-span-3 bg-card rounded items-center text-left pl-2 mx-0 md:mx-2">
                             {{ item }} 
                         </div>
-                        <div class="flex col-span-2 bg-default rounded items-center justify-center text-center">
+                        <div class="flex col-span-2 bg-card rounded items-center justify-center text-center">
                             12/11/93
                         </div>
-                        <div class="flex flex-row flex-nowrap col-span-3 bg-default rounded items-center justify-evenly md:justify-between pr-0 md:pr-2">
+                        <div class="flex flex-row flex-nowrap col-span-3 bg-card rounded items-center justify-evenly md:justify-between pr-0 md:pr-2">
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto">
                                 <div *ngIf="innerWidth > 650" class="text-center mx-0 md:mx-2 cursor-pointer">
                                     Visualizar
@@ -49,36 +59,82 @@
             <div  class="flex-auto items-center p-6">
                 <div class="p-3">
                     <div class="text-4xl font-extrabold tracking-tight leading-none">Mis resúmenes</div>
-                    <div class="ml-0.5 font-sm text-secondary">
+                    <!-- <div class="ml-0.5 font-sm text-secondary">
                         14/11/50
-                    </div>
+                    </div> -->
                 </div>
-                <div class="p-3 m-auto w-full bg-accent-300 rounded">
+                <div class="p-3 m-auto w-full rounded bg-default"><!--  bg-accent-300 -->
+                    <!-- <div class="grid grid-cols-8 gap-2 mt-2 mb-2 flex-shrink-0">
+                        <div class="col-span-5"></div>
+                        <div class="col-span-1 text-right text-secondary font-sm">
+                            Ver
+                        </div>
+                        <div class="col-span-2 text-center text-secondary font-sm pr-2">
+                            Descargar
+                        </div>
+                    </div> -->
                     
-                    <table class="w-full m-auto" mat-table #table [dataSource]="dataSource">
-                        <ng-container matColumnDef="producto">
-                            <th mat-header-cell *matHeaderCellDef> Productos </th>
-                            <td mat-cell *matCellDef="let row"> {{ row.producto}} </td>
-                        </ng-container>
-                        <ng-container matColumnDef="fecha-cierre">
-                            <th mat-header-cell *matHeaderCellDef> Fecha Cierre </th>
-                            <td mat-cell *matCellDef="let row"> {{ row.fechaCierre}} </td>
-                        </ng-container>
-                        <ng-container matColumnDef="ver">
-                            <th mat-header-cell *matHeaderCellDef>  </th>
-                            <td mat-cell *matCellDef="let row"> 
-                                <div class="flex flex-row items-center justify-center m-auto">
-                                    <div class="text-center mx-0 md:mx-2  cursor-pointer hidden md:block">
-                                        {{ row.resumen === 'SI' ? 'Ver': 'No hay resumen disponible'}}
-                                    </div>
-                                    <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'" *ngIf="row.resumen === 'SI'"
-                                    class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
+                    <div class="grid grid-cols-8 gap-0 mt-2 mb-2" [id]="i" *ngFor="let item of items; index as i; let build">
+                        
+                        <div class="flex col-span-3 bg-card items-center text-left pl-2">
+                            {{ item }} 
+                        </div>
+                        <div class="flex col-span-2 bg-card items-center justify-center text-center">
+                            12/11/93
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2 cursor-pointer hover:border-1" *ngIf="innerWidth < 650">
+                            <div class="flex flex-row items-center justify-center m-1 md:m-auto" (click)="onVerMas(i);verMas = !verMas">
+                                
+                                <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
+                                    class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-0 md:mx-2 cursor-pointer" 
+                                    matPrefix [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                                <div class="text-center mx-0 md:mx-2 cursor-pointer">
+                                    Ver más
                                 </div>
-                            </td>
-                        </ng-container>
-                        <tr mat-header-row *matHeaderRowDef="['producto', 'fecha-cierre', 'ver']"></tr>
-                        <tr mat-row *matRowDef="let row; columns: ['producto', 'fecha-cierre', 'ver'];"></tr>
-                    </table>
+                            
+                            </div>
+                        </div>
+
+                        <!-- Desktop -->
+                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2" *ngIf="innerWidth > 650">
+                            <div class="flex flex-row items-center justify-center m-1 md:m-auto">
+                                <div  class="text-center mx-0 md:mx-2 pr-2 md:pl-2 cursor-pointer">
+                                    Visualizar
+                                </div>
+                                <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-0 md:mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:eye'"></mat-icon>
+                            </div>
+                            <div class="flex flex-row items-center justify-center m-1 md:m-auto">
+                                <div class="text-center mx-0 md:mx-2 cursor-pointer">
+                                    Descargar
+                                </div>
+                                <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
+                            </div>
+                        </div>
+
+                        <!-- Expandible -->
+                        <div [@expandCollapse]="state" class="flex flex-row flex-nowrap col-span-8 bg-default items-center justify-evenly md:justify-between pr-0 md:pr-2 cursor-pointer hover:border-1" 
+                            *ngIf="i === id && verMas">
+                            <div class="flex flex-row items-center justify-center m-1 md:m-auto pt-2" >
+                                
+                                <div  class="text-center pr-1 mx-0 md:mx-2 cursor-pointer">
+                                    Visualizar
+                                </div>
+                                <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-0 md:mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:eye'"></mat-icon>
+                            </div>
+                            <div class="flex flex-row items-center justify-center m-1 md:m-auto pt-2">
+                                <div class="text-center mx-0 md:mx-2 cursor-pointer">
+                                    Descargar
+                                </div>
+                                <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
+                            </div>
+                        </div>
+                
                 </div>
 
             </div>

@@ -9,6 +9,7 @@ import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { Contact, Country } from 'app/modules/admin/apps/contacts/contacts.types';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { fuseAnimations } from '@fuse/animations';
 
 type DataSourceMobile = {
     producto: string,
@@ -20,7 +21,8 @@ type DataSourceMobile = {
     selector       : 'contacts-list',
     templateUrl    : './list.component_v2.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations     : fuseAnimations
 })
 export class ContactsListComponent implements OnInit, OnDestroy
 {
@@ -42,6 +44,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
     items: string[] = ['item','item','item','item', 'item'];
     dataSource: MatTableDataSource<DataSourceMobile>;
     innerWidth: number = window.innerWidth;
+    verMas: boolean = false;
+    id: number;
     @HostListener('window:resize')
     onResize($event){
         const iw = window.innerWidth;
@@ -190,6 +194,14 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    /**
+     * Benja methods
+     */
+
+    onVerMas(idx:any): void {
+        this.id = idx;
     }
 
     // -----------------------------------------------------------------------------------------------------

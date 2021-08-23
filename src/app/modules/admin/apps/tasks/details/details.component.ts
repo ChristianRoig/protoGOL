@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
@@ -15,7 +15,7 @@ import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 
 @Component({
     selector       : 'tasks-details',
-    templateUrl    : './details.component.html',
+    templateUrl    : './details.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -35,6 +35,12 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
+     * Benja's forms 
+     */
+    formRecarga: FormGroup;
+    formDirecTV: FormGroup;
+
+    /**
      * Constructor
      */
     constructor(
@@ -50,6 +56,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         private _viewContainerRef: ViewContainerRef
     )
     {
+        this.formRecarga = this._initFormRecarga(true);
+        this.formDirecTV = this._initFormRecarga(false);
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -65,17 +73,18 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this._tasksListComponent.matDrawer.open();
 
         // Create the task form
-        this.taskForm = this._formBuilder.group({
-            id       : [''],
-            type     : [''],
-            title    : [''],
-            notes    : [''],
-            completed: [false],
-            dueDate  : [null],
-            priority : [0],
-            tags     : [[]],
-            order    : [0]
-        });
+        /* this.taskForm = this._formBuilder.group({
+            id          : [''],
+            type        : [''],
+            ddn         : [''],
+            num_telefono: [''],
+            notes       : [''],
+            completed   : [false],
+            dueDate     : [null],
+            priority    : [0],
+            tags        : [[]],
+            order       : [0],
+        }); */
 
         // Get the tags
         this._tasksService.tags$
@@ -93,7 +102,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((tasks: Task[]) => {
                 this.tasks = tasks;
-
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -108,16 +116,16 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
                 // Get the task
                 this.task = task;
-
+                console.log({task})
                 // Patch values to the form from the task
-                this.taskForm.patchValue(task, {emitEvent: false});
+                /* this.taskForm.patchValue(task, {emitEvent: false}); */
 
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
 
         // Update task when there is a value change on the task form
-        this.taskForm.valueChanges
+       /*  this.taskForm.valueChanges
             .pipe(
                 tap((value) => {
 
@@ -134,7 +142,22 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
-            });
+            }); */
+        
+        this.formRecarga.valueChanges.pipe(
+            tap( (value)=>{
+                this.task = assign(this.task, value);
+            } ),
+            debounceTime(300),
+            takeUntil(this._unsubscribeAll)
+        ).subscribe(
+            (value) => {
+                this._tasksService.updateTask(value.id, value).subscribe();
+
+                // Mark for check
+                this._changeDetectorRef.markForCheck();
+            }
+        )
 
         // Listen for NavigationEnd event to focus on the title field
         this._router.events
@@ -145,7 +168,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .subscribe(() => {
 
                 // Focus on the title field
-                this._titleField.nativeElement.focus();
+                /* this._titleField.nativeElement.focus(); */
             });
     }
 
@@ -163,7 +186,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .subscribe(() => {
 
                 // Focus on the title element
-                this._titleField.nativeElement.focus();
+                /* this._titleField.nativeElement.focus(); */
             });
     }
 
@@ -537,5 +560,24 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     trackByFn(index: number, item: any): any
     {
         return item.id || index;
+    }
+
+    cancelar(): void {
+        this.closeDrawer();
+        this.formRecarga.reset();
+    }
+
+    private _initFormRecarga(def?: boolean): FormGroup {
+        return def ? 
+        this._formBuilder.group({
+            ddn: new FormControl('', [ Validators.required, Validators.minLength(2), Validators.maxLength(4), Validators.pattern('^[0-9]*') ]),
+            num_telefono: new FormControl ('', [ Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern('^[0-9]*') ]),
+            importe: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
+            compania: new FormControl('', [ Validators.required ])
+        }) : 
+        this._formBuilder.group({
+            importe: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
+            id_cliente: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ])
+        });
     }
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ApexOptions } from 'ng-apexcharts';
@@ -16,6 +16,7 @@ import { ProjectService } from 'app/modules/admin/dashboards/project/project.ser
     ApexXAxis,
     ApexPlotOptions
   } from "ng-apexcharts";
+import { FuseNavigationService } from '@fuse/components/navigation';
 
 
 /**
@@ -59,9 +60,9 @@ export class ProjectComponent implements OnInit, OnDestroy
      */
     unPago: number = 49;
     limiteTotalBarUnPago: number = 1300;
-
     enCuotas: number = 2000;
     limiteTotalBarEnCuotas: number = 2300;
+    items: any;
 
     innerWidth: number;
     @HostListener('window:resize', ['$event'])
@@ -79,9 +80,12 @@ export class ProjectComponent implements OnInit, OnDestroy
      */
     constructor(
         private _projectService: ProjectService,
-        private _router: Router
+        private _router: Router,
+        private _navServices: FuseNavigationService,
+        private _activateRoute: ActivatedRoute
     )
     {
+        
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -481,5 +485,31 @@ export class ProjectComponent implements OnInit, OnDestroy
                 }
             }
         };
+    }
+
+    getItems():any {
+        return [
+            { type: 'PURA', last_num: '4256', isTitular: false },
+            { type: 'PURA', last_num: '4298', isTitular: true },
+            { type: 'VISA', last_num: '4589', isTitular: false },
+            { type: 'VISA', last_num: '2135', isTitular: true }
+        ]
+    }
+    getBgColor(item:any):string {
+        switch (item.type) {
+            case 'VISA':
+                if(item.isTitular){
+                    return 'bg-primary-300';// VISA && titular
+                }
+                return 'bg-warn-300';// VISA && !titular
+            default:
+                if(item.isTitular){
+                    return 'bg-primary-300';// PURA && titular
+                }
+                return 'bg-accent-300 border-1 border-white';// PURA && !titular
+        }
+    }
+    goTo(word:string): void {
+        this._router.navigate(['/analytics']);
     }
 }
