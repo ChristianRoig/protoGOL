@@ -6,7 +6,7 @@ import { ActivitiesService } from 'app/modules/admin/pages/activities/activities
 
 @Component({
     selector       : 'activity',
-    templateUrl    : './activities.component.html',
+    templateUrl    : './activities.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

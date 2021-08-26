@@ -46,6 +46,7 @@
             </div> -->
 
             <!-- Datos Primarios -->
+           
             <form [formGroup]="formPrimario" class="flex flex-col mt-4 px-8 pt-10 bg-card shadow rounded overflow-hidden">
                 <!-- Nombre y Apellido -->
                 <div class="flex">
@@ -112,6 +113,17 @@
  
             <!-- Datos de contacto -->
             <form (submit)="guardarCambios(formContacto.value)" [formGroup]="formContacto" class="flex flex-col flex-nowrap mt-4 px-8 pt-10 bg-card shadow rounded overflow-hidden">
+                
+                <div class="flex flex-row items-start justify-center p-3" *ngIf="(domicilio.disabled && telefono.disabled && email.disabled)">
+                    <div class="text-secondary font-sm p-2 m-auto">
+                       Querés modificar algún dato ?
+                    </div>
+
+                    <button matButton mat-stroked-button (click)="habilitarFormulario()"
+                        class="text-left ml-3 items-self-center justify-center text-secondary m-auto font-md">
+                        Editalo
+                    </button>
+                </div>
 
                 <!-- Email -->
                 <div class="flex items-center justify-center">
@@ -170,7 +182,7 @@
 
                 <div class="flex flex-row items-between justify-center m-auto w-full">
 
-                    <div class="flex flex-row items-start justify-center p-3" *ngIf="(domicilio.disabled && telefono.disabled && email.disabled)">
+               <!-- <div class="flex flex-row items-start justify-center p-3" *ngIf="(domicilio.disabled && telefono.disabled && email.disabled)" >
                         <div class="text-secondary font-sm p-2 m-auto">
                             Hay algún dato equivocado?
                         </div>
@@ -179,7 +191,7 @@
                             class="text-left ml-3 items-self-center justify-center text-secondary m-auto font-md">
                             Editalo
                         </button>
-                    </div>
+                    </div> -->
 
                     <button *ngIf="!(domicilio.disabled && telefono.disabled && email.disabled)"
                         (click)="guardarCambios(formContacto.value)"

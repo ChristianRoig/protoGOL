@@ -18,11 +18,13 @@ import { InventoryComponent } from 'app/modules/admin/apps/ecommerce/inventory/i
 import { InventoryListComponent } from 'app/modules/admin/apps/ecommerce/inventory/list/inventory.component';
 import { ecommerceRoutes } from 'app/modules/admin/apps/ecommerce/ecommerce.routing';
 import { InventoryService } from './inventory/inventory.service';
+import { ProjectModule } from '../../dashboards/project/project.module';
+
 
 @NgModule({
     declarations: [
         InventoryComponent,
-        InventoryListComponent
+        InventoryListComponent,
     ],
     imports     : [
         RouterModule.forChild(ecommerceRoutes),
@@ -39,7 +41,8 @@ import { InventoryService } from './inventory/inventory.service';
         MatSelectModule,
         MatSlideToggleModule,
         MatTooltipModule,
-        SharedModule
+        SharedModule,
+        ProjectModule
     ]
 })
 export class ECommerceModule

@@ -164,23 +164,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:cloud',
         link : '/apps/file-manager'
-    }, */
-    {
-        id      : 'seguros-y-asistencias',
-        title   : 'Seguros y asistencias',
-        subtitle: '',
-        type    : 'group',
-        icon    : 'heroicons_outline:home',
-        children: [
-            {
-                id   : 'apps.contacts',
-                title: 'Contactos',
-                type : 'basic',
-                icon : 'heroicons_outline:user-group',
-                link : '/apps/contacts'
-            },
-        ]
-    },     
+    }, */    
     {
         id      : 'prestamos',
         title   : 'Préstamos',
@@ -190,12 +174,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id   : 'apps.ecommerce.inventory',
-                title: 'Productos',
+                title: 'Tus préstamos',
                 type : 'basic',
                 icon : 'heroicons_outline:shopping-cart',
                 link : '/apps/ecommerce/inventory'
             },
-            {
+            
+            /*, {
                 id      : 'apps.help-center2',
                 title   : 'Consultas',
                 type    : 'collapsable',
@@ -234,7 +219,23 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         link : '/apps/help-center/support'
                     }
                 ]
-            }
+            } */
+        ]
+    },
+    {
+        id      : 'seguros-y-asistencias',
+        title   : 'Seguros y asistencias',
+        subtitle: '',
+        type    : 'group',
+        icon    : 'heroicons_outline:home',
+        children: [
+            {
+                id   : 'apps.contacts',
+                title: 'Contactos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/apps/contacts'
+            },
         ]
     },   
     {

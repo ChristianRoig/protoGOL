@@ -7,7 +7,7 @@ import { AnalyticsService } from 'app/modules/admin/dashboards/analytics/analyti
 
 @Component({
     selector       : 'analytics',
-    templateUrl    : './analytics.component.html',
+    templateUrl    : './analytics.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

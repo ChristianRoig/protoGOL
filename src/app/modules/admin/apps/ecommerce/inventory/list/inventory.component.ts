@@ -58,6 +58,10 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
     vendors: InventoryVendor[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
+    prestamoEnCuotas: number = 6; 
+
+    limiteTotalBarEnCuotas = 18;
+
     /**
      * Constructor
      */
@@ -142,7 +146,11 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         // Get the products
         this.products$ = this._inventoryService.products$;
             //new Observable<InventoryProduct[]>();
-        console.log(this.products$)
+        // console.log(this.products$)
+        this.products$.subscribe(
+            v => this.selectedProduct = v[0]
+        )
+
         //console.log(this.products$);
 
         // Get the tags

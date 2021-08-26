@@ -45,6 +45,9 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
         TranslocoModule,
         SharedModule,
         
+    ],
+    exports: [
+        ProgresbarComponent
     ]
 })
 export class ProjectModule

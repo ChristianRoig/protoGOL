@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Renderer2 , ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { fuseAnimations } from '@fuse/animations';
 
 type FormdataType = {
     nombre: string,
@@ -31,7 +32,8 @@ type Domicilio =
 @Component({
     selector     : 'forms-layouts',
     templateUrl  : './layouts.component_v1.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    animations: fuseAnimations
 })
 export class FormsLayoutsComponent implements AfterViewInit
 {

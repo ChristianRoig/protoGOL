@@ -54,11 +54,11 @@
                 </div>
 
                 <!-- Tarjetas -->
-                <div class="flex flex-row w-full md:w-11/12 col-span-4 p-4 bg-default text-on-accent-300 justify-center overflow-hidden flex-wrap m-auto">
+                <div class="flex flex-row w-full md:w-10/12 col-span-4 p-4 bg-default text-on-accent-300 justify-center flex-nowrap m-auto whitespace-nowrap overflow-y-hidden overflow-x-auto">
 
                         <!-- box tarjeta -->
-                        <div class="flex flex-col flex-shrink-0 items-center w-auto justify-center m-7 py-3 rounded" 
-                            [ngClass]="getBgColor(item)"
+                        <div class="flex flex-col flex-shrink-0 items-center w-auto justify-center m-7 py-3 rounded hover:shadow-2xl cursor-pointer" 
+                            [ngClass]="getBgColor(item)"   
                             *ngFor="let item of getItems()">
                            
                             <!-- tarjeta datos-->
@@ -107,7 +107,7 @@
                                     <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}}</div>
                                 </div>
                             </div>
-                            <app-progresbar [progress]="unPago" [where]="'un pago'" [total]="limiteTotalBarUnPago"></app-progresbar>
+                            <app-progresbar [show$]="true" [progress]="unPago" [where]="'un pago'" [total]="limiteTotalBarUnPago"></app-progresbar>
                         </div>
 
                         <div class="w-full md:w-5/12 m-auto">
@@ -118,7 +118,7 @@
                                     <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}}</div><!-- cambiar por el limite -->
                                 </div>
                             </div>
-                            <app-progresbar [progress]="enCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
+                            <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
                         </div>
                     </div>
 
@@ -149,11 +149,11 @@
                         </div> -->
 
                         <!-- Leyenda -->
-                        <div class="col-span-2 text-2xl font-bold ml-4 text-left px-4 text-secondary pt-4 font-semibold">
+                        <div class="col-span-3 text-2xl font-bold ml-4 text-center px-4 text-secondary pt-4 font-semibold">
                             Tu resúmen está disponible
                         </div>
                         <!-- Saldo a pagar -->
-                        <div class="grid grid-cols-3 gap-2 relative ml-7 w-10/12 md:w-9/12 py-6">
+                        <div class="grid grid-cols-3 gap-2 relative m-auto w-10/12 md:w-9/12 py-6">
 
                             <!-- pago total -->
                             <!-- <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
@@ -161,32 +161,32 @@
                                 <div class="text-sm md:text-md font-large truncate text-on-accent-300"> $70.000,00</div>
                             </div> -->
                             <!-- pago en pesos -->
-                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
                                 <div class="text-sm md:text-md font-large text-secondary">Saldo en $: </div>
                                 <div class="text-sm md:text-md font-large text-secondary"> $20.00,00</div>
                             </div>
                             <!-- pago en usd -->
-                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
                                 <div class="text-sm md:text-md font-large text-secondary">Saldo en U$$: </div>
                                 <div class="text-sm md:text-md font-large text-secondary"> $200,00</div>
                             </div>
                             <!-- saldo a favor -->
-                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
                                 <div class="text-sm md:text-md font-large text-secondary">A favor: </div>
                                 <div class="text-sm md:text-md font-large text-secondary">$1.000,00</div>
                             </div>
                             <!-- pago en minimo -->
-                            <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
+                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
                                 <div class="text-sm md:text-md font-semibold font-large text-secondary">Pago mínimo: </div>
                                 <div class="text-sm md:text-md font-semibold font-large text-secondary">$1.000,00</div>
                             </div>
                         
                         </div>
                         <!-- boton ver/descargar resumen -->
-                        <div class="flex flex-row w-full justify-self-center md:justify-self-start p-2 border-t-2 ">
+                        <div class="flex flex-row w-full justify-center items-center p-2 border-t-2">
                             
-                            <button class="bg-default m-auto ml-3 hover:border-1 hover:border-white text-secondary" 
-                                mat-stroked-button title="ver/descargar resumen">
+                            <button class="bg-default m-auto hover:border-1 hover:border-white text-secondary" 
+                                mat-stroked-button title="ver/descargar resumen" (click)="goTo('pages/invoice/printable/compact')">
                                 Ver resúmen
                             </button>
                         </div>
@@ -264,7 +264,8 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-4/12 m-auto" mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('consumos-recientes')">Ver más</button>
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400" 
+                        mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('dashboards/analytics')">Ver más</button>
                 </div>
                 <!-- Historial de pagos -->
                 <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300 rounded-2xl overflow-hidden">
@@ -312,7 +313,8 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-4/12 m-auto" mat-stroked-button title="pantalla de historial de pagos" (click)="goTo('historial-pagos')">Ver más</button>
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400" 
+                        mat-stroked-button title="pantalla de historial de pagos" (click)="goTo('pages/activities')">Ver más</button>
                 </div>
 
             </div>       

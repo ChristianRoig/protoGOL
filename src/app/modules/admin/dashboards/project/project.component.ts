@@ -80,9 +80,7 @@ export class ProjectComponent implements OnInit, OnDestroy
      */
     constructor(
         private _projectService: ProjectService,
-        private _router: Router,
-        private _navServices: FuseNavigationService,
-        private _activateRoute: ActivatedRoute
+        private _router: Router
     )
     {
         
@@ -510,6 +508,7 @@ export class ProjectComponent implements OnInit, OnDestroy
         }
     }
     goTo(word:string): void {
-        this._router.navigate(['/analytics']);
+        // console.log({word});
+        this._router.navigate([word]);
     }
 }
