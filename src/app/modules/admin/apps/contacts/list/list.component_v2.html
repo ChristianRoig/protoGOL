@@ -7,7 +7,7 @@
 
             <!-- Main desktop-->
             <!-- *ngIf="innerWidth > 1030" -->
-            <div class="flex-auto items-center  p-6">
+            <div *ngIf="false" class="flex-auto items-center  p-6">
                 <div class="p-3">
                     <div class="text-4xl font-extrabold tracking-tight leading-none">Mis resúmenes</div>
                     <!-- <div class="ml-0.5 font-sm text-secondary">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="p-3 m-auto bg-accent-300 rounded">
 
-                    <div class="grid grid-cols-8 gap-2 mt-2 mb-2 flex-shrink-0">
+                    <!-- <div class="grid grid-cols-8 gap-2 mt-2 mb-2 flex-shrink-0">
                         <div class="col-span-5"></div>
                         <div *ngIf="innerWidth < 650" class="col-span-1 text-right text-secondary font-sm">
                             Ver
@@ -24,9 +24,9 @@
                         <div *ngIf="innerWidth < 650" class="col-span-2 text-center text-secondary font-sm pr-2 tracking-tighter">
                             Descargar
                         </div>
-                    </div>
+                    </div> -->
                     
-                    <div class="grid grid-cols-8 gap-2 mt-2 mb-2" *ngFor="let item of items">
+                  <!--   <div class="grid grid-cols-8 gap-2 mt-2 mb-2" *ngFor="let item of items">
                         <div class="flex col-span-3 bg-card rounded items-center text-left pl-2 mx-0 md:mx-2">
                             {{ item }} 
                         </div>
@@ -49,7 +49,7 @@
                                 class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -63,7 +63,7 @@
                         14/11/50
                     </div> -->
                 </div>
-                <div class="p-3 m-auto w-full rounded bg-default"><!--  bg-accent-300 -->
+                <div class="p-3 mt-3 m-auto w-full rounded bg-default"><!--  bg-accent-300 -->
                     <!-- <div class="grid grid-cols-8 gap-2 mt-2 mb-2 flex-shrink-0">
                         <div class="col-span-5"></div>
                         <div class="col-span-1 text-right text-secondary font-sm">
@@ -100,7 +100,7 @@
                         <!-- Desktop -->
                         <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2" *ngIf="innerWidth > 650">
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto">
-                                <div  class="text-center mx-0 md:mx-2 pr-2 md:pl-2 cursor-pointer">
+                                <div class="text-center mx-0 md:mx-2 pr-2 md:pl-2 cursor-pointer">
                                     Visualizar
                                 </div>
                                 <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
@@ -120,14 +120,14 @@
                             *ngIf="i === id && verMas">
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto pt-2" >
                                 
-                                <div  class="text-center pr-1 mx-0 md:mx-2 cursor-pointer">
+                                <div (click)="goTo('pages/invoice/printable/compact')" class="text-center pr-1 mx-0 md:mx-2 cursor-pointer">
                                     Visualizar
                                 </div>
                                 <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
                                 class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-0 md:mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:eye'"></mat-icon>
                             </div>
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto pt-2">
-                                <div class="text-center mx-0 md:mx-2 cursor-pointer">
+                                <div (click)="downloadResumen()" class="text-center mx-0 md:mx-2 cursor-pointer">
                                     Descargar
                                 </div>
                                 <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'"

@@ -246,4 +246,18 @@ export class ContactsListComponent implements OnInit, OnDestroy
     {
         return item.id || index;
     }
+    /**
+     * viaja a una ruta especifica 
+     * @param value valor de la ruta deseada
+     */
+    goTo(value:string):void {
+        this._router.navigate([value]);
+    }
+    /**
+     * descarga del resumen 
+     * @param no hay parametros
+     */
+    downloadResumen():void {
+
+    }
 }

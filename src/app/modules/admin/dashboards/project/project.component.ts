@@ -490,7 +490,9 @@ export class ProjectComponent implements OnInit, OnDestroy
             { type: 'PURA', last_num: '4256', isTitular: false },
             { type: 'PURA', last_num: '4298', isTitular: true },
             { type: 'VISA', last_num: '4589', isTitular: false },
-            { type: 'VISA', last_num: '2135', isTitular: true }
+            { type: 'VISA', last_num: '2135', isTitular: true },
+            { type: 'PURA', last_num: '3566', isTitular: false },
+            { type: 'VISA', last_num: '2187', isTitular: false }
         ]
     }
     getBgColor(item:any):string {

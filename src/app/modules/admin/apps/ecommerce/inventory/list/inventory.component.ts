@@ -58,9 +58,16 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
     vendors: InventoryVendor[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
-    prestamoEnCuotas: number = 6; 
+    /**
+     * benja's propiedades
+     */
+    prestamoEnCuotas: number = 6;
+    limiteTotalBarEnCuotas = 12;
 
-    limiteTotalBarEnCuotas = 18;
+    estaAlDia: boolean = false;
+    estaEnMora: boolean = true;
+    estaCancelado: boolean = false;
+    estaFinalizado: boolean = false;
 
     /**
      * Constructor

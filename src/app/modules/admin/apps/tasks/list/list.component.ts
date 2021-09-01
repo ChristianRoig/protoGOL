@@ -117,7 +117,6 @@ export class TasksListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((task: Task) => {
                 this.selectedTask = task;
-
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -190,7 +189,7 @@ export class TasksListComponent implements OnInit, OnDestroy
      *
      * @param type
      */
-    createTask(type: 'task' | 'section'): void
+    createTask(type: 'task' | 'section' | 'recarga-rapida'): void
     {
         // Create the task
         this._tasksService.createTask(type).subscribe((newTask) => {
@@ -264,6 +263,28 @@ export class TasksListComponent implements OnInit, OnDestroy
 
     }
 
+    changeTask(value: any):void {
+        //console.log({value});
+        this._tasksService.createTask('section').subscribe(
+            v => {
+                value.id = v.id;
+                this._changeDetectorRef.markForCheck();
+
+                this._router.navigate(['apps/tasks/'+value.id]);
+            }
+        );
+    }
+    getRandomCompania(): any {
+        let random = Math.floor((Math.random() * 3));
+        switch (random) {
+            case 1:
+                return 'Movistar';
+            case 2:
+                return 'Personal';
+            default:
+                return 'Claro';
+        }
+    }
     getRandomImporte(): any {
         return Math.floor((Math.random() * 500));
     }

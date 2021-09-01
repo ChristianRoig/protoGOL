@@ -196,46 +196,147 @@
                 #rowDetailsTemplate
                 let-product>
                 <div class="shadow-lg overflow-hidden">
-                    <div class="flex flex-col items-center justify-center border-b p-3">
-                      
+                    <div class="flex flex-col items-start md:items-center justify-start border-b p-3 md:w-8/12 self-center m-auto bg-default text-secondary border-2 border-transparent rounded"
+                         [ngClass]="{'border-warn-300': estaEnMora, 'border-green-300': estaFinalizado || estaCancelado}">
+
+                        <!-- lo cancelo al prestamo -->
+                        <div *ngIf="estaCancelado"  
+                            class="flex items-center justify-self-center m-auto text-left md:text-center text-lg p-3 bg-gray-300 rounded w-full">
+                            <mat-icon 
+                                class="icon-size-5" 
+                                matPrefix 
+                                [svgIcon]="'heroicons_outline:thumb-up'"></mat-icon>
+                            <div class="text-center p-2 text-secondary">
+                                Préstamo cerrado
+                            </div>
+                        </div>
+
+                        <!-- lo Finalizo al prestamo en tiempo y forma -->
+                        <div *ngIf="estaFinalizado"  
+                            class="flex items-center justify-self-center m-auto text-left md:text-center text-lg p-3 bg-green-300 rounded w-full">
+                            <mat-icon 
+                                class="icon-size-5" 
+                                matPrefix 
+                                [svgIcon]="'heroicons_outline:thumb-up'"></mat-icon>
+                            <div class="text-center p-2 text-on-green-300">
+                                Felicitaciones! ya terminaste de pagar tu préstamo
+                            </div>
+                        </div>
+
+                        <!-- si esta al dia -->
+                        <div *ngIf="estaAlDia"  
+                            class="flex items-center justify-self-center m-auto text-left md:text-center text-lg p-3 bg-green-300 rounded w-full">
+                            <mat-icon 
+                                class="icon-size-5" 
+                                matPrefix 
+                                [svgIcon]="'heroicons_outline:thumb-up'"></mat-icon>
+                            <div class="text-center p-2 text-secondary">
+                                Estás al día con el préstamo!
+                            </div>
+                        </div>
+                        <!-- si esta en mora -->
+                        <div *ngIf="estaEnMora"  
+                            class="flex items-center justify-self-center m-auto text-left md:text-center text-lg p-3 bg-warn-300 rounded w-full">
+                            <mat-icon 
+                                class="icon-size-5" 
+                                matPrefix 
+                                [svgIcon]="'heroicons_outline:thumb-down'"></mat-icon>
+                            <div class="text-center text-medium text-secondary font-bold">
+                                Ups! no estas al dia con tu préstamo
+                            </div>
+                        </div>
+                        <div  *ngIf="estaEnMora" 
+                            class="text-center italic m-auto p-2 justify-self-center text-secondary text-sm text-on-warn-300 w-full">
+                            Es muy importante que regularices tu situacion
+                        </div>
+
+                        <div class="text-left md:text-center text-lg p-3">
+                            Compraste:  
+                            <div class="text-left md:text-center text-lg pb-3 pt-3">
+                                Una <strong> heladera </strong> en <strong>12</strong> cuotas
+                            </div>
+                        </div>
                         
-                        <div class="text-center text-lg m-auto p-3">
-                            Tú préstamo por <strong> item </strong> en <strong>cant. cuotas finales</strong>
-                        </div>
-                        <div class="m-auto p-3">
-                            próximo vencimiento <strong>Fecha</strong>
-                        </div>
-                        <div class="m-auto p-3">
-                            cuota pendiente x / <strong>cant. cuotas finales</strong>
+                        <div *ngIf="!estaFinalizado" class="p-3 bg-accent-300 rounded-xl text-left md:text-center w-full md:w-6/12 border-2 border-white">
+                            Tu próxima cuota vence <strong>08/09/2021</strong>
+                            <div class="text-left md:text-center font-sm text-secondary whitespace-nowrap">
+                                te restan {{  limiteTotalBarEnCuotas - prestamoEnCuotas }} / {{limiteTotalBarEnCuotas}} por abonar.
+                            </div>
                         </div>
 
-                        <div class="text-rigth font-sm text-secondary whitespace-nowrap">
-                            te restan {{  limiteTotalBarEnCuotas - prestamoEnCuotas }} / {{limiteTotalBarEnCuotas}} por abonar.
+                        <div class="text-center italic m-auto p-2 justify-self-center text-secondary text-sm w-full">
+                            Tip: pagando la cuota antes de la fecha de vencimiento, te aseguras que el monto no crezca. Tene en cunetaque despues de la fecha se aplicaran intereses
                         </div>
 
-                        <div class="w-full md:w-6/12 min-w-10 m-auto pb-3">
+                        
+                        <!-- <mat-icon 
+                            class="icon-size-5 self-start md:hidden"
+                            matPrefix [svgIcon]="'heroicons_outline:chat'"></mat-icon> -->
+
+                        <div *ngIf="!estaFinalizado" class="w-full md:w-6/12 min-w-10 m-auto pb-3 mt-2 items-center">
                             <app-progresbar [progress]="prestamoEnCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
-                            <div class="text-center font-md">
-                                ya pagaste (40%) del prestamo!
+                            <div class="text-left font-sm pl-2 pt-2 whitespace-nowrap">
+                                Ya pagaste (40%) del prestamo!
+                            </div>
+                        </div>
+
+                        <div *ngIf="!estaFinalizado" class="py-3 px-2 md:self-center bg-accent-300 rounded-xl text-center md:m-auto w-full md:w-6/12 border-2 border-white">
+                            Te quedan <strong>6</strong> cuotas pendientes de <strong>$2999,99</strong>
+                        </div>
+                        <!-- <mat-icon 
+                            class="icon-size-5 self-start md:hidden"
+                            matPrefix [svgIcon]="'heroicons_outline:chat'"></mat-icon> -->
+
+                        <div class="flex flex-col items-start justify-center py-3 text-secondary bg-accent-300 w-full md:w-6/12 border-2 border-white rounded-xl text-left pl-3 mt-4">
+                            Información sobre mi crédito:
+                            <div class="text-rigth font-sm text-secondary whitespace-nowrap mt-3 px-3 py-2">
+                                ID: <strong>G-23003-H22</strong>
+                            </div>
+                            <div class="text-rigth font-sm text-secondary whitespace-nowrap px-3 py-2">
+                                Monto Total: $ <strong>29.500,99</strong>
+                            </div>
+                            <div class="text-rigth font-sm text-secondary whitespace-nowrap px-3 py-2">
+                                Fecha de Originacion: <strong>08/02/2021</strong>
+                            </div>
+                            <div class="text-rigth font-sm text-secondary whitespace-nowrap px-3 py-2">
+                                Cuotas: <strong>12</strong>
+                            </div>
+                            <div class="text-rigth font-sm text-secondary whitespace-nowrap px-3 py-2">
+                                Monto de cuota: $ <strong>2.999,99</strong>
                             </div>
 
+                            <div class="text-left justify-center font-sm self-end md:self-center text-secondary whitespace-nowrap pr-2">
+                                <button mat-stroked-button class="m-auto bg-default">Descargar contrato</button>
+                            </div>
+                        </div>
+                        <!-- <mat-icon 
+                            class="icon-size-5 self-start md:hidden" 
+                            matPrefix 
+                            [svgIcon]="'heroicons_outline:chat'"></mat-icon>  -->
+
+                        <div class="m-auto text-center my-5 text-secondary">
+                            <button mat-stroked-button class="bg-accent-300">Pedir solicitud de información </button>
                         </div>
 
-                        <div class="m-auto text-center pb-3">
-                            <button mat-stroked-button>pedir solicitud de informacion </button>
-                        </div>
+                        <div class="text-center m-auto">Necesitas un certificado ?</div>
+                        <div class="text-center m-auto italic pb-2">seleccioná uno para pedirlo</div>
 
-                       <div class="flex flex-col items-center justify-center m-auto bg-default p-6 rounded">
-                        <div class="text-center p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-gray-300 cursor-pointer">
-                            CERTIFICADO DEUDA AL DÍA
+                        <div class="flex flex-col items-center justify-center m-auto bg-accent-300 border-2 border-white p-6 rounded-xl md:w-6/12">
+                            <div class="text-center text-secondary p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-white cursor-pointer">
+                                CERTIFICADO DEUDA AL DÍA
+                            </div>
+                            <div *ngIf="!estaFinalizado && !estaCancelado" 
+                                 class="text-center text-secondary p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-white cursor-pointer">
+                                CERTIFICADO DE ESTADO DE PRÉSTAMO
+                            </div>
+                            <div *ngIf="!estaFinalizado && !estaCancelado"
+                                 class="text-center text-secondary p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-white cursor-pointer">                   
+                                CERTIFICADO DE DEUDA DE PRÉSTAMO
+                            </div>
                         </div>
-                        <div class="text-center p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-gray-300 cursor-pointer">
-                            CERTIFICADO DE ESTADO DE PRÉSTAMO
-                        </div>
-                        <div class="text-center p-3 font-semibold m-auto border-1 border-b border-transparent hover:border-gray-300 cursor-pointer">                   
-                            CERTIFICADO DE DEUDA DE PRÉSTAMO
-                        </div>
-                       </div>
+                        <!-- <mat-icon 
+                            class="icon-size-5 self-start md:hidden"
+                            matPrefix [svgIcon]="'heroicons_outline:chat'"></mat-icon> -->
 
                     </div>
                 </div>
@@ -248,7 +349,7 @@
                         Todavía no tiene un préstamo? 
                     </div>
                     <div class="p-8 sm:p-16 items-center text-2xl justify-center tracking-tight border-t text-center ">
-                        tenés disponíbles hasta $ 50.000 en un pago y $ 100.000 en cuotas 
+                        Te queres comprar una heladera nueva? pedi un prestamo de la anonima  y llevalo en cuotas 
                     </div>
                     <div class="p-8 sm:p-16 text-center text-2xl text-md tracking-tight border-t">
                         para más información ingrse 

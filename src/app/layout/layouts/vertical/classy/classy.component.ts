@@ -110,4 +110,19 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy
             navigation.toggle();
         }
     }
+
+    /**
+     * separa el nombre
+     * @param name nombre del usuario
+     */
+    splitName(name:string): string {
+        let result =  name.split(' ')[0].substring(0,1) + ' . '+ name.split(' ')[1].substring(0,1);
+        return result;
+    }
+
+    /* <div class="flex items-center justify-center m-auto w-24 h-24 whitespace-nowrap overflow-ellipsis overflow-hidden text-center leading-normal font-medium rounded-full border-2 border-white">
+                    <div class="text-center text-2xl md:text-5xl font-extrabold m-auto text-on-accent-300">
+                        {{splitName(user.name)}}
+                    </div>
+                </div> */
 }

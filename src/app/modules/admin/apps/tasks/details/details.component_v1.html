@@ -1,65 +1,157 @@
 <div class="flex flex-auto">
 
-    <form *ngIf="task.type === 'section'"
+    <!-- con recargas anteriores -->
+    <form *ngIf="false" (submit)="recargaRapida(formRecargaRapida)"
+        class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto"
+        [formGroup]="formRecargaRapida"><!-- task.type === 'section' && anteriores.length > 0 -->
+
+        <div class="text-center font-semibold p-4">Recarga rápida</div>
+    
+        <!-- ddn + num_telefono -->
+        <div>
+            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
+                <mat-label>Número de teléfono</mat-label>
+                    <mat-select  [formControlName]="'recarga_rapida'" name="recarga_rapida">
+                        <mat-option *ngFor="let item of anteriores" [value]="item.ddn+''+item.num_telefono">
+                            {{item.ddn }} - {{item.num_telefono}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- importe -->
+        <div>
+            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
+                <mat-label>Importe</mat-label>
+                <!-- <input
+                    matInput
+                    [formControlName]="'importe'"
+                    > -->
+                    <mat-select  [formControlName]="'importe'" name="importe">
+                        <mat-option *ngFor="let item of anteriores" [value]="item.importe">
+                            {{item.importe}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+
+          <!-- importe -->
+          <div>
+            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
+                <mat-label>Compañia</mat-label>
+                <!-- <input
+                    matInput
+                    [formControlName]="'importe'"
+                    > -->
+                    <mat-select  [formControlName]="'compania'" name="compania">
+                        <mat-option *ngFor="let item of anteriores" [value]="item.compania">
+                            {{item.compania}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- action buttons -->
+        <div class="flex flex-row items-center justify-between">
+            <button mat-stroked-button class="m-auto p-3 bg-default" type="submit">
+                Recargar
+            </button>
+            <button mat-stroked-button type="button" class="m-auto p-3 bg-default" (click)="cancelar()">
+                Cancelar
+            </button>
+        </div>
+
+    
+    </form>
+
+    <!-- primera vez de recarga -->
+    <form *ngIf="task.type === 'section'" (submit)="recargar(formRecarga)"
         class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto"
         [formGroup]="formRecarga">
 
         <div class="text-center font-semibold p-4">Celular</div>
 
+        <!-- codigo de area -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
-                <mat-label>Código de área</mat-label>
+                <mat-label>Código de área (sin 0)</mat-label>
                 <input
+                    maxlength="4"
+                    minlength="2"
                     matInput
                     [formControlName]="'ddn'"
                     >
             </mat-form-field>
         </div>
-
+        <!--  numero telefono -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
-                <mat-label>Número de teléfono</mat-label>
+                <mat-label>Número de teléfono (sin 15)</mat-label>
                 <input
                     matInput
+                    maxLength="8"
+                    minlength="6"
                     [formControlName]="'num_telefono'"
                     >
             </mat-form-field>
         </div>
-
+        <!-- importe -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
                 <mat-label>Importe</mat-label>
-                <input
+                <!-- <input
                     matInput
                     [formControlName]="'importe'"
-                    >
+                    > -->
+                    <mat-select  [formControlName]="'importe'" name="importe">
+                        <mat-option *ngFor="let item of importesTelefono" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
             </mat-form-field>
         </div>
-
+        <!-- compania de telefono -->
         <div>
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
                 <mat-label>Compañia</mat-label>
-                <input
+                <!-- <input
                     matInput
                     [formControlName]="'compania'"
+                    > -->
+                    <mat-select  [formControlName]="'compania'" name="compania">
+                        <mat-option *ngFor="let item of companias" [value]="item">
+                            {{item}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- titulo del formulario -->
+        <div>
+            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full hidden" appearance="outline">
+                <mat-label>title</mat-label>
+                <input
+                    matInput
+                    [formControlName]="'title'"
+                    value="celular"
                     >
             </mat-form-field>
         </div>
 
         <div class="flex flex-row items-center justify-between">
-            <button mat-stroked-button class="m-auto p-3 bg-default" (click)="cancelar()">
-                Aplicar
+            <button mat-stroked-button class="m-auto p-3 bg-default" type="submit">
+                Recargar
             </button>
-            <button mat-stroked-button class="m-auto p-3 bg-default" (click)="cancelar()">
+            <button mat-stroked-button type="button" class="m-auto p-3 bg-default" (click)="cancelar()">
                 Cancelar
             </button>
         </div>
 
     </form>
 
-    <form *ngIf="task.type === 'task'"
+    <form *ngIf="task.type === 'task'" (submit)="recargar(formDirecTV)"
     class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto" 
-    [formGroup]="formDirecTV">
+    [formGroup]="formDirecTV"><!--  && anteriores.length === 0 -->
 
         <!-- Header -->
         <div class="flex items-center justify-between -mt-3 -ml-4">
@@ -120,31 +212,45 @@
     <div class="text-center font-semibold p-4">
         Direct TV
     </div>
+    <!-- id_cliente -->
     <div>
         <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
             <mat-label>Código de cliente</mat-label>
             <input
                 matInput
+                maxlength="15"
                 [formControlName]="'id_cliente'"
                 >
         </mat-form-field>
     </div>
-
+    <!-- importe -->
     <div>
         <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full" appearance="outline">
             <mat-label>Importe</mat-label>
+            <mat-select  [formControlName]="'importe'" name="importe">
+                <mat-option *ngFor="let item of importeDTV" [value]="item">
+                    {{item}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <!-- titulo del formulario -->
+    <div>
+        <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full hidden" appearance="outline">
+            <mat-label>Código de cliente</mat-label>
             <input
                 matInput
-                [formControlName]="'importe'"
+                [formControlName]="'title'"
+                value="direcTV"
                 >
         </mat-form-field>
     </div>
-
+    <!-- actions buttons -->
     <div class="flex flex-row items-center justify-between">
-        <button mat-stroked-button class="m-auto p-3 bg-default" (click)="cancelar()">
-            Aplicar
+        <button mat-stroked-button type="submit"  class="m-auto p-3 bg-default" >
+            Recargar
         </button>
-        <button mat-stroked-button class="m-auto p-3 bg-default" (click)="cancelar()">
+        <button mat-stroked-button class="m-auto p-3 bg-default" type="button" (click)="cancelar()">
             Cancelar
         </button>
     </div>

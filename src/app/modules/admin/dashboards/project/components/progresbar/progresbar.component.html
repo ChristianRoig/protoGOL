@@ -1,11 +1,11 @@
 <div class="flex-auto flex-shrink-0 min-w-0 m-auto my-2 progress-bar-container items-center" role="progressbar">
-    <div [ngClass]="{'hidden': progress > 0,'block': progress < 1}" class="text-secondary pt-2 text-center font-extrabold">Disponible: {{ '$ '+ shoowTrueProgress }} </div>
+    <div [ngClass]="{'hidden': progress > 0,'block': progress < 1}" class="text-secondary pt-2 text-center font-extrabold"> {{ '$ '+ shoowTrueProgress }} </div>
     
     <div [ngClass]="{'hidden': progress < 1, 'block': progress > 0}" [ngClass]="{'bg-warn-300': changeColor}" 
          class="progress-bar {{color}} relative text-center overflow-clip font-semibold text-md tracking-tighter"
          [ngStyle]="{'width': progress + '%'}"> 
          <div class="whitespace-nowrap text-center m-auto w-5/12 positions text-secondary"> 
-               Disponible en <span class="text-xl"> {{ where }} </span> : {{ show$ ? '$ '+(total - shoowTrueProgress) : (total - shoowTrueProgress) }} 
+          <span class="text-xl"> {{ where }} </span> : {{ show$ ? '$ '+(total - shoowTrueProgress) : (total - shoowTrueProgress) }} 
           </div> <!-- / {{ '$'+total }} -->
     </div>
      <!-- <span class="mr-1 justify-end"> / Disp.: {{'$ '+ showTrueLimite }}</span> --> 

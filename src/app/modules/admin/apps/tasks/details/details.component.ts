@@ -31,6 +31,9 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     task: Task;
     taskForm: FormGroup;
     tasks: Task[];
+
+    anteriores: FormGroup[] = [];
+
     private _tagsPanelOverlayRef: OverlayRef;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -39,6 +42,11 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
      */
     formRecarga: FormGroup;
     formDirecTV: FormGroup;
+    formRecargaRapida: FormGroup;
+    importesTelefono: number[];
+    importeDTV: number[];
+    companias: string[] = ['Personal', 'Movistar', 'Claro', 'Nextel'];
+    givenTask: any;
 
     /**
      * Constructor
@@ -58,6 +66,10 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     {
         this.formRecarga = this._initFormRecarga(true);
         this.formDirecTV = this._initFormRecarga(false);
+        this.importesTelefono = this.getImportesTelefonosMock();
+        this.importeDTV = this.getImporteDTVMock();
+        this.formRecargaRapida = this._initFormRecargaRapida();
+        
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -102,6 +114,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((tasks: Task[]) => {
                 this.tasks = tasks;
+                
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -116,7 +129,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
                 // Get the task
                 this.task = task;
-                console.log({task})
+                this.givenTask = this.tasks.filter(v => v.id === task.id);
+                console.log(this.givenTask);
                 // Patch values to the form from the task
                 /* this.taskForm.patchValue(task, {emitEvent: false}); */
 
@@ -567,17 +581,58 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this.formRecarga.reset();
     }
 
+    recargar(formValue: FormGroup): void {
+        console.log({formValue});
+
+        if(!formValue.value){
+            alert('Formulario inválido. reintentar');
+            return;
+        }
+        if(!this.anteriores.includes(formValue.value,0)){
+            this.anteriores.push(formValue.value);
+        }
+
+        this.closeDrawer();
+    }
+    recargaRapida(formValue: FormGroup): void {
+        if(!formValue.value){
+            alert('Formulario inválido. reintentar');
+            return;
+        }
+        console.log({formValue});
+        this.closeDrawer();
+    }
+
     private _initFormRecarga(def?: boolean): FormGroup {
         return def ? 
         this._formBuilder.group({
             ddn: new FormControl('', [ Validators.required, Validators.minLength(2), Validators.maxLength(4), Validators.pattern('^[0-9]*') ]),
             num_telefono: new FormControl ('', [ Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern('^[0-9]*') ]),
             importe: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
-            compania: new FormControl('', [ Validators.required ])
+            compania: new FormControl('', [ Validators.required ]),
+            title: new FormControl('celular')
         }) : 
         this._formBuilder.group({
-            importe: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
-            id_cliente: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ])
+            importe: new FormControl('', [ Validators.required, Validators.maxLength(15),Validators.pattern('^[0-9]*') ]),
+            id_cliente: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
+            title: new FormControl('directv')
         });
+    }
+    private _initFormRecargaRapida(): FormGroup {
+        return this._formBuilder.group({
+            recarga_rapida: new FormControl('', [ Validators.required, Validators.maxLength(10),Validators.pattern('^[0-9]*') ]),
+            importe: new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*') ]),
+            compania: new FormControl('', [ Validators.required ]),
+        });
+    }
+    getImportesTelefonosMock(): number[] {
+        return [
+            10, 15,20,30,40,50,60,70,80,90,100,200
+        ];
+    }
+    getImporteDTVMock():number[] {
+        return [
+            150,200,300,400,500,800,1000,1200,1500,2000,3000
+        ];
     }
 }

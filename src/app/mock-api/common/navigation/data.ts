@@ -17,7 +17,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id: 'dashboards.project.tla',
-                title: 'Páguina principal',
+                title: 'Página principal',
                 subtitle: '',
                 type: 'basic',
                 icon: 'heroicons_outline:home',

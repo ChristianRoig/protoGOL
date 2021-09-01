@@ -54,15 +54,19 @@
                 </div>
 
                 <!-- Tarjetas -->
-                <div class="flex flex-row w-full md:w-10/12 col-span-4 p-4 bg-default text-on-accent-300 justify-center flex-nowrap m-auto whitespace-nowrap overflow-y-hidden overflow-x-auto">
+                <div class="flex flex-row w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center 
+                        flex-nowrap m-auto whitespace-nowrap overflow-x-auto box-border">
 
+                        <div class="place-content-center flex justify-center container m-auto">
+                            <app-carousel [slides]="getItems()"></app-carousel>
+                        </div>
                         <!-- box tarjeta -->
-                        <div class="flex flex-col flex-shrink-0 items-center w-auto justify-center m-7 py-3 rounded hover:shadow-2xl cursor-pointer" 
+                        <!-- <div class="flex flex-col flex-shrink-0 items-center w-auto justify-center m-7 py-3 rounded hover:shadow-2xl cursor-pointer" 
                             [ngClass]="getBgColor(item)"   
-                            *ngFor="let item of getItems()">
+                            *ngFor="let item of getItems()"> -->
                            
                             <!-- tarjeta datos-->
-                            <div class="flex flex-row items-center justify-between mx-2 py-2">
+                            <!-- <div class="flex flex-row items-center justify-between mx-2 py-2">
 
                                 <div class="border-1 rounded bg-default text-bold font-xl p-2 m-auto">
                                     {{ item.type }}
@@ -75,10 +79,10 @@
                                     <mat-icon class="icon-size-6 text-hint" [svgIcon]="'heroicons_outline:arrow-circle-right'"></mat-icon>
                                 </div>
 
-                            </div>
+                            </div> -->
 
                             <!-- fecha vencimiento y cierre -->
-                            <div class="m-auto items-self-start">
+                           <!--  <div class="m-auto items-self-start">
                                 <div class="text-secondary text-left pl-4 font-sm font-semibold whitespace-nowrap flex-nowrap">
                                     Vencimiento : <span class="text-left">17/02/2022</span>
                                 </div>
@@ -89,13 +93,13 @@
                                    ~ titular: {{ item.isTitular ? 'SI' : 'NO' }} tipo: {{item.type}} ~
                                 </div>
 
-                            </div>
+                            </div> -->
 
-                    </div>
+                    <!-- </div> -->
                 </div>
                 
                 <!-- Progres bar -->
-                <div class="flex flex-col col-span-4 flex-auto p-6 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
+                <div class="flex flex-col col-span-4 flex-auto px-6 pb-6 pt-0 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
                     
                     <div class="flex flex-auto flex-wrap md:items-center md:justify-evenly"> <!-- content card -->
                         
@@ -107,6 +111,7 @@
                                     <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}}</div>
                                 </div>
                             </div>
+                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible  en</div>
                             <app-progresbar [show$]="true" [progress]="unPago" [where]="'un pago'" [total]="limiteTotalBarUnPago"></app-progresbar>
                         </div>
 
@@ -118,6 +123,7 @@
                                     <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}}</div><!-- cambiar por el limite -->
                                 </div>
                             </div>
+                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible en</div>
                             <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
                         </div>
                     </div>
@@ -149,8 +155,8 @@
                         </div> -->
 
                         <!-- Leyenda -->
-                        <div class="col-span-3 text-2xl font-bold ml-4 text-center px-4 text-secondary pt-4 font-semibold">
-                            Tu resúmen está disponible
+                        <div class="text-2xl font-bold m-auto text-center px-4 text-secondary pt-4 font-semibold">
+                            Último resúmen disponible
                         </div>
                         <!-- Saldo a pagar -->
                         <div class="grid grid-cols-3 gap-2 relative m-auto w-10/12 md:w-9/12 py-6">
@@ -264,7 +270,7 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400" 
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400 text-secondary" 
                         mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('dashboards/analytics')">Ver más</button>
                 </div>
                 <!-- Historial de pagos -->
@@ -313,7 +319,7 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400" 
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400 text-secondary" 
                         mat-stroked-button title="pantalla de historial de pagos" (click)="goTo('pages/activities')">Ver más</button>
                 </div>
 

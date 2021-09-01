@@ -40,9 +40,6 @@ export class ProgresbarComponent implements OnInit {
 		this.shoowTrueProgress = this.progress;
 		this.showDisp = this.progress - this.total;
 
-		// limiteTotalBar1 - totalBar1
-		//[progress]="totalBar1" [total]="limiteTotalBar1"
-
 		if(this.progress > this.total) {
 			this.progress = 100;
 			this.total = 100;

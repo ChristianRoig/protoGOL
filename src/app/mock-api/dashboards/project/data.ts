@@ -70,36 +70,36 @@ export const project = {
         today   : [
             {
                 title   : 'Supermercado La Anonima',
-                time    : '20/07/2021 17:43',
+                time    : '15/08/2021',
                 location: 'Puerto Madryn'
             },
             {
                 title: 'Fravega',
-                time : '10:30 AM'
+                time : '01/08/2021'
             },
             {
                 title: 'Supermercado La Anonima',
-                time : '11:00 AM'
+                time : '06/08/2021'
             },
             {
                 title: 'Telecom',
-                time : '12:10 PM'
-            },
+                time : '10/08/2021'
+            }/* ,
             {
                 title   : 'Supermercado La Anonima',
-                time    : '05:30 PM',
+                time    : '12/08/2021',
                 location: 'Viedma'
             },
             {
                 title   : 'Supermercado La Anonima',
-                time    : '07:30 PM',
+                time    : '20/08/2021',
                 location: 'Viedma'
             },
             {
                 title   : 'Camuzzi Gas',
-                time    : '09:30 PM',
+                time    : '20/08/2021',
                 location: 'Viedma'
-            }
+            } */
         ],
         tomorrow: [
             {
