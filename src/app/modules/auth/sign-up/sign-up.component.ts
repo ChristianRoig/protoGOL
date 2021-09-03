@@ -7,7 +7,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'auth-sign-up',
-    templateUrl  : './sign-up.component.html',
+    templateUrl  : './sign-up.component_v1.html',
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })

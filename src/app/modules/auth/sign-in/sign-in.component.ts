@@ -7,7 +7,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'auth-sign-in',
-    templateUrl  : './sign-in.component.html',
+    templateUrl  : './sign-in.component_v1.html',
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
@@ -42,12 +42,14 @@ export class AuthSignInComponent implements OnInit
      * On init
      */
     ngOnInit(): void
-    {
+    {   
+        /* const valueDefault = 'hughes.brian@company.com';
+        const paswwordDefault = 'admin'; */
         // Create the form
         this.signInForm = this._formBuilder.group({
-            email     : ['hughes.brian@company.com', [Validators.required, Validators.email]],
-            password  : ['admin', Validators.required],
-            rememberMe: ['']
+            email     : ['hughes.brian@company.com', [Validators.required]],
+            password  : ['admin', Validators.required]
+            /* rememberMe: [''] */
         });
     }
 
@@ -98,7 +100,7 @@ export class AuthSignInComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'error',
-                        message: 'Wrong email or password'
+                        message: 'Contraseña o número de documento incorrectos'
                     };
 
                     // Show the alert

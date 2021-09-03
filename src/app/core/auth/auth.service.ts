@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class AuthService
@@ -73,10 +74,12 @@ export class AuthService
         {
             return throwError('User is already logged in.');
         }
-
-        return this._httpClient.post('api/auth/sign-in', credentials).pipe(
+       /*  const completaCeros = '00'+credentials.user_doc
+        const url = `${environment.api_login}?userName=${completaCeros}&password=${credentials.password}&userType=UT`; */
+        return this._httpClient.post('api/auth/sign-in', credentials)
+        /* return this._httpClient.get(url) */.pipe(
             switchMap((response: any) => {
-
+                console.log({response})
                 // Store the access token in the local storage
                 this.accessToken = response.accessToken;
 

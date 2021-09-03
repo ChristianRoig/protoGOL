@@ -8,7 +8,7 @@ import { UserService } from 'app/core/user/user.service';
 
 @Component({
     selector       : 'user',
-    templateUrl    : './user.component.html',
+    templateUrl    : './user_SP.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs       : 'user'

@@ -6,7 +6,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'auth-sign-out',
-    templateUrl  : './sign-out.component.html',
+    templateUrl  : './sign-out.component_v1.html',
     encapsulation: ViewEncapsulation.None
 })
 export class AuthSignOutComponent implements OnInit, OnDestroy

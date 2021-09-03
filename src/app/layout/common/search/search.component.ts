@@ -7,7 +7,7 @@ import { fuseAnimations } from '@fuse/animations/public-api';
 
 @Component({
     selector     : 'search',
-    templateUrl  : './search.component.html',
+    templateUrl  : './search_SP.component.html',
     encapsulation: ViewEncapsulation.None,
     exportAs     : 'fuseSearch',
     animations   : fuseAnimations
