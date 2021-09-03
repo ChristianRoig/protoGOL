@@ -8,7 +8,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'auth-reset-password',
-    templateUrl  : './reset-password.component.html',
+    templateUrl  : './reset-password.component_v1.html',
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
@@ -95,7 +95,7 @@ export class AuthResetPasswordComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'success',
-                        message: 'Your password has been reset.'
+                        message: 'Su contraseña fue reestablecida con exito.'
                     };
                 },
                 (response) => {
@@ -103,7 +103,7 @@ export class AuthResetPasswordComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'error',
-                        message: 'Something went wrong, please try again.'
+                        message: 'Ah ocurrido un error inesperado, re intentar'
                     };
                 }
             );
