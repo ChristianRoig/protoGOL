@@ -1,8 +1,8 @@
 {
-    "name": "@fuse/starter",
-    "version": "13.3.1",
-    "description": "Fuse - Angular Admin Template and Starter Project",
-    "author": "https://themeforest.net/user/srcn",
+    "name": "starter-SP",
+    "version": "0.1",
+    "description": "Fuse - Proyecto de Inicio Traducido",
+    "author": "La Anonima Fintech",
     "license": "https://themeforest.net/licenses/standard",
     "private": true,
     "scripts": {
