@@ -12,7 +12,7 @@ import { AppConfig, Scheme, Theme } from 'app/core/config/app.config';
 
 @Component({
     selector     : 'layout',
-    templateUrl  : './layout.component.html',
+    templateUrl  : './layout.component_v1.html',
     styleUrls    : ['./layout.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
