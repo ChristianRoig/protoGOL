@@ -1,9 +1,14 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const API_BASE_URL: string = `http://svrappqa2.saiep:8080`;
+const API_SERVLET: string = `/GOLProxyJsonHSvc`;
+const API_LOGIN: string = `/userLogon.svc`;
 
 export const environment = {
-    production: false
+    production: false,
+    api_url: API_BASE_URL + API_SERVLET,
+    api_login: API_BASE_URL + API_SERVLET + API_LOGIN
 };
 
 /*
