@@ -1,8 +1,8 @@
 /* eslint-disable */
 export const user = {
     id    : 'cfaad35d-07a3-4447-a6c3-d8c3d54fd5df',
-    name  : 'Jorge Boria',
-    email : 'j.boria@gmail.com',
+    name  : 'Benja Dev',
+    email : 'j.gonzalez@sieteideas.com.ar',
     avatar: 'assets/images/avatars/brian-hughes.jpg',
     status: 'online'
 };
