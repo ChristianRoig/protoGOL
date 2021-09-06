@@ -7,7 +7,7 @@ import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'auth-sign-in',
-    templateUrl  : './sign-in.component_v1.html',
+    templateUrl  : './sign-in.component_v2.html',
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })

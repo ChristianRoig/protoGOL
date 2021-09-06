@@ -8,7 +8,7 @@ import { UserService } from 'app/core/user/user.service';
 
 @Component({
     selector       : 'user',
-    templateUrl    : './user_SP.component.html',
+    templateUrl    : './user_SP.component_v1.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs       : 'user'
@@ -94,6 +94,6 @@ export class UserComponent implements OnInit, OnDestroy
      */
     signOut(): void
     {
-        this._router.navigate(['/sign-out']);
+        this._router.navigate(['/cerrar-sesion']);
     }
 }
