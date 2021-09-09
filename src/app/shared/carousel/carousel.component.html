@@ -1,40 +1,39 @@
-<div class="w-90 flex flex-row items-start justify-between overscroll-x-auto mx-2">
+<div #contentTarjetas class="w-90 flex flex-row items-start justify-between overscroll-x-auto mx-2"
+    fuseScrollBar fuseScrollReset>
     
     <ng-container class="m-auto mt-8 carousel" *ngFor="let item of slides; let i = index"><!-- [@slideInLeft]="i === currentSlide" [@slideInRight]="i !== currentSlide" -->
-       <div class="flex flex-col flex-shrink-0 items-center w-full justify-center m-auto pt-2 pb-3 mx-2 rounded hover:shadow-md cursor-pointer slide" 
-            [ngClass]="getBgColor(item)"> <!-- m-7 ml-24  *ngIf="i === currentSlide"-->
-            
+       <div class="flex flex-col flex-shrink-0 items-center w-full justify-center pt-2 pb-3 mx-2 rounded hover:shadow-md cursor-pointer slide m-auto"> <!-- m-7 ml-24  *ngIf="i === currentSlide"-->
+            <!-- [ngClass]="{'active': currentSlide === i}" -->
             <!-- tarjeta datos-->
-            <div class="flex flex-row items-center justify-between mx-2 py-2 w-full">
-
-                <div class="border-1 rounded bg-default text-bold font-xl p-2 m-auto">
-                    {{ item.type }}
-                </div>
-
-                <div class="flex flex-row font-bold items-center whitespace-nowrap">
-                    <div class="mx-1"> **** </div> 
-                    <div class="mx-1"> **** </div> 
-                    <div class="mx-1"> **** </div>
-                    <div class="mx-1"> {{ item.last_num }} </div>
-                </div>
-                <div class="whitespace-nowrap m-auto cursor-pointer">
-                    <mat-icon class="icon-size-6 text-hint" [svgIcon]="'heroicons_outline:arrow-circle-right'"></mat-icon>
-                </div>
+            <div class="flex flex-row items-center justify-between mx-2 h-90 py-2 w-full">
 
             </div>
 
             <!-- fecha vencimiento y cierre -->
-            <div class="m-auto items-center h-90 w-full  pt-6 justify-center text-center"> 
-                <div class="text-secondary text-center p-1 font-sm font-semibold whitespace-nowrap flex-nowrap">
+            <div class="m-auto items-start h-90 w-full pt-6 justify-center text-center ml-7 active"> 
+                <div class="text-white text-left p-1 font-sm font-semibold whitespace-nowrap flex-nowrap">
                     Vencimiento : <span class="text-left">17/02/2022</span>
                 </div>
-                <div class="text-center text-secondary p-1 text-sm font-semibold whitespace-nowrap flex-nowrap">
+                <div class="text-left text-white p-1 text-sm font-semibold whitespace-nowrap flex-nowrap">
                     Cierre : <span class="text-right"> 12/01/2022</span>
                 </div>
-                <div class="text-sm text-secondary p-1 text-center">
-                    ~ titular: {{ item.isTitular ? 'SI' : 'NO' }} tipo: {{item.type}} ~
+                <div class="text-sm font-semibold text-white p-1 text-left">
+                    Nombre titular: {{ item.isTitular ? 'Leandro Anache' : '! Leando Anache' }}
                 </div>
-
+                <div class="flex flex-row items-start justify-start w-full">
+    
+                    <div class="flex flex-row font-semibold items-center text-white whitespace-nowrap">
+                        <div class="mx-1"> **** </div> 
+                        <div class="mx-1"> **** </div> 
+                        <div class="mx-1"> **** </div>
+                        <div class="mx-1"> {{ item.last_num }} </div>
+                    </div>
+                    <div class="whitespace-nowrap m-auto cursor-pointer">
+                        <!-- <mat-icon class="icon-size-6 text-hint" [svgIcon]="'heroicons_outline:arrow-circle-right'"></mat-icon> -->
+                    </div>
+    
+                </div>
+    
             </div>
 
         </div>
@@ -56,4 +55,21 @@
         </button>
     </div> -->
     
+</div>
+ <!-- buttons arrow -->
+ <div class="flex flex-row items-center justify-between z-10 mt-3 mb-3 z-10 self-center hidden">
+     <!-- arrow next -->
+    <div class="content-arrow m-auto cursor-pointer" (click)="onPrevButtonClicked()">
+        <i class="arrow left"></i>
+    </div>
+    <!-- place -->
+    <div class="m-auto p-1">
+        <span  *ngFor="let item of slides; let i = index">
+            <i [ngClass]="{'active': currentSlide === i}" class="pr-1 w-2 h-2">*</i>
+        </span>
+    </div>
+    <!-- arrow prev -->
+    <div class="content-arrow m-auto cursor-pointer" (click)="onNextButtonClicked()">
+        <i class="arrow right"></i>
+    </div>
 </div>

@@ -20,6 +20,7 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
 /**
  * benja'ss imports
  */
+ import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
@@ -44,6 +45,7 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
         NgApexchartsModule,
         TranslocoModule,
         SharedModule,
+        MatCarouselModule
         
     ],
     exports: [

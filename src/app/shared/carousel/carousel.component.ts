@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { fuseAnimations } from '@fuse/animations';
 
 @Component({
@@ -11,25 +11,31 @@ export class CarouselComponent implements OnInit {
 	/**
 	 * Benja's def
 	 */
-
 	@Input('slides') slides: any[];
 	@Input('bg-color') bg_color: any;
-	
+	@Output('currentSlide') currentSlideEvent: EventEmitter<number>;
+	@ViewChild('contentTarjetas') contentTarjetas: ElementRef;
 	currentSlide: number = 0;
-
+	innerWidth: number = 1900;
+    @HostListener('window:resize', ['$event'])
+    onResize(event) { // detecta el cambio de pantalla (responsive)
+        this.innerWidth = window.innerWidth;
+        //this.innerWidth = innerWidth;
+    }
 	constructor() { }
 
-	ngOnInit(): void {
-
-	}
+	ngOnInit(): void { }
 
 	onPrevButtonClicked(): void {
 		const previus = this.currentSlide - 1;
+		this.contentTarjetas.nativeElement.scrollLeft -= this.contentTarjetas.nativeElement.scrollWidth; 
 		this.currentSlide = previus < 0 ? this.slides.length - 1 : previus;
+		//this.contentTarjetas.nativeElement.
 	}
 
 	onNextButtonClicked(): void {
 		const next = this.currentSlide + 1;
+		this.contentTarjetas.nativeElement.scrollRight += this.contentTarjetas.nativeElement.scrollWidth;
 		this.currentSlide = next === this.slides.length ? 0 : next;
 	}
 

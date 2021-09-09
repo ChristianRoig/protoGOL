@@ -44,58 +44,47 @@
 
     <!-- Main -->
     <div class="flex-auto mt-4 sm:mt-6">
-        <div class="w-full max-w-screen-xl mx-auto">
+        <div class="w-full max-w-screen-xl mx-auto ">
 
             <!-- Tabs -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0 overflow-hidden">
+
+                <div class="w-full col-span-4 m-auto">
+                    
+                        <mat-carousel #matCarousel
+                            timings="250ms ease-in"
+                            [autoplay]="true"
+                            interval="3000"
+                            color="accent"
+                            [svgIconOverrides]="'heroicons_outline:keyboard_arrow_right'"
+                            [slides]="slidesA.length"
+                            [maintainAspectRatio]="true"
+                            [loop]="true"
+                            [hideArrows]="false"
+                            [hideIndicators]="true"
+                            [useKeyboard]="true"
+                            [useMouseWheel]="false"
+                            orientation="ltr">
+                                <mat-carousel-slide #matCarouselSlide 
+                                    *ngFor="let slide of slidesA; let i = index"   
+                                    [image]="slide.image" 
+                                    overlayColor="#00000040" 
+                                    [hideOverlay]="false"></mat-carousel-slide>
+                    </mat-carousel>
+                   
+                </div>
 
                 <div class="flex items-start justify-between my-2 rounded">
                     <div class="text-2xl pl-6 font-medium tracking-tight leading-6 truncate">Tus Tarjetas</div>
                 </div>
 
                 <!-- Tarjetas -->
-                <div class="flex flex-row w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center 
+                <div class="flex flex-col w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center 
                         flex-nowrap m-auto whitespace-nowrap overflow-x-auto box-border">
 
-                        <div class="place-content-center flex justify-center container m-auto">
-                            <app-carousel [slides]="getItems()"></app-carousel>
+                        <div class="flex justify-center container m-auto overflow-y-hidden overflow-x-auto">
+                            <app-carousel [slides]="getItems()" (currentSlideEvent)="currentSlide($event)"></app-carousel>
                         </div>
-                        <!-- box tarjeta -->
-                        <!-- <div class="flex flex-col flex-shrink-0 items-center w-auto justify-center m-7 py-3 rounded hover:shadow-2xl cursor-pointer" 
-                            [ngClass]="getBgColor(item)"   
-                            *ngFor="let item of getItems()"> -->
-                           
-                            <!-- tarjeta datos-->
-                            <!-- <div class="flex flex-row items-center justify-between mx-2 py-2">
-
-                                <div class="border-1 rounded bg-default text-bold font-xl p-2 m-auto">
-                                    {{ item.type }}
-                                </div>
-    
-                                <div class="whitespace-nowrap m-auto px-4">
-                                    **** **** **** {{ item.last_num }}
-                                </div>
-                                <div class="whitespace-nowrap m-auto cursor-pointer">
-                                    <mat-icon class="icon-size-6 text-hint" [svgIcon]="'heroicons_outline:arrow-circle-right'"></mat-icon>
-                                </div>
-
-                            </div> -->
-
-                            <!-- fecha vencimiento y cierre -->
-                           <!--  <div class="m-auto items-self-start">
-                                <div class="text-secondary text-left pl-4 font-sm font-semibold whitespace-nowrap flex-nowrap">
-                                    Vencimiento : <span class="text-left">17/02/2022</span>
-                                </div>
-                                <div class="text-left text-secondary text-sm font-semibold pl-6 whitespace-nowrap flex-nowrap">
-                                    Cierre : <span class="text-right"> 12/01/2022</span>
-                                </div>
-                                <div class="text-sm text-secondary text-center">
-                                   ~ titular: {{ item.isTitular ? 'SI' : 'NO' }} tipo: {{item.type}} ~
-                                </div>
-
-                            </div> -->
-
-                    <!-- </div> -->
                 </div>
                 
                 <!-- Progres bar -->
@@ -105,26 +94,28 @@
                         
                         <div class="w-full flex-nowrap md:w-5/12 m-auto">
                             <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                  <div class="text-md font-medium text-left text-secondary m-auto justify-self-start whitespace-nowrap">Ya consumiste: <span class="text-sm md:text-xl font-bold"> $ {{unPago}} </span> </div>
+                                  <div class="text-md font-medium text-left text-secondary m-auto justify-self-start whitespace-nowrap">Ya consumiste: <span class="text-sm md:text-xl font-bold"> $ {{unPago}},00 </span> </div>
                                 <div class="flex items-center justify-end w-full mt-2 text-secondary">
                                     <div class="text-sm font-medium">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}}</div>
+                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}},00</div>
                                 </div>
                             </div>
-                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible  en</div>
-                            <app-progresbar [show$]="true" [progress]="unPago" [where]="'un pago'" [total]="limiteTotalBarUnPago"></app-progresbar>
+                            <div class="text-left whitespace-nowrap text-secondary font-semiboold">
+                                Disponible  en <strong>un pago</strong> $ {{ limiteTotalBarUnPago - unPago }},00
+                            </div>
+                            <app-progresbar [show$]="true" [progress]="unPago" [total]="limiteTotalBarUnPago"></app-progresbar>
                         </div>
 
                         <div class="w-full md:w-5/12 m-auto">
                             <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                <div class="text-md font-medium text-right m-auto whitespace-nowrap text-secondary justify-self-end">Ya Consumiste: <span class="text-sm md:text-xl font-bold"> $ {{ enCuotas}} </span>  </div>
+                                <div class="text-md font-medium text-right m-auto whitespace-nowrap text-secondary justify-self-end">Ya Consumiste: <span class="text-sm md:text-xl font-bold"> $ {{ enCuotas}},00 </span>  </div>
                                 <div class="flex items-center justify-end w-full mt-2 text-secondary">
                                     <div class="text-sm font-medium">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}}</div><!-- cambiar por el limite -->
+                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}},00</div><!-- cambiar por el limite -->
                                 </div>
                             </div>
-                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible en</div>
-                            <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [where]="'cuotas'" [total]="limiteTotalBarEnCuotas"></app-progresbar>
+                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible en <strong>cuotas</strong> $ {{ limiteTotalBarEnCuotas - enCuotas }},00 </div>
+                            <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [total]="limiteTotalBarEnCuotas"></app-progresbar>
                         </div>
                     </div>
 
