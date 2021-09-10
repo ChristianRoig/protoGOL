@@ -17,6 +17,7 @@ export class CarouselComponent implements OnInit {
 	@ViewChild('contentTarjetas') contentTarjetas: ElementRef;
 	currentSlide: number = 0;
 	innerWidth: number = 1900;
+	aumentum: number = 0;
     @HostListener('window:resize', ['$event'])
     onResize(event) { // detecta el cambio de pantalla (responsive)
         this.innerWidth = window.innerWidth;
@@ -24,34 +25,43 @@ export class CarouselComponent implements OnInit {
     }
 	constructor() { }
 
-	ngOnInit(): void { }
+	ngOnInit(): void {
+		this.currentSlide = 0;
+	}
 
 	onPrevButtonClicked(): void {
 		const previus = this.currentSlide - 1;
-		this.contentTarjetas.nativeElement.scrollLeft -= this.contentTarjetas.nativeElement.scrollWidth; 
+		//this.aumentum += this.aumentum >= 0 ? 360 : -360;
 		this.currentSlide = previus < 0 ? this.slides.length - 1 : previus;
+		// console.log(this.aumentum)
+		if(this.aumentum <= 0) {
+			if(previus > 0) {
+				
+				this.aumentum += -365;
+				console.log(this.aumentum)
+			}else if(this.currentSlide >= (this.slides.length/2)){
+				this.aumentum -= (365 * ((this.slides.length - 1)/2) + 365);
+				console.log('segundo if ',this.aumentum)
+			}
+			this.aumentum = 0;
+		}
 		//this.contentTarjetas.nativeElement.
 	}
 
 	onNextButtonClicked(): void {
 		const next = this.currentSlide + 1;
-		this.contentTarjetas.nativeElement.scrollRight += this.contentTarjetas.nativeElement.scrollWidth;
+		//this.aumentum += this.aumentum <= 0 || this.currentSlide === this.slides.length? -360 : 0;
 		this.currentSlide = next === this.slides.length ? 0 : next;
+		if(this.aumentum <= 0) {
+			if(this.currentSlide >= (this.slides.length/2)) {
+				this.aumentum -= 365;
+			}else if(next === this.slides.length){
+				this.aumentum -= this.aumentum;
+			}
+		}
 	}
-
-	getBgColor(item:any):string {
-        switch (item.type) {
-            case 'VISA':
-                if(item.isTitular){
-                    return 'bg-primary-300';// VISA && titular
-                }
-                return 'bg-warn-300';// VISA && !titular
-            default:
-                if(item.isTitular){
-                    return 'bg-primary-300';// PURA && titular
-                }
-                return 'bg-accent-300 border-1 border-white';// PURA && !titular
-        }
-    }
+	onClickedCard(clicked:any){
+		//console.log({clicked})
+	}
 
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -8,7 +8,6 @@ import { ProjectService } from 'app/modules/admin/dashboards/project/project.ser
 /**
  * benja's declarations things
  */
- import { MatCarousel, MatCarouselComponent, MatCarouselSlideComponent } from '@ngmodule/material-carousel';
  import {
     ApexAxisChartSeries,
     ApexChart,
@@ -60,21 +59,21 @@ export class ProjectComponent implements OnInit, OnDestroy
      * benja's declarations 
      */
     slidesA: any[] = [
-        {image: 'assets/images/cards/01-320x200.jpg'},
-        {image: 'assets/images/cards/02-320x200.jpg'},
-        {image: 'assets/images/cards/03-320x200.jpg'},
-        {image: 'assets/images/cards/04-320x200.jpg'},
-        {image: 'assets/images/cards/05-320x200.jpg'},
-        {image: 'assets/images/cards/06-320x200.jpg'},
-        {image: 'assets/images/cards/07-320x200.jpg'},
-        {image: 'assets/images/cards/08-320x200.jpg'},
-        {image: 'assets/images/cards/09-320x200.jpg'},
-        {image: 'assets/images/cards/10-320x200.jpg'},
-        {image: 'assets/images/cards/11-512x512.jpg'},
-        {image: 'assets/images/cards/12-512x512.jpg'},
-        {image: 'assets/images/cards/13-160x160.jpg'},
-        {image: 'assets/images/cards/14-640x480.jpg'},
-    ]
+        {path: 'assets/images/cards/02-320x200.jpg'},
+        {path: 'assets/images/cards/03-320x200.jpg'},
+        {path: 'assets/images/cards/04-320x200.jpg'},
+        {path: 'assets/images/cards/01-320x200.jpg'},
+        {path: 'assets/images/cards/05-320x200.jpg'},
+        {path: 'assets/images/cards/06-320x200.jpg'},
+        {path: 'assets/images/cards/07-320x200.jpg'},
+        {path: 'assets/images/cards/08-320x200.jpg'},
+        {path: 'assets/images/cards/09-320x200.jpg'},
+        {path: 'assets/images/cards/10-320x200.jpg'},
+        {path: 'assets/images/cards/11-512x512.jpg'},
+        {path: 'assets/images/cards/12-512x512.jpg'},
+        {path: 'assets/images/cards/13-160x160.jpg'},
+        {path: 'assets/images/cards/14-640x480.jpg'},
+    ];    
     unPago: number = 49;
     limiteTotalBarUnPago: number = 1300;
     enCuotas: number = 2000;
@@ -534,5 +533,22 @@ export class ProjectComponent implements OnInit, OnDestroy
     currentSlide(event:any): void {
         console.log({event})
         this.current = event.value;
+    }
+    getCards(): string[] {
+        return [
+            '01-320x200.jpg',
+            '02-320x200.jpg',
+            '03-320x200.jpg',
+            '04-320x200.jpg',
+            '05-320x200.jpg',
+            '06-320x200.jpg',
+            '07-320x200.jpg',
+            '08-320x200.jpg',
+            '09-320x200.jpg',
+            '10-320x200.jpg',
+            '11-512x512.jpg',
+            '12-512x512.jpg',
+            '13-160x160.jpg',
+        ]
     }
 }

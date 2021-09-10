@@ -1,17 +1,21 @@
-<div #contentTarjetas class="w-90 flex flex-row items-start justify-between overscroll-x-auto mx-2"
-    fuseScrollBar fuseScrollReset>
-    
-    <ng-container class="m-auto mt-8 carousel" *ngFor="let item of slides; let i = index"><!-- [@slideInLeft]="i === currentSlide" [@slideInRight]="i !== currentSlide" -->
-       <div class="flex flex-col flex-shrink-0 items-center w-full justify-center pt-2 pb-3 mx-2 rounded hover:shadow-md cursor-pointer slide m-auto"> <!-- m-7 ml-24  *ngIf="i === currentSlide"-->
-            <!-- [ngClass]="{'active': currentSlide === i}" -->
+<div class="w-90 flex flex-row items-start justify-between overscroll-x-hidden mx-2 carousel move" >
+    <!-- [ngClass]="{'move': currentSlide > (slides.length/2)-1 }" -->
+    <ng-container #contentTarjetas *ngFor="let item of slides; let i = index"><!-- [@slideInLeft]="i === currentSlide" [@slideInRight]="i !== currentSlide" -->
+       <div (click)="onClickedCard(item)" 
+            [ngStyle]="{'transform': 'translateX('+aumentum+'px)', 'transition': 'transform 1.7s '+ aumentum > 0?'ease-in':'ease-out'}"
+            [ngClass]="{'active-card': currentSlide === i}"
+            class="flex flex-col flex-shrink-0 items-center justify-center pt-2 pb-3 mx-2 rounded hover:shadow-md cursor-pointer slide m-auto"
+           > 
+            <!-- m-7 ml-24  *ngIf="i === currentSlide"-->
+            <!--  -->
             <!-- tarjeta datos-->
             <div class="flex flex-row items-center justify-between mx-2 h-90 py-2 w-full">
-
+                
             </div>
 
             <!-- fecha vencimiento y cierre -->
-            <div class="m-auto items-start h-90 w-full pt-6 justify-center text-center ml-7 active"> 
-                <div class="text-white text-left p-1 font-sm font-semibold whitespace-nowrap flex-nowrap">
+            <div class="m-auto items-start h-90 w-full pt-6 justify-center text-center ml-7"> 
+                <div class="text-white text-left p-1 text-sm font-semibold whitespace-nowrap flex-nowrap">
                     Vencimiento : <span class="text-left">17/02/2022</span>
                 </div>
                 <div class="text-left text-white p-1 text-sm font-semibold whitespace-nowrap flex-nowrap">
@@ -22,13 +26,14 @@
                 </div>
                 <div class="flex flex-row items-start justify-start w-full">
     
-                    <div class="flex flex-row font-semibold items-center text-white whitespace-nowrap">
+                    <div class="flex flex-row font-semibold items-center text-sm text-white whitespace-nowrap">
                         <div class="mx-1"> **** </div> 
                         <div class="mx-1"> **** </div> 
                         <div class="mx-1"> **** </div>
-                        <div class="mx-1"> {{ item.last_num }} </div>
+                        <div class="mx-1"> {{ i }} </div>
                     </div>
-                    <div class="whitespace-nowrap m-auto cursor-pointer">
+                    <div class="whitespace-nowrap m-auto cursor-pointer self-end">
+                        <span class="bg-accent-300 p-3 text-white rounded-xl" *ngIf="item.type==='VISA'">VISA</span>
                         <!-- <mat-icon class="icon-size-6 text-hint" [svgIcon]="'heroicons_outline:arrow-circle-right'"></mat-icon> -->
                     </div>
     
@@ -57,19 +62,19 @@
     
 </div>
  <!-- buttons arrow -->
- <div class="flex flex-row items-center justify-between z-10 mt-3 mb-3 z-10 self-center hidden">
+ <div class="flex flex-row items-center justify-between z-10 m-auto mb-3">
      <!-- arrow next -->
-    <div class="content-arrow m-auto cursor-pointer" (click)="onPrevButtonClicked()">
+    <div class="content-arrow m-auto cursor-pointer z-10" (click)="onPrevButtonClicked()">
         <i class="arrow left"></i>
     </div>
     <!-- place -->
-    <div class="m-auto p-1">
+    <div class="m-auto p-1 z-10">
         <span  *ngFor="let item of slides; let i = index">
             <i [ngClass]="{'active': currentSlide === i}" class="pr-1 w-2 h-2">*</i>
         </span>
     </div>
     <!-- arrow prev -->
-    <div class="content-arrow m-auto cursor-pointer" (click)="onNextButtonClicked()">
+    <div class="content-arrow m-auto cursor-pointer z-10" (click)="onNextButtonClicked()">
         <i class="arrow right"></i>
     </div>
 </div>

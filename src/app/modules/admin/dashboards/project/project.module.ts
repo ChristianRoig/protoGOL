@@ -16,14 +16,10 @@ import { SharedModule } from 'app/shared/shared.module';
 import { ProjectComponent } from 'app/modules/admin/dashboards/project/project.component';
 import { projectRoutes } from 'app/modules/admin/dashboards/project/project.routing';
 import { ProgresbarComponent } from './components/progresbar/progresbar.component';
-
 /**
- * benja'ss imports
+ * benja's imports
  */
- import { MatCarouselModule } from '@ngmodule/material-carousel';
-
-
-
+ import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
     declarations: [
@@ -45,7 +41,7 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
         NgApexchartsModule,
         TranslocoModule,
         SharedModule,
-        MatCarouselModule
+        IvyCarouselModule
         
     ],
     exports: [
