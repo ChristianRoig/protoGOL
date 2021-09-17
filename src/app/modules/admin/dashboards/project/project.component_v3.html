@@ -13,7 +13,7 @@
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
                         <ng-container *transloco="let t">
-                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{t('Hola')}}, Leandro!</div>
+                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate color-blue">{{t('Hola')}}, Leandro! </div>
                         </ng-container>
                         <!-- <div class="flex items-center">
                             <mat-icon
@@ -49,41 +49,28 @@
             <!-- Tabs -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0 overflow-hidden">
 
-                <div class="w-full col-span-4 m-auto">
-                    
-                        <!-- <mat-carousel #matCarousel
-                            timings="250ms ease-in"
-                            [autoplay]="true"
-                            interval="3000"
-                            color="primary"
-                            [svgIconOverrides]="'heroicons_outline:keyboard_arrow_right'"
-                            [slides]="slidesA.length"
-                            [maintainAspectRatio]="true"
-                            [proportion]="30"
-                            [loop]="true"
-                            [hideArrows]="false"
-                            [hideIndicators]="false"
-                            [useKeyboard]="true"
-                            [useMouseWheel]="false"
-                            orientation="ltr">
-                                <mat-carousel-slide #matCarouselSlide 
-                                    *ngFor="let slide of slidesA; let i = index"   
-                                    [image]="slide.image" 
-                                    overlayColor="#00000040" 
-                                    [hideOverlay]="true"></mat-carousel-slide>
-                    </mat-carousel> -->
-
-                    <carousel
-                    [images]="slidesA"
-                    [objectFit]="'cover'"
-                    [cellWidth]="1500"
-                    [arrowsOutside]="true"
-                    [arrows]="true"
-                    [autoplay]="true"
-                    [dots]="true"
-                    [loop]="true"
-                    [height]="340">
-                       <!--  <div class="carousel-cell" *ngFor="let item of getCards() as images; let i = index">
+                <div class="w-full col-span-4 flex items-center justify-center m-auto relative" >
+                    <!-- banner carousel -->
+                    <carousel class="z-0 m-auto"
+                        [objectFit]="'contain'"
+                        [images]="slidesA"
+                        [pauseOnHover]="false"
+                        [cellWidth]="innerWidth"
+                        [arrowsTheme]="'light'"
+                        [arrows]="true"
+                        [autoplay]="true"
+                        [dots]="true"
+                        [loop]="true"
+                        [height]="340"
+                        [width]="innerWidth"
+                        [overflowCellsLimit]="3"
+                        [autoplayInterval]="4000"
+                        [borderRadius]="5"
+                        [transitionTimingFunction]="'ease-in-out'"
+                        [margin]="12"
+                        [lightDOM]="false"
+                        [transitionDuration]="1000">
+                        <!--  <div class="carousel-cell" *ngFor="let item of getCards() as images; let i = index">
                             <img [src]="'assets/images/cards/'+item">
                         </div> -->
                     </carousel>
@@ -91,14 +78,14 @@
                 </div>
 
                 <div class="flex items-start justify-between my-2 rounded">
-                    <div class="text-2xl pl-6 font-medium tracking-tight leading-6 truncate">Tus Tarjetas</div>
+                    <div class="text-2xl pl-6 font-bold tracking-tight leading-6 truncate color-blue">Tus Tarjetas</div>
                 </div>
 
-                <!-- Tarjetas -->
-                <div class="flex flex-col w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center 
-                        flex-nowrap m-auto whitespace-nowrap overflow-x-hidden  box-border">
+                <!-- Tarjetas carousel -->
+                <div class="flex flex-col w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center items-center
+                        flex-nowrap m-auto whitespace-nowrap overflow-x-hidden box-border">
 
-                        <div class="flex justify-center container m-auto overflow-y-hidden relative">
+                        <div class="flex justify-center container m-auto overflow-y-hidden overflow-x-hidden relative">
                             <app-carousel [slides]="getItems()" (currentSlideEvent)="currentSlide($event)"></app-carousel>
                         </div>
                 </div>
@@ -110,13 +97,13 @@
                         
                         <div class="w-full flex-nowrap md:w-5/12 m-auto">
                             <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                  <div class="text-md font-medium text-left text-secondary m-auto justify-self-start whitespace-nowrap">Ya consumiste: <span class="text-sm md:text-xl font-bold"> $ {{unPago}},00 </span> </div>
-                                <div class="flex items-center justify-end w-full mt-2 text-secondary">
-                                    <div class="text-sm font-medium">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarUnPago}},00</div>
+                                  <div class="text-md font-medium text-left m-auto justify-self-start whitespace-nowrap color-blue">Ya consumiste: <span class="text-sm md:text-xl font-bold color-blue"> $ {{unPago}},00 </span> </div>
+                                <div class="flex items-center justify-end w-full mt-2">
+                                    <div class="text-sm font-medium color-blue">Limite:</div>
+                                    <div class="ml-1.5 text-sm font-semibold color-blue">$ {{limiteTotalBarUnPago}},00</div>
                                 </div>
                             </div>
-                            <div class="text-left whitespace-nowrap text-secondary font-semiboold">
+                            <div class="text-left whitespace-nowrap font-semiboold color-blue">
                                 Disponible  en <strong>un pago</strong> $ {{ limiteTotalBarUnPago - unPago }},00
                             </div>
                             <app-progresbar [show$]="true" [progress]="unPago" [total]="limiteTotalBarUnPago"></app-progresbar>
@@ -124,34 +111,23 @@
 
                         <div class="w-full md:w-5/12 m-auto">
                             <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                <div class="text-md font-medium text-right m-auto whitespace-nowrap text-secondary justify-self-end">Ya Consumiste: <span class="text-sm md:text-xl font-bold"> $ {{ enCuotas}},00 </span>  </div>
+                                <div class="text-md font-medium text-right m-auto whitespace-nowrap justify-self-end color-blue">Ya Consumiste: <span class="text-sm md:text-xl font-bold color-blue"> $ {{ enCuotas}},00 </span>  </div>
                                 <div class="flex items-center justify-end w-full mt-2 text-secondary">
-                                    <div class="text-sm font-medium">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold">$ {{limiteTotalBarEnCuotas}},00</div><!-- cambiar por el limite -->
+                                    <div class="text-sm font-medium color-blue">Limite:</div>
+                                    <div class="ml-1.5 text-sm font-semibold color-blue">$ {{limiteTotalBarEnCuotas}},00</div><!-- cambiar por el limite -->
                                 </div>
                             </div>
-                            <div class="text-left whitespace-nowrap text-secondary font-semiboold"> Disponible en <strong>cuotas</strong> $ {{ limiteTotalBarEnCuotas - enCuotas }},00 </div>
+                            <div class="text-left whitespace-nowrap font-semiboold color-blue">
+                                Disponible en <strong>cuotas</strong> $ {{ limiteTotalBarEnCuotas - enCuotas }},00 </div>
                             <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [total]="limiteTotalBarEnCuotas"></app-progresbar>
                         </div>
                     </div>
 
                 </div>
-                <!-- Fechas -->
-                <div class="flex flex-col w-full md:w-11/12 m-auto col-span-4 p-4 bg-default text-on-accent-300
-                                items-between justify-between rounded-2xl overflow-hidden">
-                    <!-- header fechas -->
-                    <!-- <div class="flex flex-col m-auto items-stretch m-auto justify-center rounded-tr-xl rounded-tl-xl border-2 border-b-2 
-                                        py-4 px-2 mx-2 bg-accent-300 text-on-accent-300">
-                        <div class="text-secondary text-left pl-6 font-medium font-bold whitespace-nowrap flex-nowrap">
-                            Vencimiento : <span class="text-left">17/02/2022</span>
-                        </div>
-                        <div class="text-left text-secondary text-sm font-semibold pl-6 whitespace-nowrap flex-nowrap">
-                            Cierre : <span class="text-right"> 12/01/2022</span>
-                        </div>
-                    </div> -->
+                <!-- Fechas resumenes -->
+                <div class="flex flex-col w-full md:w-11/12 m-auto col-span-4 bg-default items-between justify-between rounded-2xl overflow-hidden">
                     <!-- Fechas saldo a pagar -->
-                    <div class="flex flex-col m-auto flex-nowrap items-start rounded-bl-xl rounded-br-xl border-2 border-t-0 mx-2 bg-accent-300 
-                                        text-on-accent-300">
+                    <div class="flex flex-col m-auto flex-nowrap items-start rounded-xl border-2  mx-1 w-full bg-accent-300"><!-- bg-blue-900  -->
 
                         <!--  <div class="flex flex-col flex-nowrap flex-shrink m-auto items-center h-auto justify-center m-auto p-5">
 
@@ -162,11 +138,11 @@
                         </div> -->
 
                         <!-- Leyenda -->
-                        <div class="text-2xl font-bold m-auto text-center px-4 text-secondary pt-4 font-semibold">
+                        <div class="text-2xl font-bold m-auto text-center px-2 color-blue pt-4 font-semibold rounded-xl">
                             Último resúmen disponible
                         </div>
                         <!-- Saldo a pagar -->
-                        <div class="grid grid-cols-3 gap-2 relative m-auto w-10/12 md:w-9/12 py-6">
+                        <div class="grid grid-cols-3 gap-2 relative m-auto w-11/12 md:w-9/12 py-6">
 
                             <!-- pago total -->
                             <!-- <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
@@ -175,64 +151,40 @@
                             </div> -->
                             <!-- pago en pesos -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large text-secondary">Saldo en $: </div>
-                                <div class="text-sm md:text-md font-large text-secondary"> $20.00,00</div>
+                                <div class="text-sm md:text-md font-large color-blue">Saldo en $: </div>
+                                <div class="text-sm md:text-md font-large color-blue"> $20.00,00</div>
                             </div>
                             <!-- pago en usd -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large text-secondary">Saldo en U$$: </div>
-                                <div class="text-sm md:text-md font-large text-secondary"> $200,00</div>
+                                <div class="text-sm md:text-md font-large color-blue">Saldo en U$$: </div>
+                                <div class="text-sm md:text-md font-large color-blue"> $200,00</div>
                             </div>
                             <!-- saldo a favor -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large text-secondary">A favor: </div>
-                                <div class="text-sm md:text-md font-large text-secondary">$1.000,00</div>
+                                <div class="text-sm md:text-md font-large color-blue">A favor: </div>
+                                <div class="text-sm md:text-md font-large color-blue">$1.000,00</div>
                             </div>
                             <!-- pago en minimo -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-semibold font-large text-secondary">Pago mínimo: </div>
-                                <div class="text-sm md:text-md font-semibold font-large text-secondary">$1.000,00</div>
+                                <div class="text-sm md:text-md font-semibold font-large color-blue">Pago mínimo: </div>
+                                <div class="text-sm md:text-md font-semibold font-large color-blue">$1.000,00</div>
                             </div>
                         
                         </div>
                         <!-- boton ver/descargar resumen -->
                         <div class="flex flex-row w-full justify-center items-center p-2 border-t-2">
                             
-                            <button class="bg-default m-auto hover:border-1 hover:border-white text-secondary" 
-                                mat-stroked-button title="ver/descargar resumen" (click)="goTo('pages/invoice/printable/compact')">
+                            <button class="bg-default m-auto hover:border-1 hover:border-white color-blue" 
+                                mat-stroked-button title="ver resumen" (click)="goTo('pages/invoice/printeable/compact')">
                                 Ver resúmen
                             </button>
                         </div>
 
-                        <!-- <div class="flex flex-col items-center justify-center w-content p-2 m-auto">
-
-                            <div class="text-lg flex-shrink font-medium tracking-tight text-center leading-6 truncate md:py-1">Cierre</div>
-                            <div class="text-4xl flex-shrink md:text-7xl sm:text-4xl font-bold tracking-tight leading-none text-amber-500 p-3">24/07</div>
-                            <div class="text-lg flex-shrink font-medium text-amber-600 dark:text-amber-500 md:py-1">Viernes</div>
-
-                        </div> -->
-                        
                     </div>
 
                 </div>
-
-                <!-- <div class="flex flex-col sm:col-span-1 md:col-span-1 flex-auto p-6 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
-                    <div class="flex flex-row flex-nowrap justify-self-end content-center m-auto items-center">
-
-                        <div class="text-secondary">
-                                
-                                <div class="text-sm md:text-md whitespace-wrap text-secondary">
-                                    <mat-button-toggle-group title="descargar resúmen" value="this-week" #githubIssuesWeekSelector="matButtonToggleGroup">
-                                        <mat-button-toggle value="this-week">Descargar resúmen</mat-button-toggle>
-                                    </mat-button-toggle-group>
-                                </div>
-                            </div>
-                            
-                        </div>
-                </div> -->
-
                 <!-- Consumos recientes -->
-                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300 rounded-2xl overflow-hidden">
+                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default border color-blue border-1-blue rounded-2xl overflow-hidden">
                     <div class="flex flex-col sm:flex-row items-start justify-between">
                         <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Detalle de últimos consumos</div>
                         <div class="mt-3 sm:mt-0 sm:ml-2">
@@ -255,35 +207,25 @@
                                                 <mat-icon
                                                     class="icon-size-5 text-hint"
                                                     [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
-                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.time}}</div>
+                                                <div class="ml-1.5 text-md color-blue">{{scheduleItem.time}}</div>
                                             </div>
                                         </ng-container>
-                                        <!-- <ng-container *ngIf="scheduleItem.location">
-                                            <div class="flex items-center">
-                                                <mat-icon
-                                                    class="icon-size-5 text-hint"
-                                                    [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
-                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
-                                            </div>
-                                        </ng-container> -->
+                                        
                                     </div>
                                 </div>
-                                <!-- <button mat-icon-button>
-                                    <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
-                                </button> -->
-                                <div class="self-start">
+                                <div class="self-start color-blue">
                                     $ 30.000,00
                                 </div>
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400 text-secondary" 
-                        mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('dashboards/analytics')">Ver más</button>
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 hover:border-2 hover:border-1-blue color-blue" 
+                        mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('dashboard/analytics')">Ver más</button>
                 </div>
                 <!-- Historial de pagos -->
-                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default text-on-accent-300 rounded-2xl overflow-hidden">
+                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default border color-blue border-1-blue rounded-2xl overflow-hidden mb-3">
                     <div class="flex flex-col sm:flex-row items-start justify-between">
-                        <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Historial de pagos</div>
+                        <div class="text-lg font-medium tracking-tight text-center font-semibold color-blue leading-6 truncate">Historial de pagos</div>
                         <div class="mt-3 sm:mt-0 sm:ml-2">
                             <mat-button-toggle-group class="hidden"
                                 value="today"
@@ -304,7 +246,7 @@
                                                 <mat-icon
                                                     class="icon-size-5 text-hint"
                                                     [svgIcon]="'heroicons_solid:clock'"></mat-icon>
-                                                <div class="ml-1.5 text-md text-secondary">{{scheduleItem.time}}</div>
+                                                <div class="ml-1.5 text-md color-blue">{{scheduleItem.time}}</div>
                                             </div>
                                         </ng-container>
                                         <!-- <ng-container *ngIf="scheduleItem.location">
@@ -326,8 +268,9 @@
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 text-on-accent-300 hover:border-2 hover:border-bg-accent-400 text-secondary" 
+                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 hover:border-2 hover:border-1-blue color-blue" 
                         mat-stroked-button title="pantalla de historial de pagos" (click)="goTo('pages/activities')">Ver más</button>
+                        
                 </div>
 
             </div>       

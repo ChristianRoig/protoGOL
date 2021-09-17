@@ -1,0 +1,17 @@
+@import '../../../../../styles/styles.scss';
+
+.color-blue {
+    color: $colorPrincipalOscuro;
+}
+.fuse-vertical-navigation-item {
+    color: $colorPrincipalOscuro!important;
+    .fuse-vertical-navigation-item-title-wrapper {
+        color: $colorPrincipalOscuro!important;
+        .fuse-vertical-navigation-item-title {
+            color: $colorPrincipalOscuro!important;
+            > span {
+                color: $colorPrincipalOscuro!important;
+            }
+        }
+    }
+}

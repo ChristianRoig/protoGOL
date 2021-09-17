@@ -32,6 +32,7 @@
         "@fullcalendar/moment": "4.4.2",
         "@fullcalendar/rrule": "4.4.2",
         "@fullcalendar/timegrid": "4.4.2",
+        "@ngbmodule/material-carousel": "^0.7.1",
         "@ngneat/transloco": "2.22.0",
         "angular-responsive-carousel": "^2.1.2",
         "apexcharts": "3.27.2",

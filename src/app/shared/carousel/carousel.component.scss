@@ -11,7 +11,7 @@
     overflow-y: hidden!important;
     overflow-x: hidden !important;
     position:absolute;
-    right:0px;
+    right:10;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -mos-transition: all 1s ease-in-out;
@@ -20,12 +20,12 @@
 }
 
 .slide {
+    background-image: url('../../../assets/images/tarjeta/La-Anonima-tarjeta.png');
     overflow-x: hidden;
     height: 240px !important;
     width: 365px !important;
     object-fit: cover;
     //transition: transform 150ms cubic-bezier(0.24, 0.46, 0.45, 0.84);
-    background-image: url('../../../assets/images/tarjeta/La-Anonima-tarjeta.png');
     background-repeat: no-repeat;
     border: 2px solid transparent!important;
     border-radius: 12px!important;

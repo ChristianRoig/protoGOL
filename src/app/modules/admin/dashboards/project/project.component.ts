@@ -81,7 +81,7 @@ export class ProjectComponent implements OnInit, OnDestroy
     items: any;
     current;
 
-    innerWidth: number;
+    innerWidth: number = window.innerWidth;
     @HostListener('window:resize', ['$event'])
     onResize(event) { // detecta el cambio de pantalla (responsive)
         const innerWidth = window.innerWidth;
