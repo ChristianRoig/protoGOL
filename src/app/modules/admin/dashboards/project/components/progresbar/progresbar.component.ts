@@ -48,11 +48,11 @@ export class ProgresbarComponent implements OnInit {
 		this.progress = (this.progress / this.total) * 100;
 
 		if(this.progress < this.middleBar) {
-			this.color = 'green';
+			this.color = 'blue';
 		}else if(this.progress < this.endBar) {
-			this.color = 'yellow';
+			this.color = 'blue';
 		}else {
-			this.color = 'red';
+			this.color = 'blue';
 		}
 	}
 

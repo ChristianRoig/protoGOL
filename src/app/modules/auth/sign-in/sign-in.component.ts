@@ -4,17 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
-
+type UserType = 'UT';
 @Component({
     selector     : 'auth-sign-in',
     templateUrl  : './sign-in.component.html',
+    styleUrls    : ['./sign-in.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
 export class AuthSignInComponent implements OnInit
 {
     @ViewChild('signInNgForm') signInNgForm: NgForm;
-
+    ut: UserType = 'UT';
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
         message: ''
@@ -49,6 +50,14 @@ export class AuthSignInComponent implements OnInit
             password  : ['admin', Validators.required],
             rememberMe: ['']
         });
+        const valueDefault = '';
+        const paswwordDefault = '';
+        // Create the form
+       // this.signInForm = this._formBuilder.group({
+            ////num_documento: [valueDefault, [Validators.required/* , Validators.pattern['[1-9]*'] */, Validators.minLength(7), Validators.maxLength(8)]],
+           // password     : [paswwordDefault, Validators.required]
+            /* rememberMe: [''] */
+       // });
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -72,10 +81,16 @@ export class AuthSignInComponent implements OnInit
         // Hide the alert
         this.showAlert = false;
 
+        /* const trueCredentials = {
+            userName: this.signInForm.value.num_documento.length === 7? '000'+this.signInForm.value.num_documento : '00'+this.signInForm.value.num_documento,
+            password: this.signInForm.value.password,
+            userType: this.ut
+        }; */
+
         // Sign in
         this._authService.signIn(this.signInForm.value)
             .subscribe(
-                () => {
+                () => {// success response
 
                     // Set the redirect url.
                     // The '/signed-in-redirect' is a dummy url to catch the request and redirect the user
@@ -87,7 +102,7 @@ export class AuthSignInComponent implements OnInit
                     this._router.navigateByUrl(redirectURL);
 
                 },
-                (response) => {
+                (response) => {// error response
 
                     // Re-enable the form
                     this.signInForm.enable();
@@ -98,7 +113,7 @@ export class AuthSignInComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'error',
-                        message: 'Wrong email or password'
+                        message: 'Contraseña o número de documento incorrectos'
                     };
 
                     // Show the alert

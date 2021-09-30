@@ -11,7 +11,11 @@ import { FuseAlertModule } from '@fuse/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { AuthSignUpComponent } from 'app/modules/auth/sign-up/sign-up.component';
 import { authSignupRoutes } from 'app/modules/auth/sign-up/sign-up.routing';
-
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'app/core/auth/auth.interceptor';
 @NgModule({
     declarations: [
         AuthSignUpComponent
@@ -26,7 +30,22 @@ import { authSignupRoutes } from 'app/modules/auth/sign-up/sign-up.routing';
         MatProgressSpinnerModule,
         FuseCardModule,
         FuseAlertModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatStepperModule,
         SharedModule
+    ],
+    providers: [
+        {
+            provide : HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi   : true,
+        }
     ]
 })
 export class AuthSignUpModule

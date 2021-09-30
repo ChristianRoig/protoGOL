@@ -20,6 +20,7 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
  * benja's imports
  */
  import {IvyCarouselModule} from 'angular-responsive-carousel';
+ import {CarouselComponent, CarouselModule} from "ngx-carousel-lib";
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
         ProgresbarComponent
     ],
     imports     : [
+        /* CarouselModule, */
         RouterModule.forChild(projectRoutes),
         MatButtonModule,
         MatButtonToggleModule,
@@ -41,11 +43,12 @@ import { ProgresbarComponent } from './components/progresbar/progresbar.componen
         NgApexchartsModule,
         TranslocoModule,
         SharedModule,
-        IvyCarouselModule
+        IvyCarouselModule,
         
     ],
     exports: [
-        ProgresbarComponent
+        ProgresbarComponent,
+        /* CarouselComponent, */
     ]
 })
 export class ProjectModule

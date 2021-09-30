@@ -10,6 +10,9 @@ import { FuseAlertModule } from '@fuse/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { AuthForgotPasswordComponent } from 'app/modules/auth/forgot-password/forgot-password.component';
 import { authForgotPasswordRoutes } from 'app/modules/auth/forgot-password/forgot-password.routing';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
     declarations: [
@@ -24,6 +27,9 @@ import { authForgotPasswordRoutes } from 'app/modules/auth/forgot-password/forgo
         MatProgressSpinnerModule,
         FuseCardModule,
         FuseAlertModule,
+        MatStepperModule,
+        MatSelectModule,
+        MatCheckboxModule,
         SharedModule
     ]
 })

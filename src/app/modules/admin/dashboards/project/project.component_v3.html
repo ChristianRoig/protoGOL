@@ -1,7 +1,7 @@
 <div class="flex flex-col flex-auto min-w-0">
 
     <!-- Header -->
-    <div class="dark bg-accent-300 text-on-accent-300 bg-card dark:border-b">
+    <div class="bg-card text-on-accent-300 bg-card dark:border-b">
         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
             <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
                 <!-- Avatar and name -->
@@ -13,7 +13,7 @@
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
                         <ng-container *transloco="let t">
-                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate color-blue">{{t('Hola')}}, Leandro! </div>
+                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{t('Hola')}}, Leandro! </div>
                         </ng-container>
                         <!-- <div class="flex items-center">
                             <mat-icon
@@ -47,145 +47,201 @@
         <div class="w-full max-w-screen-xl mx-auto ">
 
             <!-- Tabs -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0 overflow-hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0 overflow-hidden m-auto">
 
-                <div class="w-full col-span-4 flex items-center justify-center m-auto relative" >
-                    <!-- banner carousel -->
-                    <carousel class="z-0 m-auto"
-                        [objectFit]="'contain'"
-                        [images]="slidesA"
-                        [pauseOnHover]="false"
-                        [cellWidth]="innerWidth"
-                        [arrowsTheme]="'light'"
-                        [arrows]="true"
-                        [autoplay]="true"
-                        [dots]="true"
-                        [loop]="true"
-                        [height]="340"
-                        [width]="innerWidth"
-                        [overflowCellsLimit]="3"
-                        [autoplayInterval]="4000"
-                        [borderRadius]="5"
-                        [transitionTimingFunction]="'ease-in-out'"
-                        [margin]="12"
-                        [lightDOM]="false"
-                        [transitionDuration]="1000">
-                        <!--  <div class="carousel-cell" *ngFor="let item of getCards() as images; let i = index">
-                            <img [src]="'assets/images/cards/'+item">
-                        </div> -->
-                    </carousel>
-                   
-                </div>
+                <div class="w-11/12 md:w-10/12 col-span-4 flex items-center justify-center m-auto relative py-3 md:px-1">
+                    <!-- banner carousel promociones -->
+                    <div class="m-auto w-full bg-default h-3/4 rounded">
+                        <carousel class="z-0 w-full m-auto rounded"
+                            [objectFit]="'cover'"
+                            [pauseOnHover]="false"
+                            [arrowsTheme]="'dark'"
+                            [arrows]="false"
+                            [autoplay]="true"
+                            [dots]="true"
+                            [loop]="true"
+                            [height]="320"
+                            [cellsToShow]="1"
+                            [overflowCellsLimit]="3"
+                            [autoplayInterval]="4000"
+                            [borderRadius]="5"
+                            [transitionTimingFunction]="'ease-in'"
+                            [margin]="10"
+                            [lightDOM]="true"
+                            [transitionDuration]="1500">
+                             <div class="carousel-cell" *ngFor="let item of getCards() as images; let i = index">
 
-                <div class="flex items-start justify-between my-2 rounded">
-                    <div class="text-2xl pl-6 font-bold tracking-tight leading-6 truncate color-blue">Tus Tarjetas</div>
-                </div>
-
-                <!-- Tarjetas carousel -->
-                <div class="flex flex-col w-full md:w-11/12 col-span-4 pb-0 bg-default text-on-accent-300 justify-center items-center
-                        flex-nowrap m-auto whitespace-nowrap overflow-x-hidden box-border">
-
-                        <div class="flex justify-center container m-auto overflow-y-hidden overflow-x-hidden relative">
-                            <app-carousel [slides]="getItems()" (currentSlideEvent)="currentSlide($event)"></app-carousel>
-                        </div>
-                </div>
-                
-                <!-- Progres bar -->
-                <div class="flex flex-col col-span-4 flex-auto px-6 pb-6 pt-0 bg-default text-on-accent-300  rounded-2xl overflow-hidden">
+                                <img [src]="getImage()" >
+                            </div>
+                            
+                        </carousel> 
+                      <!--   <carousel-component
+                            [angle]=0
+                            [mode]="'horizontal'"
+                            [timeToSlide]="1500"
+                            [margin]="12"
+                            [ratioScale]="1">
+                            <div class="item-carousel">
+                                <img class="item-carousel h-full w-full m-auto" [src]="getImage()" alt="promotion images">
+                            </div>
+                        </carousel-component> -->
+                    </div>
                     
-                    <div class="flex flex-auto flex-wrap md:items-center md:justify-evenly"> <!-- content card -->
-                        
-                        <div class="w-full flex-nowrap md:w-5/12 m-auto">
-                            <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                  <div class="text-md font-medium text-left m-auto justify-self-start whitespace-nowrap color-blue">Ya consumiste: <span class="text-sm md:text-xl font-bold color-blue"> $ {{unPago}},00 </span> </div>
-                                <div class="flex items-center justify-end w-full mt-2">
-                                    <div class="text-sm font-medium color-blue">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold color-blue">$ {{limiteTotalBarUnPago}},00</div>
-                                </div>
-                            </div>
-                            <div class="text-left whitespace-nowrap font-semiboold color-blue">
-                                Disponible  en <strong>un pago</strong> $ {{ limiteTotalBarUnPago - unPago }},00
-                            </div>
-                            <app-progresbar [show$]="true" [progress]="unPago" [total]="limiteTotalBarUnPago"></app-progresbar>
-                        </div>
+                </div> 
 
-                        <div class="w-full md:w-5/12 m-auto">
+                <div class="w-11/12 md:w-10/12 col-span-4 flex items-center justify-center m-auto md:px-1">
+                    <!-- card de sitiacion enMora -->
+                    <div class="flex flex-row items-center m-auto p-4 w-full bg-card px-2 rounded">
+                        <div class="color-blue bg-card m-auto text-left border-2 border-blue-800 font-extrabold rounded w-full p-4 mx-2"
+                            *ngIf="!isEnMora">
+                            Felicitaciones, estás al día con la tarjeta! 
+                        </div>
+                        <div class="text-warn-800 bg-card m-auto text-left border-2 border-warn-800 font-extrabold rounded w-full p-4 mx-2"
+                            *ngIf="isEnMora">
+                            Estas con deuda! Mientras más rápido lo resuelvas menos vas a pagar, ya que con el tiempo se te agregarán intereses por días pasados.
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Progres bar -->
+                <div class="flex flex-col col-span-4 flex-auto md:px-1 bg-default text-on-accent-300 w-11/12 md:w-10/12 rounded overflow-hidden m-auto">
+                    
+                    <div class="flex flex-auto flex-wrap md:items-center md:justify-evenly bg-card w-full m-auto rounded pb-4 pt-4"> <!-- content card -->
+                        <!-- fechas vencimiento / cierre -->
+                        <div class="w-full bg-card border-2 border-accent-300 rounded-md m-auto text-xl font-bold p-2 my-2 mx-5 md:mx-12">
+                            <div class="">
+                                Vencimiento: {{ getFechaVencimiento() }}
+                            </div>
+                        </div>
+                        <div class="w-full bg-card border-2 border-accent-300 rounded-md m-auto text-xl font-bold p-2 my-2 mx-5 md:mx-12">
+                            <div class="">
+                                Cierre: {{ getFechacierre() }}
+                            </div>
+                        </div>
+                        <!-- un pago -->
+                        <div class="w-11/12 flex-nowrap md:w-5/12 m-auto sm:my-6">
                             <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
-                                <div class="text-md font-medium text-right m-auto whitespace-nowrap justify-self-end color-blue">Ya Consumiste: <span class="text-sm md:text-xl font-bold color-blue"> $ {{ enCuotas}},00 </span>  </div>
-                                <div class="flex items-center justify-end w-full mt-2 text-secondary">
-                                    <div class="text-sm font-medium color-blue">Limite:</div>
-                                    <div class="ml-1.5 text-sm font-semibold color-blue">$ {{limiteTotalBarEnCuotas}},00</div><!-- cambiar por el limite -->
+                                <div class="flex items-center justify-start w-full mt-2">
+                                    <div class="text-xl font-extrabold color-blue">Límite de la cuenta en un pago: $ {{limiteTotalBarUnPago}},00</div>
                                 </div>
                             </div>
-                            <div class="text-left whitespace-nowrap font-semiboold color-blue">
-                                Disponible en <strong>cuotas</strong> $ {{ limiteTotalBarEnCuotas - enCuotas }},00 </div>
+                            <!-- progress bar -->
+                            <app-progresbar [show$]="true" [progress]="unPago" [total]="limiteTotalBarUnPago"></app-progresbar>
+                            
+                            <!-- disponibles y limites  -->
+                            <div class="text-left md:whitespace-nowrap font-medium color-blue">
+                                <div class="text-md font-medium text-left m-auto justify-self-start whitespace-wrap md:whitespace-nowrap color-blue">
+                                    Ya consumiste: <span class="text-sm md:text-xl font-bold color-blue"> $ {{unPago}},00 </span> 
+                                    y tenés disponible  en <strong>un pago</strong> $ {{ limiteTotalBarUnPago - unPago }},00
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- en cuotas -->
+                        <div class="w-11/12 md:w-5/12 flex-nowrap m-auto sm:my-6">
+                            <div class="flex flex-row justify-between content-center items-center flex-nowrap text-md font-semibold">
+                                <div class="flex items-center justify-start w-full mt-2 text-secondary">
+                                    <div class="text-xl font-extrabold color-blue">Límite de la cuenta en cuotas: $ {{limiteTotalBarEnCuotas}},00</div>
+                                </div>
+                            </div>
+                            <!-- progress bar -->
                             <app-progresbar [changeColor]="true" [show$]="true" [progress]="enCuotas" [total]="limiteTotalBarEnCuotas"></app-progresbar>
+                            <!-- disponibles y limites  -->
+                            <div class="text-md font-medium text-left m-auto justify-self-start md:whitespace-nowrap color-blue">
+                                Ya consumiste: 
+                                <span class="text-sm md:text-xl font-bold color-blue"> $ {{enCuotas}},00 </span> 
+                                y tenés disponible  en <strong>un pago</strong> $ {{ limiteTotalBarEnCuotas - enCuotas }},00
+                            </div>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Tarjetas carousel -->
+                <div class="flex flex-col w-11/12 md:w-10/12 col-span-4 pb-0 justify-center items-center
+                        flex-nowrap m-auto whitespace-nowrap overflow-x-hidden rounded md:px-1">
+                        <div class="text-2xl self-start pl-6 w-full font-bold tracking-tight bg-card whitespace-nowrap text-left pt-3 rounded-tr rounded-tl">
+                            Información de tus Tarjetas
+                        </div>
+
+                        <div class="flex justify-center container m-auto overflow-y-hidden overflow-x-hidden overscroll-x-hidden relative bg-card rounded-br rounded-bl pb-3">
+                            <app-carousel-tarjetas [slides]="getItems()" (currentSlideEvent)="currentSlide($event)"></app-carousel-tarjetas>
+                        </div>
+                </div>
+                
                 <!-- Fechas resumenes -->
-                <div class="flex flex-col w-full md:w-11/12 m-auto col-span-4 bg-default items-between justify-between rounded-2xl overflow-hidden">
+                <div class="flex flex-col w-11/12 md:w-10/12 m-auto col-span-4 bg-card items-center justify-center rounded overflow-hidden py-4">
+                    <!-- fechas vencimiento / cierre -->
+                    <div class="flex flex-auto flex-wrap md:items-center md:justify-evenly bg-card w-full m-auto rounded pb-2"> <!-- content card -->
+                        <div class="w-full bg-card border-2 border-accent-300 rounded-md m-auto text-xl font-bold p-2 my-2 mx-5 md:mx-12">
+                            <div class="">
+                                Vencimiento: {{ getFechaVencimiento() }}
+                            </div>
+                        </div>
+                        <div class="w-full bg-card border-2 border-accent-300 rounded-md m-auto text-xl font-bold p-2 my-2 mx-5 md:mx-12">
+                            <div class="">
+                                Cierre: {{ getFechacierre() }}
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Fechas saldo a pagar -->
-                    <div class="flex flex-col m-auto flex-nowrap items-start rounded-xl border-2  mx-1 w-full bg-accent-300"><!-- bg-blue-900  -->
-
-                        <!--  <div class="flex flex-col flex-nowrap flex-shrink m-auto items-center h-auto justify-center m-auto p-5">
-
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate md:py-2">Vencimiento</div>
-                            <div class="text-4xl md:text-7xl sm:text-4xl font-bold tracking-tight leading-none text-red-500 p-3">27/07</div>
-                            <div class="text-md font-medium text-red-600 dark:text-red-500 md:py-2">Lunes</div>
-
-                        </div> -->
+                    <div class="flex flex-col m-auto flex-nowrap items-start rounded-xl border-2 border-blue-800 w-11/12 bg-card"><!-- bg-blue-900  -->
 
                         <!-- Leyenda -->
-                        <div class="text-2xl font-bold m-auto text-center px-2 color-blue pt-4 font-semibold rounded-xl">
-                            Último resúmen disponible
+                        <div class="text-2xl font-bold m-auto text-center px-2 pt-4 font-semibold rounded-xl">
+                            Último resúmen disponible <div class="text-sm italic">
+                                (de todas tus tarjetas)
+                            </div>
                         </div>
                         <!-- Saldo a pagar -->
-                        <div class="grid grid-cols-3 gap-2 relative m-auto w-11/12 md:w-9/12 py-6">
-
-                            <!-- pago total -->
-                            <!-- <div class="col-span-2 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large truncate text-on-accent-300">Total: </div>
-                                <div class="text-sm md:text-md font-large truncate text-on-accent-300"> $70.000,00</div>
-                            </div> -->
+                        <div class="grid grid-cols-3 gap-2 relative m-auto w-full border-b-2 border-blue-800 py-6 px-6 mb-1">
+                            
                             <!-- pago en pesos -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large color-blue">Saldo en $: </div>
-                                <div class="text-sm md:text-md font-large color-blue"> $20.00,00</div>
+                                <div class="text-md font-bold">Saldo a pagar en Pesos ($): </div>
+                                <div class="text-md font-bold"> $20.00,00</div>
                             </div>
                             <!-- pago en usd -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large color-blue">Saldo en U$$: </div>
-                                <div class="text-sm md:text-md font-large color-blue"> $200,00</div>
+                                <div class="text-md font-bold">Saldo a pagar en Dólares (USD): </div>
+                                <div class="text-md font-bold"> USD 200,00</div>
                             </div>
                             <!-- saldo a favor -->
-                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-large color-blue">A favor: </div>
-                                <div class="text-sm md:text-md font-large color-blue">$1.000,00</div>
+                            <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2 italic">
+                                <div class="text-sm">Importe a favor: </div>
+                                <div class="text-sm">$1.000,00</div>
                             </div>
                             <!-- pago en minimo -->
                             <div class="col-span-3 flex flex-row items-center text-left justify-between flex-wrap ml-4 md:ml-2">
-                                <div class="text-sm md:text-md font-semibold font-large color-blue">Pago mínimo: </div>
-                                <div class="text-sm md:text-md font-semibold font-large color-blue">$1.000,00</div>
+                                <div class="text-sm md:text-md font-semibold">Pago mínimo en pesos ($): </div>
+                                <div class="text-sm md:text-md font-semibold">$1.000,00</div>
                             </div>
                         
                         </div>
                         <!-- boton ver/descargar resumen -->
-                        <div class="flex flex-row w-full justify-center items-center p-2 border-t-2">
+                        <div class="flex flex-row w-full justify-center items-center p-2 border-t-2 mt-1 border-blue-800" pb-4>
                             
-                            <button class="bg-default m-auto hover:border-1 hover:border-white color-blue" 
-                                mat-stroked-button title="ver resumen" (click)="goTo('pages/invoice/printeable/compact')">
+                            <button class="bg-default m-auto hover:border-1 hover:border-white" 
+                                mat-stroked-button title="ver resumen" (click)="goTo('/pages/invoice/printable/compact')">
                                 Ver resúmen
                             </button>
-                        </div>
+                        </div >
 
                     </div>
 
                 </div>
+                <!-- informacion de bocas de pagos -->
+                <div class="flex flex-col w-11/12 md:w-10/12 m-auto col-span-4 bg-card items-center justify-center rounded overflow-hidden px-2 rounded">
+                    <div class="text-center text-secondary m-auto p-9 text-xl font-extrabold">
+                        Información de bocas de pago
+                    </div>
+                </div>
+
                 <!-- Consumos recientes -->
-                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default border color-blue border-1-blue rounded-2xl overflow-hidden">
-                    <div class="flex flex-col sm:flex-row items-start justify-between">
+                <div class="col-span-4 w-11/12 md:w-10/12 m-auto flex flex-col flex-auto p-6 bg-card rounded overflow-hidden px-1 color-blue">
+                    <div class="flex flex-col sm:flex-row items-start justify-between mx-8 ml-4 color-blue">
                         <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Detalle de últimos consumos</div>
                         <div class="mt-3 sm:mt-0 sm:ml-2">
                             <mat-button-toggle-group class="hidden"
@@ -196,9 +252,9 @@
                             </mat-button-toggle-group>
                         </div>
                     </div>
-                    <div class="flex flex-col mt-2 divide-y">
+                    <div class="flex flex-col mt-2 divide-y mx-8 ml-4">
                         <ng-container *ngFor="let scheduleItem of data.schedule[scheduleDaySelector.value]; trackBy: trackByFn">
-                            <div class="flex flex-row items-center justify-between py-4 px-0.5">
+                            <div class="flex flex-row items-center justify-between py-4 px-0.5 color-blue">
                                 <div class="flex flex-col">
                                     <div class="font-medium">{{scheduleItem.title}}</div>
                                     <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
@@ -207,25 +263,25 @@
                                                 <mat-icon
                                                     class="icon-size-5 text-hint"
                                                     [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
-                                                <div class="ml-1.5 text-md color-blue">{{scheduleItem.time}}</div>
+                                                <div class="ml-1.5 text-md">{{scheduleItem.time}}</div>
                                             </div>
                                         </ng-container>
                                         
                                     </div>
                                 </div>
-                                <div class="self-start color-blue">
+                                <div class="self-start">
                                     $ 30.000,00
                                 </div>
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 hover:border-2 hover:border-1-blue color-blue" 
-                        mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('dashboard/analytics')">Ver más</button>
+                    <button class="w-auto m-auto pl-9 pr-9 bg-default hover:border-2" 
+                        mat-stroked-button title="pantalla de consumos recientes" (click)="goTo('apps/contacts')">Ver más</button>
                 </div>
                 <!-- Historial de pagos -->
-                <div class="col-span-4 w-full md:w-11/12 m-auto flex flex-col flex-auto p-6 bg-default border color-blue border-1-blue rounded-2xl overflow-hidden mb-3">
-                    <div class="flex flex-col sm:flex-row items-start justify-between">
-                        <div class="text-lg font-medium tracking-tight text-center font-semibold color-blue leading-6 truncate">Historial de pagos</div>
+                <div class="col-span-4 w-11/12 md:w-10/12 m-auto flex flex-col flex-auto p-6 bg-card rounded overflow-hidden mb-3 px-1 color-blue">
+                    <div class="flex flex-col sm:flex-row items-start justify-between mx-8 ml-4 color-blue">
+                        <div class="text-lg font-medium tracking-tight text-center font-semibold leading-6 truncate">Historial de pagos</div>
                         <div class="mt-3 sm:mt-0 sm:ml-2">
                             <mat-button-toggle-group class="hidden"
                                 value="today"
@@ -235,9 +291,9 @@
                             </mat-button-toggle-group>
                         </div>
                     </div>
-                    <div class="flex flex-col mt-2 divide-y">
+                    <div class="flex flex-col mt-2 divide-y mx-8 ml-4">
                         <ng-container *ngFor="let scheduleItem of data.schedule[scheduleDaySelector.value]; trackBy: trackByFn">
-                            <div class="flex flex-row items-center justify-between py-4 px-0.5">
+                            <div class="flex flex-row items-center justify-between py-4 px-0.5 color-blue">
                                 <div class="flex flex-col">
                                     <div class="font-medium">{{scheduleItem.title}} </div>
                                     <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
@@ -246,7 +302,7 @@
                                                 <mat-icon
                                                     class="icon-size-5 text-hint"
                                                     [svgIcon]="'heroicons_solid:clock'"></mat-icon>
-                                                <div class="ml-1.5 text-md color-blue">{{scheduleItem.time}}</div>
+                                                <div class="ml-1.5 text-md">{{scheduleItem.time}}</div>
                                             </div>
                                         </ng-container>
                                         <!-- <ng-container *ngIf="scheduleItem.location">
@@ -259,16 +315,13 @@
                                         </ng-container> -->
                                     </div>
                                 </div>
-                                <!-- <button mat-icon-button>
-                                    <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
-                                </button> -->
                                 <div class="self-start">
                                     $ 46.000,59
                                 </div>
                             </div>
                         </ng-container>
                     </div>
-                    <button class="w-auto m-auto pl-9 pr-9 bg-accent-300 hover:border-2 hover:border-1-blue color-blue" 
+                    <button class="w-auto m-auto pl-9 pr-9 bg-default hover:border-2 " 
                         mat-stroked-button title="pantalla de historial de pagos" (click)="goTo('pages/activities')">Ver más</button>
                         
                 </div>

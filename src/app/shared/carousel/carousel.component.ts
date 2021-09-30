@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Outpu
 import { fuseAnimations } from '@fuse/animations';
 
 @Component({
-  selector: 'app-carousel',
+  selector: 'app-carousel-tarjetas',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   animations: fuseAnimations
@@ -18,7 +18,9 @@ export class CarouselComponent implements OnInit {
 	@ViewChild('templateMobile') templateMobile: ElementRef;
 	currentSlide: number = 0;
 	innerWidth: number = window.innerWidth;
-	aumentum: number = 0;
+	binTarjeta: number = 421036;
+	binTarjetaNoPura: number = 445532;
+	displacement: number = 0;
     @HostListener('window:resize', ['$event'])
     onResize(event) { // detecta el cambio de pantalla (responsive)
         this.innerWidth = window.innerWidth;
@@ -31,52 +33,36 @@ export class CarouselComponent implements OnInit {
 
 	onPrevButtonClicked(): void {
 		const previus = this.currentSlide - 1;
-		//this.aumentum += this.aumentum >= 0 ? 360 : -360;
 		this.currentSlide = previus < 0 ? this.slides.length - 1 : previus;
-		// console.log(this.aumentum)
-		/* if(this.aumentum <= 0) {
-			if(previus > 0) {
-				this.aumentum -= 365;
-			}else if(this.currentSlide <= (this.slides.length/2)){
-				this.aumentum -= (365 * ((this.slides.length - 1)/2) + 365);
-			}else {
-				this.aumentum -= 365;
-			}
-		}else {
-			this.aumentum = 0
-		} */
-		if(this.aumentum >= 0) {
-			if(this.currentSlide <= (this.slides.length/2)) {
-				this.aumentum -= 365;
-			}else if(previus === this.slides.length){
-				this.aumentum -= this.aumentum;
-			}else {
-				this.aumentum -= 365;
-			}
-		}/* else {
-			this.aumentum = 0;
-		} */
+		
+		if((this.currentSlide > 0) && (this.displacement < 0)) {
+			this.displacement += 325;
+		} else if((this.currentSlide === (this.slides.length - 1)) && (this.displacement === 0)) {
+			this.displacement -= (325 * this.slides.length/2);
+		} else {
+			this.displacement -= this.displacement;/* falta algo mas */
+		} 
 	}
 
 	onNextButtonClicked(): void {
 		const next = this.currentSlide + 1;
-		//this.aumentum += this.aumentum <= 0 || this.currentSlide === this.slides.length? -360 : 0;
 		this.currentSlide = next === this.slides.length ? 0 : next;
-		if(this.aumentum <= 0) {
+
+		if(this.displacement <= 0) {
 			if(this.currentSlide >= (this.slides.length/2)) {
-				this.aumentum -= 365;
+				this.displacement -= 325;
 			}else if(next === this.slides.length){
-				this.aumentum -= this.aumentum;
-			}/* else {
-				this.aumentum -= 365;
-			} */
+				this.displacement -= this.displacement;
+			}else {
+				this.displacement -= 325;
+			}
 		}/* else {
-			this.aumentum = 0;
+			this.displacement = 0;
 		} */
 	}
 	onPrevMobileButton(): void {
 		const previus = this.currentSlide - 1;
-		//this.aumentum += this.aumentum >= 0 ? 360 : -360;
+		//this.displacement += this.displacement >= 0 ? 360 : -360;
 		this.currentSlide = previus < 0 ? this.slides.length - 1 : previus;
 	}
 	onNextMobileButton(): void {

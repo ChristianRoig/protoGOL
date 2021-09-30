@@ -84,7 +84,8 @@
                         </div>
 
                         <!-- Mobile -->
-                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2 cursor-pointer hover:border-1" *ngIf="innerWidth < 650">
+                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2 cursor-pointer hover:border-1" 
+                            *ngIf="innerWidth < 650">
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto" (click)="onVerMas(i);verMas = !verMas">
                                 
                                 <mat-icon title="visualizar-resumen" [matTooltip]="'visualizar-resumen'"
@@ -98,7 +99,8 @@
                         </div>
 
                         <!-- Desktop -->
-                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2" *ngIf="innerWidth > 650">
+                        <div class="flex flex-row flex-nowrap col-span-3 bg-card items-center justify-evenly md:justify-between pr-0 md:pr-2" 
+                            *ngIf="innerWidth > 650">
                             <div class="flex flex-row items-center justify-center m-1 md:m-auto">
                                 <div class="text-center mx-0 md:mx-2 pr-2 md:pl-2 cursor-pointer">
                                     Visualizar
@@ -113,6 +115,13 @@
                                 <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'"
                                 class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
                             </div>
+                           <!--  <div class="flex flex-row items-center justify-center m-1 md:m-auto">
+                                <div class="text-center mx-0 md:mx-2 cursor-pointer">
+                                    Desconocer
+                                </div>
+                                <mat-icon title="desconocer consumo" [matTooltip]="'desconocer consumo'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:x-circle'"></mat-icon>
+                            </div> -->
                         </div>
 
                         <!-- Expandible -->
@@ -133,10 +142,20 @@
                                 <mat-icon title="descargar-resumen" [matTooltip]="'descargar-resumen'"
                                 class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:folder-download'"></mat-icon>
                             </div>
+                            <!-- <div class="flex flex-row items-center justify-center m-1 md:m-auto pt-2">
+                                <div (click)="downloadResumen()" class="text-center mx-0 md:mx-2 cursor-pointer">
+                                </div>
+                                <mat-icon title="desconocer-consumo" [matTooltip]="'desconocer-consumo'"
+                                class="icon-size-6 md:icon-size-8 pr-0 md:pr-2 mx-2 cursor-pointer" matPrefix [svgIcon]="'heroicons_outline:x-circle'"></mat-icon>
+                            </div> -->
                         </div>
                 
-                </div>
+                    </div>
 
+                    <!-- <div class="flex m-auto items-center justify-center">
+                        <button class="bg-accent-300 m-auto text-white" mat-button>desconocer un consumo</button>
+                    </div>
+ -->
             </div>
         </div>  
         

@@ -10,6 +10,7 @@ import { FuseAlertModule } from '@fuse/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { AuthUnlockSessionComponent } from 'app/modules/auth/unlock-session/unlock-session.component';
 import { authUnlockSessionRoutes } from 'app/modules/auth/unlock-session/unlock-session.routing';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     declarations: [
@@ -21,10 +22,11 @@ import { authUnlockSessionRoutes } from 'app/modules/auth/unlock-session/unlock-
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
+        MatSelectModule,
         MatProgressSpinnerModule,
         FuseCardModule,
         FuseAlertModule,
-        SharedModule
+        SharedModule 
     ]
 })
 export class AuthUnlockSessionModule

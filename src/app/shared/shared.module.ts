@@ -8,6 +8,7 @@ import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
  * matrial imports
  */
 import { MatIconModule } from '@angular/material/icon';
+import { CarouselModule } from 'ngx-carousel-lib';
 
 @NgModule({
     imports: [
@@ -16,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
         ReactiveFormsModule,
         MatIconModule,
         FuseScrollbarModule,
-        FuseScrollResetModule
+        FuseScrollResetModule,
     ],
     exports: [
         CommonModule,
