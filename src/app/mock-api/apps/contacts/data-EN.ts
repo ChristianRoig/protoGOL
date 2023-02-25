@@ -89,7 +89,7 @@ export const contacts = [
                 label      : 'Mobile'
             }
         ],
-        title       : 'Lider de Proyecto',
+        title       : 'Electromedical Equipment Technician',
         company     : 'Boilcat',
         birthday    : '1988-05-26T12:00:00.000Z',
         address     : '943 Adler Place, Hamilton, South Dakota, PO5592',
@@ -757,7 +757,7 @@ export const contacts = [
         id          : 'ab4f712d-d712-41a8-b567-be4c66c349a3',
         avatar      : 'assets/images/avatars/female-13.jpg',
         background  : 'assets/images/cards/33-640x480.jpg',
-        name        : 'Aldana Fenema',
+        name        : 'Alyce Cash',
         emails      : [
             {
                 email: 'alycecash@mail.co.uk',
@@ -807,7 +807,7 @@ export const contacts = [
                 label      : 'Mobile'
             }
         ],
-        title       : 'Analista de Procesos',
+        title       : 'Short Story Writer',
         company     : 'Vurbo',
         birthday    : '1985-10-22T12:00:00.000Z',
         address     : '622 Dodworth Street, Rose, Arizona, PO9530',
@@ -1260,7 +1260,7 @@ export const contacts = [
         id          : '77a4383b-b5a5-4943-bc46-04c3431d1566',
         avatar      : 'assets/images/avatars/male-19.jpg',
         background  : 'assets/images/cards/22-640x480.jpg',
-        name        : 'Bobby Black',
+        name        : 'Best Blackburn',
         emails      : [
             {
                 email: 'bestblackburn@mail.name',
@@ -1278,7 +1278,7 @@ export const contacts = [
                 label      : 'Mobile'
             }
         ],
-        title       : 'Ventas Europa',
+        title       : 'Hotel Manager',
         company     : 'Beadzza',
         birthday    : '1987-06-07T12:00:00.000Z',
         address     : '578 Tampa Court, Wescosville, Ohio, PO4108',
@@ -1794,9 +1794,9 @@ export const contacts = [
     },
     {
         id          : '22f18d47-ff8d-440e-888d-a1747c093052',
-        avatar      : 'assets/images/avatars/male-11.jpg',
+        avatar      : 'assets/images/avatars/female-12.jpg',
         background  : 'assets/images/cards/14-640x480.jpg',
-        name        : 'Alberto Arana',
+        name        : 'Alice Harding',
         emails      : [
             {
                 email: 'aliceharding@mail.us',
@@ -1820,7 +1820,7 @@ export const contacts = [
                 label      : 'Home'
             }
         ],
-        title       : 'Desarrolador Fron-End',
+        title       : 'Track Service Worker',
         company     : 'Futurity',
         birthday    : '1985-09-17T12:00:00.000Z',
         address     : '387 Holt Court, Thomasville, Alaska, PO2867',
@@ -2028,7 +2028,7 @@ export const contacts = [
         id          : 'bedcb6a2-da83-4631-866a-77d10d239477',
         avatar      : 'assets/images/avatars/male-04.jpg',
         background  : 'assets/images/cards/19-640x480.jpg',
-        name        : 'Ariel Arrillaga',
+        name        : 'Alvarado Turner',
         emails      : [
             {
                 email: 'alvaradoturner@mail.io',
@@ -2042,7 +2042,7 @@ export const contacts = [
                 label      : 'Mobile'
             }
         ],
-        title       : 'Desarrollador Back-End',
+        title       : 'Fundraising Director',
         company     : 'Geologix',
         birthday    : '1985-12-08T12:00:00.000Z',
         address     : '233 Willmohr Street, Cressey, Iowa, PO1962',
@@ -2242,7 +2242,7 @@ export const contacts = [
         id          : '32c73a6a-67f2-48a9-b2a1-b23da83187bb',
         avatar      : null,
         background  : null,
-        name        : 'Buby Martinez',
+        name        : 'Bolton Obrien',
         emails      : [
             {
                 email: 'boltonobrien@mail.net',
@@ -2265,7 +2265,7 @@ export const contacts = [
                 label      : 'Work'
             }
         ],
-        title       : 'Atencion a Clientes',
+        title       : 'Banker Mason',
         company     : 'Enersol',
         birthday    : '1968-09-08T12:00:00.000Z',
         address     : '818 Aviation Road, Geyserville, Palau, PO9655',
@@ -2276,9 +2276,9 @@ export const contacts = [
     },
     {
         id          : '114642a2-ccb7-4cb1-ad2b-5e9b6a0c1d2e',
-        avatar      : 'assets/images/avatars/female-09.jpg',
+        avatar      : 'assets/images/avatars/male-09.jpg',
         background  : 'assets/images/cards/23-640x480.jpg',
-        name        : 'Barbera Carreras',
+        name        : 'Barber Johnson',
         emails      : [
             {
                 email: 'barberjohnson@mail.org',
@@ -2302,7 +2302,7 @@ export const contacts = [
                 label      : 'Home'
             }
         ],
-        title       : 'Administrativa',
+        title       : 'Talent Manager',
         company     : 'Zounds',
         birthday    : '1967-03-02T12:00:00.000Z',
         address     : '386 Vernon Avenue, Dragoon, North Carolina, PO4559',
@@ -2592,7 +2592,7 @@ export const contacts = [
         id          : '5ac1f193-f150-45f9-bfe4-b7b4e1a83ff9',
         avatar      : 'assets/images/avatars/female-06.jpg',
         background  : 'assets/images/cards/32-640x480.jpg',
-        name        : 'Angela Gonazalez',
+        name        : 'Angela Gallagher',
         emails      : [
             {
                 email: 'angelagallagher@mail.org',
@@ -2616,7 +2616,7 @@ export const contacts = [
                 label      : 'Home'
             }
         ],
-        title       : 'Soporte de Aplicaciones',
+        title       : 'Electromedical Equipment Technician',
         company     : 'Zenolux',
         birthday    : '1965-08-02T12:00:00.000Z',
         address     : '445 Remsen Avenue, Ruckersville, Delaware, PO2712',
@@ -2661,7 +2661,7 @@ export const contacts = [
         id          : '7184be71-a28f-4f2b-8c45-15f78cf2f825',
         avatar      : 'assets/images/avatars/female-05.jpg',
         background  : 'assets/images/cards/34-640x480.jpg',
-        name        : 'Alina Nelson',
+        name        : 'Alissa Nelson',
         emails      : [
             {
                 email: 'alissanelson@mail.us',
@@ -2675,7 +2675,7 @@ export const contacts = [
                 label      : 'Mobile'
             }
         ],
-        title       : 'Tester QA',
+        title       : 'Bindery Machine Operator',
         company     : 'Emtrak',
         birthday    : '1993-10-19T12:00:00.000Z',
         address     : '514 Sutter Avenue, Shindler, Puerto Rico, PO3862',

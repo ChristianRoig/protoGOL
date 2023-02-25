@@ -4,7 +4,7 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 export const defaultNavigation: FuseNavigationItem[] = [
     {
         id      : 'tarjeta',
-        title   : 'Tarjeta de Crédito',
+        title   : 'Area de Clientes',
         subtitle: 'Servicios de Tarjeta de Crédito',
         type    : 'group',
         icon    : 'heroicons_outline:home',
@@ -30,7 +30,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:cloud',
                 link : '/apps/file-manager'
             },
-            {
+            /*{
                 id   : 'pages.settings',
                 title: 'Consultas',
                 type : 'basic',
@@ -43,7 +43,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
                 link : '/apps/tasks'
-            },
+            },*/
             {
                 id   : 'pages.profile',
                 title: 'Mi Cuenta',
@@ -55,14 +55,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },    
     {
         id      : 'prestamos',
-        title   : 'Préstamos',
+        title   : 'Servicios',
         subtitle: 'Otra opción Multiproducto',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
             {
                 id   : 'apps.ecommerce.inventory',
-                title: 'Productos',
+                title: 'Nuestros Servicios',
                 type : 'basic',
                 icon : 'heroicons_outline:shopping-cart',
                 link : '/apps/ecommerce/inventory'
@@ -71,14 +71,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },  
     {
         id      : 'seguros',
-        title   : 'Seguros',
+        title   : 'La Empresa',
         subtitle: 'Otra opción Multiproducto',
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
             {
                 id   : 'apps.contacts',
-                title: 'Contactos',
+                title: 'Equipo de Trabajo',
                 type : 'basic',
                 icon : 'heroicons_outline:user-group',
                 link : '/apps/contacts'
